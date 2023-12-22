@@ -4,20 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="main-container">
-      <h1>Leandru Martin</h1>
-      <h2>Things I have made</h2>
-      <ul>
-        <li><a href="/flow/index.html">Flow for Spotify</a></li>
-        <li>
-          <a href="/music-blog"
-            >Music Blog (Final Project for CSCI 4360 Web Technologies)</a
-          >
-        </li>
-      </ul>
+      <header class="bg-dark text-light p-3 mb-2">
+        <h1 class="display-1 text-center">Leandru Martin</h1>
+        <div class="container my-2 text-center">
+          <div class="row g-3">
+            <div class="col">
+              <div class="bg-primary-subtle">
+                <a
+                  class="text-dark"
+                  href="https://www.linkedin.com/in/leandru-martin/"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div class="bg-primary-subtle">
+                <a
+                  class="text-dark"
+                  href="https://app.joinhandshake.com/stu/users/32386198"
+                  >Handshake</a
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div class="bg-primary-subtle">
+                <a class="text-dark" href="https://github.com/leandrumartin/"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="p-3">
+        <div class="border rounded p-2">
+          <h2 class="text-center">Things I have made</h2>
+          <div class="container my-3">
+            <div class="row g-3">
+              <div class="col-md">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      <a href="/flow/index.html">Flow for Spotify</a>
+                    </h3>
+                    <p class="card-text">
+                      A tool to reorder a diverse playlist for the smoothest
+                      transition between each genre and style. Find your
+                      playlist's perfect flow.
+                    </p>
+                    <p class="card-text">
+                      <a href="https://github.com/leandrumartin/flow"
+                        >View on GitHub</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      <a href="/flow/index.html">Music Blog</a>
+                    </h3>
+                    <p class="card-text">
+                      Music blog as the final project for CSCI 4360 Web
+                      Technologies.
+                    </p>
+                    <p class="card-text">
+                      <a href="https://github.com/leandrumartin/music-blog"
+                        >View on GitHub</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>
