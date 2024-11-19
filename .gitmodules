@@ -1,6 +1,0 @@
-[submodule "flow"]
-	path = flow
-	url = https://github.com/leandrumartin/flow.git
-[submodule "music-blog"]
-	path = music-blog
-	url = https://github.com/leandrumartin/music-blog.git
