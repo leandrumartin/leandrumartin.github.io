@@ -12,6 +12,30 @@
 }
 
 .nav-link {
+  border: black 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: lightcyan;
+  transition: 150ms;
+  min-width: 10%;
+  height: 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: lightblue;
+    transition: 150ms;
+  }
+
+  img {
+    height: 1em;
+  }
+}
+
+.nav-img {
+  margin-left: 5px;
 }
 
 body {
@@ -81,11 +105,6 @@ body {
     padding: 20px;
     transition: 500ms ease-out;
     margin: 30px;
-
-    &:hover {
-      flex: 3;
-      transition: 500ms ease-out;
-    }
   }
 
   h3 {
@@ -96,6 +115,15 @@ body {
 
     &:hover {
       flex: 2;
+    }
+  }
+
+  img {
+    flex: 1;
+    transition: 500ms ease-out;
+
+    &:hover {
+      flex: 3;
     }
   }
 }
