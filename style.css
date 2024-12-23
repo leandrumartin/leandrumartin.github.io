@@ -47,17 +47,9 @@ body {
 }
 
 .container-man {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .vh100 {
-  height: 100vh;
-}
-
-.vh50 {
-  height: 50vh;
 }
 
 .screenshot {
@@ -65,6 +57,11 @@ body {
 }
 
 .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
   * {
     flex-basis: 50%;
     text-align: center;
@@ -89,6 +86,26 @@ body {
 .portfolio-entry {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  /*border: coral 2px solid;*/
+  margin: 30px;
+
+  @media (width >= 750px) {
+    flex-direction: row;
+    height: 50vh;
+  }
+
+  @media (width < 750px) {
+    flex-direction: column;
+  }
+}
+
+.portfolio-header {
+  flex: 3;
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
 
   @media (width >= 750px) {
     flex-direction: row;
@@ -98,24 +115,11 @@ body {
     flex-direction: column;
   }
 
-  & > * {
-    flex: 1;
-    border: 2px dotted red;
-    border-radius: 10px;
-    padding: 20px;
-    transition: 500ms ease-out;
-    margin: 30px;
-  }
-
   h3 {
     text-align: center;
     flex: 2;
     font-weight: bold;
     font-size: 2em;
-
-    &:hover {
-      flex: 2;
-    }
   }
 
   img {
@@ -128,7 +132,25 @@ body {
   }
 }
 
+.portfolio-description {
+  flex: 1;
+}
+
+.portfolio-entry-item {
+  border: 2px dotted red;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 500ms ease-out;
+  margin: 30px;
+  background-color: rgba(32, 32, 32);
+}
+
 .pre-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+
   padding-left: 25%;
   padding-right: 25%;
 }
@@ -147,17 +169,29 @@ nav {
   /*margin: auto;*/
   margin: 20px;
   border-radius: 20px 20px 20px 20px;
+  z-index: 1000;
 }
 
 h2 {
   text-align: center;
-  width: 50%;
   margin: 30px;
   border: 5px solid greenyellow;
   padding: 10px;
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: bolder;
   border-radius: 30px;
+
+  position: sticky;
+  top: 90px;
+  background-color: rgba(16, 16, 16);
+
+  @media (width >= 750px) {
+    width: 50%;
+  }
+
+  @media (width < 750px) {
+    font-size: 2em;
+  }
 }
 
 hr {
