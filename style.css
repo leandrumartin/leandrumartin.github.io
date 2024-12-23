@@ -12,7 +12,7 @@
 }
 
 .nav-link {
-  border: black 1px solid;
+  border: black 1px hidden;
   border-radius: 10px;
   padding: 5px;
   background-color: lightcyan;
@@ -23,10 +23,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
+  box-shadow:
+          #0D2750 2px 2px 2px;
 
   &:hover {
     background-color: lightblue;
     transition: 200ms;
+    box-shadow:
+            #0D2750 4px 4px 4px;
+  }
+
+  &:active {
+    transition: 200ms;
+    box-shadow:
+            inset #0D2750 2px 2px 2px;
   }
 
   img {
@@ -120,11 +131,16 @@ body {
     flex: 2;
     font-weight: bold;
     font-size: 2em;
+    background-color: rgba(24, 24, 24);
+    border: 2px solid red;
+    box-shadow:
+            maroon 2px 2px 2px,
+            inset maroon 2px 2px 2px;
   }
 
   img {
     flex: 1;
-    transition: 500ms ease-out;
+    transition: 500ms;
 
     &:hover {
       flex: 3;
@@ -140,7 +156,7 @@ body {
   border: 2px dotted red;
   border-radius: 10px;
   padding: 20px;
-  transition: 500ms ease-out;
+  transition: 500ms;
   margin: 30px;
   background-color: rgba(32, 32, 32);
 }
@@ -170,6 +186,11 @@ nav {
   margin: 20px;
   border-radius: 20px 20px 20px 20px;
   z-index: 1000;
+
+  border: 2px solid midnightblue;
+  box-shadow:
+          #0D2750 5px 5px 5px,
+          inset #0D2750 5px 5px 5px;
 }
 
 h2 {
@@ -184,6 +205,10 @@ h2 {
   position: sticky;
   top: 90px;
   background-color: rgba(16, 16, 16);
+
+  box-shadow:
+          darkolivegreen 3px 3px 3px,
+          inset darkolivegreen 3px 3px 3px;
 
   @media (width >= 750px) {
     width: 50%;
