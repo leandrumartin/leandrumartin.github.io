@@ -11,6 +11,20 @@
   }
 }
 
+@keyframes corner-box {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 100%;
+    border-radius: 100px;
+  }
+  to {
+    width: 75%;
+    height: 62.5%;
+    opacity: 50%;
+  }
+}
+
 .nav-link {
   border: black 1px hidden;
   border-radius: 10px;
@@ -50,8 +64,9 @@
 }
 
 body {
-  background-color: red;
-  background-image: url("https://wallpaperaccess.com/full/6293073.jpg");
+  /*background-color: black;*/
+  background-color: rgb(16, 16, 16);
+  /*background-image: url("https://wallpaperaccess.com/full/6293073.jpg");*/
   background-attachment: fixed;
   color: floralwhite;
   font-family: sans-serif;
@@ -223,4 +238,38 @@ hr {
   width: 75%;
   margin: auto;
   /*border: 1px dashed gray;*/
+}
+
+.corner-box {
+  animation: corner-box 2s ease-in-out;
+  position: fixed;
+  z-index: -2;
+  width: 75%;
+  height: 62.5%;
+  opacity: 50%
+}
+
+#top-left-box {
+  top: 0;
+  left: 0;
+  background-color: red;
+}
+
+#top-right-box {
+  top: 0;
+  right: 0;
+  background-color: blue;
+}
+
+#bottom-left-box {
+  bottom: 0;
+  left: 0;
+  background-color: green;
+}
+
+#bottom-right-box {
+  bottom: 0;
+  right: 0;
+  /*background-color: rgba(255, 255, 0, 0.5);*/
+  background-color: yellow;
 }
