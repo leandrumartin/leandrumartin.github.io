@@ -66,6 +66,7 @@ body {
 }
 
 .portfolio-entry {
+  clear: right;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -113,7 +114,9 @@ body {
     transition: 500ms;
 
     &:hover {
-      flex: 3;
+      @media (width >= 750px) {
+        flex: 3;
+      }
     }
   }
 }
@@ -190,7 +193,7 @@ body {
 
 nav {
   position: sticky;
-  top: 20px;
+  top: 15px;
   background-color: rgb(128, 128, 255);
   margin: 0 20px;
   border-radius: 20px 20px 20px 20px;
@@ -200,13 +203,41 @@ nav {
   box-shadow: midnightblue 5px 5px 5px,
   inset midnightblue 5px 5px 5px;
 
+  @media (width < 750px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    /*width: 75px;*/
+    /*height: 75px;*/
+    width: fit-content;
+    padding: 0;
+    margin-left: 15px;
+  }
+
   ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
 
+    @media (width < 750px) {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
     li {
       min-width: 10%;
+
+      @media (width < 750px) {
+        min-width: 30vw;
+        padding: 10px;
+        text-align: center;
+      }
 
       a {
         border: black 1px solid;
@@ -250,9 +281,10 @@ h2 {
   font-size: 2.5em;
   font-weight: bolder;
   border-radius: 30px;
+  width: fit-content;
 
   position: sticky;
-  top: 104px;
+  top: 99px;
   background-color: rgb(0, 32, 0);
   color: honeydew;
 
@@ -260,11 +292,14 @@ h2 {
   inset rgb(0, 16, 0) 4px 4px 4px;
 
   @media (width >= 750px) {
-    width: 50%;
+    min-width: 67%;
   }
 
   @media (width < 750px) {
     font-size: 2em;
+    float: right;
+    top: 15px;
+    max-width: 50%;
   }
 }
 
@@ -308,4 +343,28 @@ hr {
 
 .portfolio-extra-margin {
   margin-top: 80px;
+}
+
+.checkbtn {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  display: none;
+
+  @media (width < 750px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 75px;
+    height: 75px;
+  }
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ ul {
+  display: flex;
 }
