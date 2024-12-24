@@ -1,171 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leandru Martin's Portfolio</title>
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leandru Martin's Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<div class="corner-box" id="top-left-box"></div>
+<div class="corner-box" id="top-right-box"></div>
+<div class="corner-box" id="bottom-left-box"></div>
+<div class="corner-box" id="bottom-right-box"></div>
+<div class="expanding-box"></div>
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div id="main-container">
-      <header class="bg-dark text-light p-3 mb-2">
-        <h1 class="display-1 text-center">Leandru Martin</h1>
-        <div class="container my-2 text-center">
-          <div class="row g-3">
-            <div class="col">
-              <div class="bg-primary-subtle">
-                <a
-                  class="text-dark"
-                  href="https://www.linkedin.com/in/leandru-martin/"
-                  >LinkedIn</a
-                >
-              </div>
-            </div>
-            <div class="col">
-              <div class="bg-primary-subtle">
-                <a
-                  class="text-dark"
-                  href="https://app.joinhandshake.com/stu/users/32386198"
-                  >Handshake</a
-                >
-              </div>
-            </div>
-            <div class="col">
-              <div class="bg-primary-subtle">
-                <a class="text-dark" href="https://github.com/leandrumartin/"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
+<div class="header-container" id="header">
+  <header>
+    <h1>Leandru Martin</h1>
+  </header>
+</div>
+
+<div class="pre-navbar">
+  <div id="bio">
+    <p>
+      I'm a detail-oriented Computer Science senior undergraduate student at Saint
+      Louis University. I have a particularly strong expertise in Java and JavaScript
+      frameworks, with contributions to research-focused projects from Open
+      Source with SLU and the Center for Digital Humanities.
+    </p>
+    <p>
+      I'm also working on a Master of Science degree in Software Engineering at SLU. My CS interests
+      include web development and a hobby in game design.
+    </p>
+  </div>
+</div>
+
+<div class="main-container">
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      🍔
+    </label>
+    <ul>
+      <li>
+        <a href="#">
+          Top
+          <text class="nav-img">🔝</text>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/leandru-martin/">
+          LinkedIn<img class="nav-img" src="images/icons/linkedin.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/leandrumartin/">
+          GitHub<img class="nav-img" src="images/icons/github.svg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="/files/Leandru_Martin_resume.pdf">
+          Resume
+          <text class="nav-img">📄</text>
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <main id="#portfolio">
+    <div id="professional-projects">
+      <h2>projects i have worked on</h2>
+      <div class="portfolio-entry">
+        <div class="portfolio-header">
+          <h3 class="portfolio-entry-item">TPEN Services</h3></div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            Node.js back end for TPEN project helping organize data for
+            humanities researchers. Contributed as part of simulated Agile
+            app development environment for senior capstone project.
+            Contributions added include added API endpoints and
+            comprehensive unit testing.
+          </p>
+          <p class="github-link">
+            <a
+                    href="https://github.com/CenterForDigitalHumanities/TPEN-services"
+
+            >View on GitHub</a
+            >
+          </p>
         </div>
-      </header>
+      </div>
 
-      <main class="p-3">
-        <div class="border rounded p-2">
-          <h2 class="text-center">Projects I have worked on</h2>
-          <div class="container my-3">
-            <div class="row g-3">
-              <div class="col-md">
-                <div class="card shadow">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      TPEN Services
-                    </h3>
-                    <p class="card-text">
-                      Node.js back end for TPEN project helping organize data for humanities researchers. Contributed as part of simulated Agile app development environment for senior capstone project. Contributions added include added API endpoints and comprehensive unit testing.
-                    </p>
-                    <p class="card-text">
-                      <a href="https://github.com/CenterForDigitalHumanities/TPEN-services"
-                        >View on GitHub</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <hr/>
 
-              <div class="col-md">
-                <div class="card shadow">
-                  <img src="gallery_of_glosses.png" class="card-img-top">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="https://galleryofglosses.org">Gallery of Glosses</a>
-                    </h3>
-                    <p class="card-text">
-                      Front end Next.js TypeScript web app for presenting research data to theological scholars.
-                    </p>
-                    <p class="card-text">
-                      <a href="https://github.com/CenterForDigitalHumanities/Gallery-of-Glosses"
-                        >View on GitHub</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <div class="portfolio-entry">
+        <div class="portfolio-header"><h3 class="portfolio-entry-item">
+          <a href="https://galleryofglosses.org">Gallery of Glosses</a>
+        </h3>
+          <img src="images/screenshots/gallery_of_glosses.png" class="screenshot portfolio-entry-item" alt=""/></div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            Front end Next.js TypeScript web app for presenting research
+            data to theological scholars.
+          </p>
+          <p class="github-link">
+            <a
+                    href="https://github.com/CenterForDigitalHumanities/Gallery-of-Glosses"
 
-              <div class="col-md">
-                <div class="card shadow">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      Pi4Micronaut
-                    </h3>
-                    <p class="card-text">
-                      Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis. I am contributing as part of simulated Agile app development environment for senior capstone project. I am helping develop the project by adding support for numerous GPIO hardware components, adding unit testing, writing documentation, and performing hardware testing.
-                    </p>
-                    <p class="card-text">
-                      <a href="https://github.com/oss-slu/Pi4Micronaut"
-                        >View on GitHub</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            >View on GitHub</a
+            >
+          </p>
         </div>
+      </div>
 
-        <div class="border rounded p-2">
-          <h2 class="text-center">Things I have made</h2>
-          <div class="container my-3">
-            <div class="row g-3">
-              <div class="col-md">
-                <div class="card shadow">
-                  <img src="flow.png" class="card-img-top">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="/flow">Flow for Spotify</a>
-                    </h3>
-                    <p class="card-text">
-                      A tool to reorder a diverse playlist for the smoothest
-                      transition between each genre and style. Find your
-                      playlist's perfect flow.
-                    </p>
-                    <p class="card-text">
-                      <a href="https://github.com/leandrumartin/flow"
-                        >View on GitHub</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <hr/>
 
-              <div class="col-md">
-                <div class="card shadow">
-                  <img src="music_blog.png" class="card-img-top">
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="/music-blog">Music Blog</a>
-                    </h3>
-                    <p class="card-text">
-                      Music blog as the final project for CSCI 4360 Web
-                      Technologies.
-                    </p>
-                    <p class="card-text">
-                      <a href="https://github.com/leandrumartin/music-blog"
-                        >View on GitHub</a
-                      >
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="portfolio-entry">
+        <div class="portfolio-header"><h3 class="portfolio-entry-item">Pi4Micronaut</h3></div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis. I contributed as
+            part of simulated Agile app development environment for senior capstone project. I helped add support for
+            numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing.
+          </p>
+          <p class="github-link">
+            <a href="https://github.com/oss-slu/Pi4Micronaut"
+            >View on GitHub</a
+            >
+          </p>
         </div>
-      </main>
+      </div>
+
+      <hr/>
+
     </div>
-  </body>
+
+    <div class="portfolio-extra-margin" id="personal-projects">
+      <h2 class="text-center">things i have made</h2>
+
+      <div class="portfolio-entry">
+        <div class="portfolio-header">
+          <h3 class="portfolio-entry-item">
+            <a href="/flow">Flow for Spotify</a>
+          </h3>
+          <img src="images/screenshots/flow.png" class="screenshot portfolio-entry-item" alt=""/>
+        </div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            A tool to reorder a diverse playlist for the smoothest
+            transition between each genre and style. Find your playlist's
+            perfect flow.
+          </p>
+
+          <p class="github-link">
+            <a href="https://github.com/leandrumartin/flow"
+            >View on GitHub</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="portfolio-entry">
+        <div class="portfolio-header"><h3 class="portfolio-entry-item">
+          <a href="/music-blog">Music Blog</a>
+        </h3>
+          <img src="images/screenshots/music_blog.png" class="screenshot portfolio-entry-item" alt=""/></div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            Music blog as the final project for CSCI 4360 Web Technologies.
+          </p>
+          <p class="github-link">
+            <a href="https://github.com/leandrumartin/music-blog"
+            >View on GitHub</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer>This page crafted by Leandru Martin. As many rights reserved as I wish, which will depend on the situation.</footer>
+</body>
 </html>
