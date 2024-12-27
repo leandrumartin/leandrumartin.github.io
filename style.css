@@ -136,6 +136,36 @@ nav {
       }
     }
   }
+}
+
+ul.technologies-icons {
+  align-items: center;
+
+  display: flex;
+
+  padding: 0;
+
+  list-style: none;
+
+  li {
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+
+    margin: 2px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    min-width: 1.5em;
+    padding: 5px;
+
+    background-color: black;
+
+    img {
+      height: 1.5em;
+    }
+  }
+
 
 }
 
@@ -197,6 +227,11 @@ nav {
 
   p.github-link {
     text-align: end;
+
+    img {
+      height: 1em;
+      filter: brightness(0) invert(1);
+    }
   }
 }
 
@@ -342,12 +377,20 @@ nav {
     min-width: 10%;
   }
 
+  ul.technologies-icons {
+    justify-content: start;
+  }
+
   .checkbtn {
     display: none;
   }
 
   .portfolio-description {
     text-align: end;
+
+    p.github-link {
+      float: right;
+    }
   }
 
   .portfolio-entry {
@@ -411,6 +454,10 @@ nav {
         text-align: center;
       }
     }
+  }
+
+  ul.technologies-icons {
+    justify-content: center;
   }
 
   .checkbtn {
