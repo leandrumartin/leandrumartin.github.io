@@ -3,7 +3,7 @@ This file uses the ordering standard defined at
 https://9elements.com/css-rule-order/
 */
 
-@keyframes header-container {
+@keyframes expanding-box {
   from {
     opacity: 100%;
 
@@ -194,11 +194,16 @@ ul.technologies-icons {
   top: 50%;
   left: 50%;
 
+  opacity: 85%;
+
   transform: translate(-50%, -50%);
 
-  animation: header-container 1s linear;
+  animation: expanding-box 1s linear;
   animation-play-state: paused;
   animation-delay: calc(var(--scroll) * -1s);
+
+  width: 100%;
+  height: 100%;
 
   background-color: rgb(16, 16, 16);
 }
@@ -255,8 +260,6 @@ ul.technologies-icons {
   background-color: rgb(32, 32, 0);
 
   color: floralwhite;
-
-  transition: 500ms;
 
   a {
     color: lightblue;
@@ -486,5 +489,19 @@ ul.technologies-icons {
   #bio {
     margin: 5%;
     padding: 10%;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .corner-box {
+    animation: none;
+  }
+
+  .expanding-box {
+    animation: none;
+  }
+
+  .portfolio-header img {
+    transition: none;
   }
 }
