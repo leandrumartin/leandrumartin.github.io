@@ -19,6 +19,18 @@ https://9elements.com/css-rule-order/
   }
 }
 
+@keyframes expanding-box-opaque {
+  from {
+    width: 50%;
+    height: 25%;
+  }
+  to {
+    border-radius: 50px;
+    width: 100%;
+    height: 200%;
+  }
+}
+
 @keyframes corner-box {
   from {
     opacity: 100%;
@@ -489,6 +501,16 @@ ul.technologies-icons {
   #bio {
     margin: 5%;
     padding: 10%;
+  }
+}
+
+@media (prefers-reduced-transparency) {
+  .expanding-box {
+    opacity: 100%;
+
+    animation: expanding-box-opaque 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
   }
 }
 
