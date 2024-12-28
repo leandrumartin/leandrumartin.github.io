@@ -82,7 +82,7 @@ h2 {
 
   font-weight: bolder;
   text-align: center;
-  color: honeydew;
+  /*color: honeydew;*/
 }
 
 hr {
@@ -525,5 +525,21 @@ ul.technologies-icons {
 
   .portfolio-header img {
     transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body {
+    color: white;
+  }
+}
+
+@media (prefers-contrast: less), (prefers-contrast: no-preference) {
+  h2 {
+    color: honeydew;
+  }
+
+  h3 {
+    color: linen;
   }
 }
