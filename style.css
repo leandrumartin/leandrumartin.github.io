@@ -402,10 +402,6 @@ ul.technologies-icons {
 
   .portfolio-description {
     text-align: end;
-
-    p.github-link {
-      float: right;
-    }
   }
 
   .portfolio-entry {
@@ -428,6 +424,12 @@ ul.technologies-icons {
   #bio {
     margin: 10%;
     padding: 5%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-description p.github-link {
+    float: right;
   }
 }
 
@@ -471,10 +473,6 @@ ul.technologies-icons {
     }
   }
 
-  ul.technologies-icons {
-    justify-content: center;
-  }
-
   .checkbtn {
     justify-content: center;
     align-items: center;
@@ -501,6 +499,12 @@ ul.technologies-icons {
   #bio {
     margin: 5%;
     padding: 10%;
+  }
+}
+
+@media (max-width: 1200px) {
+  ul.technologies-icons {
+    justify-content: center;
   }
 }
 
