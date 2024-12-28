@@ -3,7 +3,7 @@ This file uses the ordering standard defined at
 https://9elements.com/css-rule-order/
 */
 
-@keyframes header-container {
+@keyframes expanding-box {
   from {
     opacity: 100%;
 
@@ -13,6 +13,18 @@ https://9elements.com/css-rule-order/
   to {
     opacity: 85%;
 
+    border-radius: 50px;
+    width: 100%;
+    height: 200%;
+  }
+}
+
+@keyframes expanding-box-opaque {
+  from {
+    width: 50%;
+    height: 25%;
+  }
+  to {
     border-radius: 50px;
     width: 100%;
     height: 200%;
@@ -70,7 +82,7 @@ h2 {
 
   font-weight: bolder;
   text-align: center;
-  color: honeydew;
+  /*color: honeydew;*/
 }
 
 hr {
@@ -194,11 +206,16 @@ ul.technologies-icons {
   top: 50%;
   left: 50%;
 
+  opacity: 85%;
+
   transform: translate(-50%, -50%);
 
-  animation: header-container 1s linear;
+  animation: expanding-box 1s linear;
   animation-play-state: paused;
   animation-delay: calc(var(--scroll) * -1s);
+
+  width: 100%;
+  height: 100%;
 
   background-color: rgb(16, 16, 16);
 }
@@ -255,8 +272,6 @@ ul.technologies-icons {
   background-color: rgb(32, 32, 0);
 
   color: floralwhite;
-
-  transition: 500ms;
 
   a {
     color: lightblue;
@@ -486,5 +501,45 @@ ul.technologies-icons {
   #bio {
     margin: 5%;
     padding: 10%;
+  }
+}
+
+@media (prefers-reduced-transparency) {
+  .expanding-box {
+    opacity: 100%;
+
+    animation: expanding-box-opaque 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .corner-box {
+    animation: none;
+  }
+
+  .expanding-box {
+    animation: none;
+  }
+
+  .portfolio-header img {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body {
+    color: white;
+  }
+}
+
+@media (prefers-contrast: less), (prefers-contrast: no-preference) {
+  h2 {
+    color: honeydew;
+  }
+
+  h3 {
+    color: linen;
   }
 }
