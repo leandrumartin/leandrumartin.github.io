@@ -245,7 +245,8 @@ ul.technologies-icons {
   p.github-link {
     text-align: end;
 
-    img {
+    .github-link-image {
+      content: url("images/icons/github.svg");
       height: 1em;
       filter: brightness(0) invert(1);
     }
