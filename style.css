@@ -322,7 +322,7 @@ ul.technologies-icons {
   }
 
   img {
-    flex: 1;
+    flex: 1 0 10%;
 
     transition: 500ms;
   }
@@ -335,10 +335,6 @@ ul.technologies-icons {
   display: flex;
 
   height: 50vh;
-}
-
-.screenshot {
-  width: 25%;
 }
 
 #bio {
@@ -427,6 +423,10 @@ ul.technologies-icons {
     margin-bottom: 10%;
   }
 
+  .screenshot {
+    width: 10%;
+  }
+
   #bio {
     margin: 10%;
     padding: 5%;
@@ -500,6 +500,10 @@ ul.technologies-icons {
 
   .pre-navbar {
     margin-bottom: 30%;
+  }
+
+  .screenshot {
+    max-width: 60vw;
   }
 
   #bio {
