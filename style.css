@@ -70,6 +70,7 @@ footer {
 
 h2 {
   position: sticky;
+  z-index: 500;
 
   margin: 16px 30px;
   box-shadow: rgb(0, 16, 0) 4px 4px 4px, inset rgb(0, 16, 0) 4px 4px 4px;
