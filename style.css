@@ -300,32 +300,32 @@ ul.technologies-icons {
   margin-top: 80px;
 }
 
-.portfolio-header {
+.portfolio-header-section {
   flex: 3;
   justify-content: space-around;
   align-items: center;
 
   display: flex;
+}
 
-  h3 {
-    flex: 2;
+.portfolio-header {
+  flex: 3;
 
-    box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
-    border: 2px solid red;
+  box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
+  border: 2px solid red;
 
-    background-color: rgb(64, 0, 0);
+  background-color: rgb(64, 0, 0);
 
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    color: linen;
-  }
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: linen;
+}
 
-  img {
-    flex: 1 0 10%;
+.portfolio-screenshot {
+  flex: 1 0 10%;
 
-    transition: 500ms;
-  }
+  transition: 500ms;
 }
 
 .pre-navbar {
@@ -411,20 +411,22 @@ ul.technologies-icons {
     height: 50vh;
   }
 
-  .portfolio-header {
+  .portfolio-header-section {
     flex-direction: row;
+  }
 
-    img:hover {
+  .portfolio-screenshot {
+    img {
+      width: 100%;
+    }
+
+    &:hover {
       flex: 3;
     }
   }
 
   .pre-navbar {
     margin-bottom: 10%;
-  }
-
-  .screenshot {
-    width: 10%;
   }
 
   #bio {
@@ -494,7 +496,7 @@ ul.technologies-icons {
     flex-direction: column;
   }
 
-  .portfolio-header {
+  .portfolio-header-section {
     flex-direction: column;
   }
 
@@ -502,8 +504,8 @@ ul.technologies-icons {
     margin-bottom: 30%;
   }
 
-  .screenshot {
-    max-width: 60vw;
+  .portfolio-screenshot img {
+      max-width: 60vw;
   }
 
   #bio {
@@ -537,7 +539,7 @@ ul.technologies-icons {
     animation: none;
   }
 
-  .portfolio-header img {
+  .portfolio-header-section img {
     transition: none;
   }
 }
