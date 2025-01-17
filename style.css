@@ -403,10 +403,6 @@ ul.technologies-icons {
     display: none;
   }
 
-  .portfolio-description {
-    text-align: end;
-  }
-
   .portfolio-entry {
     flex-direction: row;
     height: 50vh;
