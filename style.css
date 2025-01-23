@@ -183,6 +183,7 @@ ul.technologies-icons {
 
     span {
       font-size: 0.8em;
+      text-align: center;
     }
   }
 }
@@ -572,8 +573,6 @@ ul.technologies-icons {
       padding: 5px;
 
       background-color: black;
-
-      text-align: center;
     }
 
     &:hover span {
