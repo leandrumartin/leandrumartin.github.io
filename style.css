@@ -246,6 +246,10 @@ ul.technologies-icons {
   margin-left: 5px;
 }
 
+.noscript-box {
+  animation: none;
+}
+
 .portfolio-description {
   flex: 1;
 
