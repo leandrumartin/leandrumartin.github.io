@@ -11,8 +11,6 @@ https://9elements.com/css-rule-order/
     background-color: rgba(7, 0, 11, 100%);
   }
   to {
-    opacity: 85%;
-
     border-radius: 50px;
     width: 100%;
     height: 200%;
@@ -60,7 +58,7 @@ body {
   background-color: rgb(7, 0, 11);
 
   font-family: sans-serif;
-  color: floralwhite;
+  color: snow;
 }
 
 footer {
@@ -82,16 +80,15 @@ h2 {
 
   margin: 16px 30px;
   box-shadow: rgb(0, 16, 0) 4px 4px 4px, inset rgb(0, 16, 0) 4px 4px 4px;
-  border: 5px solid green;
+  border: 5px solid rgb(77, 131, 181);
   width: fit-content;
   border-radius: 30px;
   padding: 10px;
 
-  background-color: rgb(0, 32, 0);
+  background-color: rgb(30, 50, 70);
 
   font-weight: bolder;
   text-align: center;
-  /*color: honeydew;*/
 }
 
 hr {
@@ -213,6 +210,8 @@ ul.technologies-icons {
 
   width: 75%;
   height: 62.5%;
+
+  /*filter: hue-rotate(45deg);*/
 }
 
 .expanding-box {
@@ -220,8 +219,6 @@ ul.technologies-icons {
   z-index: -1;
   top: 50%;
   left: 50%;
-
-  opacity: 85%;
 
   transform: translate(-50%, -50%);
 
@@ -283,13 +280,11 @@ ul.technologies-icons {
 .portfolio-entry-item {
   margin: 30px;
   box-shadow: rgb(16, 16, 0) 2px 2px 2px, inset rgb(16, 16, 0) 2px 2px 2px;
-  border: 1px solid gold;
+  border: 1px solid rgb(126, 101, 143);
   border-radius: 10px;
   padding: 20px;
 
-  background-color: rgb(32, 32, 0);
-
-  color: floralwhite;
+  background-color: rgb(42, 21, 57);
 
   a {
     color: lightblue;
@@ -324,14 +319,13 @@ ul.technologies-icons {
   flex: 3;
 
   box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
-  border: 2px solid red;
+  border: 2px solid rgb(185, 10, 125);
 
-  background-color: rgb(64, 0, 0);
+  background-color: rgb(77, 10, 52);
 
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  color: linen;
 }
 
 .portfolio-screenshot {
@@ -560,11 +554,15 @@ ul.technologies-icons {
 
 @media (prefers-contrast: less), (prefers-contrast: no-preference) {
   h2 {
-    color: honeydew;
+    color: lightcyan;
   }
 
   h3 {
-    color: linen;
+    color: lavenderblush;
+  }
+
+  .portfolio-entry-item {
+    color: lavender;
   }
 }
 
@@ -597,4 +595,12 @@ ul.technologies-icons {
   ul.technologies-icons li span {
     margin: 5px;
   }
+}
+
+::selection {
+  background-color: magenta;
+  /*color: black;*/
+  /*text-decoration: green wavy underline;*/
+  /*text-shadow: 1px 1px 2px black;*/
+  text-shadow: 1px 1px 2px black;
 }
