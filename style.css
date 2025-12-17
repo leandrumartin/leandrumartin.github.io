@@ -5,10 +5,10 @@ https://9elements.com/css-rule-order/
 
 @keyframes expanding-box {
   from {
-    opacity: 100%;
-
     width: 50%;
     height: 25%;
+
+    background-color: rgba(7, 0, 11, 100%);
   }
   to {
     opacity: 85%;
@@ -16,6 +16,10 @@ https://9elements.com/css-rule-order/
     border-radius: 50px;
     width: 100%;
     height: 200%;
+
+    background-color: rgba(7, 0, 11, 85%);
+    backdrop-filter: blur(50px) saturate(3) brightness(0.75) hue-rotate(360deg);
+    /*backdrop-filter: hue-rotate(360deg) saturate(3);*/
   }
 }
 
@@ -38,18 +42,22 @@ https://9elements.com/css-rule-order/
     border-radius: 100px;
     width: 0;
     height: 0;
+
+    /*filter: hue-rotate(20deg);*/
   }
   to {
     opacity: 50%;
 
     width: 75%;
     height: 62.5%;
+
+    /*filter: hue-rotate(45deg);*/
   }
 }
 
 body {
   background-attachment: fixed;
-  background-color: rgb(16, 16, 16);
+  background-color: rgb(7, 0, 11);
 
   font-family: sans-serif;
   color: floralwhite;
@@ -223,8 +231,6 @@ ul.technologies-icons {
 
   width: 100%;
   height: 100%;
-
-  background-color: rgb(16, 16, 16);
 }
 
 .header-container {
