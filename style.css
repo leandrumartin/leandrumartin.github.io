@@ -3,6 +3,10 @@ This file uses the ordering standard defined at
 https://9elements.com/css-rule-order/
 */
 
+html {
+  scrollbar-color: lavender rgb(7, 0, 11);
+}
+
 @keyframes expanding-box {
   from {
     width: 50%;
@@ -79,7 +83,7 @@ h2 {
   z-index: 500;
 
   margin: 16px 30px;
-  box-shadow: rgb(0, 16, 0) 4px 4px 4px, inset rgb(0, 16, 0) 4px 4px 4px;
+  box-shadow: rgb(64, 0, 32) 4px 4px 4px, inset rgb(64, 0, 32) 4px 4px 4px;
   border: 5px solid rgb(255, 10, 172);
   width: fit-content;
   border-radius: 30px;
@@ -279,7 +283,7 @@ ul.technologies-icons {
 
 .portfolio-entry-item {
   margin: 30px;
-  box-shadow: rgb(16, 16, 0) 2px 2px 2px, inset rgb(16, 16, 0) 2px 2px 2px;
+  box-shadow: rgb(16, 0, 16) 2px 2px 2px, inset rgb(16, 0, 16) 2px 2px 2px;
   border: 1px solid rgb(126, 101, 143);
   border-radius: 10px;
   padding: 20px;
@@ -318,7 +322,7 @@ ul.technologies-icons {
 .portfolio-header {
   flex: 3;
 
-  box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
+  box-shadow: rgb(0, 0, 64) 3px 3px 3px, inset rgb(0, 0, 64) 3px 3px 3px;
   border: 2px solid rgb(0, 133, 255);
 
   background-color: rgb(0, 60, 115);
