@@ -80,12 +80,12 @@ h2 {
 
   margin: 16px 30px;
   box-shadow: rgb(0, 16, 0) 4px 4px 4px, inset rgb(0, 16, 0) 4px 4px 4px;
-  border: 5px solid rgb(77, 131, 181);
+  border: 5px solid rgb(255, 10, 172);
   width: fit-content;
   border-radius: 30px;
   padding: 10px;
 
-  background-color: rgb(30, 50, 70);
+  background-color: rgb(141, 0, 95);
 
   font-weight: bolder;
   text-align: center;
@@ -319,9 +319,9 @@ ul.technologies-icons {
   flex: 3;
 
   box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
-  border: 2px solid rgb(185, 10, 125);
+  border: 2px solid rgb(0, 133, 255);
 
-  background-color: rgb(77, 10, 52);
+  background-color: rgb(0, 60, 115);
 
   font-size: 2em;
   font-weight: bold;
@@ -554,11 +554,11 @@ ul.technologies-icons {
 
 @media (prefers-contrast: less), (prefers-contrast: no-preference) {
   h2 {
-    color: lightcyan;
+    color: lavenderblush;
   }
 
   h3 {
-    color: lavenderblush;
+    color: azure;
   }
 
   .portfolio-entry-item {
