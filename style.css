@@ -83,13 +83,13 @@ h2 {
   z-index: 500;
 
   margin: 16px 30px;
-  box-shadow: rgb(64, 0, 32) 4px 4px 4px, inset rgb(64, 0, 32) 4px 4px 4px;
-  border: 5px solid rgb(255, 10, 172);
+  box-shadow: rgb(32, 0, 16) 4px 4px 4px, inset rgb(32, 0, 16) 4px 4px 4px;
+  border: 5px solid rgb(160, 10, 100);
   width: fit-content;
   border-radius: 30px;
   padding: 10px;
 
-  background-color: rgb(141, 0, 95);
+  background-color: rgb(90, 0, 55);
 
   font-weight: bolder;
   text-align: center;
