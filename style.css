@@ -21,7 +21,6 @@ html {
 
     background-color: rgba(7, 0, 11, 85%);
     backdrop-filter: blur(50px) saturate(3) brightness(0.75) hue-rotate(360deg);
-    /*backdrop-filter: hue-rotate(360deg) saturate(3);*/
   }
 }
 
@@ -44,16 +43,12 @@ html {
     border-radius: 100px;
     width: 0;
     height: 0;
-
-    /*filter: hue-rotate(20deg);*/
   }
   to {
     opacity: 50%;
 
     width: 75%;
     height: 62.5%;
-
-    /*filter: hue-rotate(45deg);*/
   }
 }
 
@@ -122,6 +117,7 @@ nav {
     margin: 12px;
 
     list-style: none;
+
     li a {
       justify-content: center;
       align-items: center;
@@ -213,8 +209,6 @@ ul.technologies-icons {
 
   width: 75%;
   height: 62.5%;
-
-  /*filter: hue-rotate(45deg);*/
 }
 
 .expanding-box {
