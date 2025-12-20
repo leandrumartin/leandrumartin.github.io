@@ -358,14 +358,14 @@ ul.technologies-icons {
   bottom: 0;
   left: 0;
 
-  background-color: blue;
+  background-color: purple;
 }
 
 #bottom-right-box {
   bottom: 0;
   right: 0;
 
-  background-color: yellow;
+  background-color: blue;
 }
 
 #check {
@@ -387,7 +387,7 @@ ul.technologies-icons {
   top: 0;
   right: 0;
 
-  background-color: green;
+  background-color: mediumorchid;
 }
 
 @media (min-width: 750px) {
