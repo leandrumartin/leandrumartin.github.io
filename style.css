@@ -290,17 +290,20 @@ ul.technologies-icons {
   a {
     color: lightblue;
 
+    &:visited {
+      color: plum;
+    }
+
     &:hover {
       color: cyan;
+      text-shadow: black 2px 2px 2px;
     }
 
     &:active {
       color: lightcoral;
+      text-shadow: none;
     }
 
-    &:visited {
-      color: plum;
-    }
   }
 }
 
