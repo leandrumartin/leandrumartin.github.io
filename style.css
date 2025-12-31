@@ -140,12 +140,16 @@ nav {
         transition: 200ms;
 
         background-color: rgb(50, 32, 50);
+
+        font-size: 1.25em;
       }
 
       &:active {
         transition: 200ms;
 
         box-shadow: inset black 2px 2px 2px;
+
+        font-size: 1.15em;
       }
 
       img {
