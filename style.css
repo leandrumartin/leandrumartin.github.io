@@ -52,6 +52,11 @@ html {
   }
 }
 
+@font-face {
+  font-family: Leandru;
+  src: local(Leandru), url("fonts/Leandru.ttf") format("ttf");
+}
+
 body {
   background-attachment: fixed;
   background-color: rgb(7, 0, 11);
@@ -243,6 +248,8 @@ ul.technologies-icons {
     flex-basis: 50%;
 
     text-align: center;
+    font-family: Leandru, Georgia, serif;
+    font-size: 2em;
   }
 }
 
