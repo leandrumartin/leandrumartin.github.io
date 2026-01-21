@@ -609,9 +609,5 @@ ul.technologies-icons {
 }
 
 ::selection {
-  background-color: magenta;
-  /*color: black;*/
-  /*text-decoration: green wavy underline;*/
-  /*text-shadow: 1px 1px 2px black;*/
-  text-shadow: 1px 1px 2px black;
+  background-color: blueviolet;
 }
