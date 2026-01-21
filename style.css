@@ -3,19 +3,24 @@ This file uses the ordering standard defined at
 https://9elements.com/css-rule-order/
 */
 
+html {
+  scrollbar-color: lavender rgb(7, 0, 11);
+}
+
 @keyframes expanding-box {
   from {
-    opacity: 100%;
-
     width: 50%;
     height: 25%;
+
+    background-color: rgba(7, 0, 11, 100%);
   }
   to {
-    opacity: 85%;
-
     border-radius: 50px;
     width: 100%;
     height: 200%;
+
+    background-color: rgba(7, 0, 11, 85%);
+    backdrop-filter: blur(50px) saturate(3) brightness(0.75) hue-rotate(360deg);
   }
 }
 
@@ -47,12 +52,17 @@ https://9elements.com/css-rule-order/
   }
 }
 
+@font-face {
+  font-family: Leandru;
+  src: local(Leandru), url("fonts/Leandru.ttf") format("ttf");
+}
+
 body {
   background-attachment: fixed;
-  background-color: rgb(16, 16, 16);
+  background-color: rgb(7, 0, 11);
 
   font-family: sans-serif;
-  color: floralwhite;
+  color: snow;
 }
 
 footer {
@@ -73,17 +83,16 @@ h2 {
   z-index: 500;
 
   margin: 16px 30px;
-  box-shadow: rgb(0, 16, 0) 4px 4px 4px, inset rgb(0, 16, 0) 4px 4px 4px;
-  border: 5px solid green;
+  box-shadow: rgb(32, 0, 16) 4px 4px 4px, inset rgb(32, 0, 16) 4px 4px 4px;
+  border: 5px solid rgb(160, 10, 100);
   width: fit-content;
   border-radius: 30px;
   padding: 10px;
 
-  background-color: rgb(0, 32, 0);
+  background-color: rgb(90, 0, 55);
 
   font-weight: bolder;
   text-align: center;
-  /*color: honeydew;*/
 }
 
 hr {
@@ -99,15 +108,18 @@ nav {
   margin: 0 20px;
   border-radius: 20px 20px 20px 20px;
 
-  background-color: rgb(128, 128, 255);
+  background-color: rgba(27, 20, 27, 85%);
+  backdrop-filter: blur(50px) saturate(3) brightness(0.75);
 
-  border: 2px solid blue;
-  box-shadow: midnightblue 5px 5px 5px, inset midnightblue 5px 5px 5px;
+  border: 2px solid rgb(96, 64, 96);
+  box-shadow: black 5px 5px 5px, inset black 5px 5px 5px;
 
   ul {
     justify-content: space-around;
 
     display: flex;
+
+    margin: 12px;
 
     list-style: none;
 
@@ -119,29 +131,30 @@ nav {
 
       transition: 200ms;
 
-      box-shadow: midnightblue 2px 2px 2px;
-      border: black 1px solid;
-      border-radius: 10px;
+      border-radius: 100px;
       height: 20px;
-      padding: 5px;
-
-      background-color: aliceblue;
+      padding: 10px;
 
       text-decoration: none;
-      color: black;
+      color: rgb(220, 210, 220);
+      font-size: 1.2em;
 
       &:hover {
-        box-shadow: midnightblue 4px 4px 4px;
+        box-shadow: black 4px 4px 4px;
 
         transition: 200ms;
 
-        background-color: dodgerblue;
+        background-color: rgb(50, 32, 50);
+
+        font-size: 1.25em;
       }
 
       &:active {
         transition: 200ms;
 
-        box-shadow: inset midnightblue 2px 2px 2px;
+        box-shadow: inset black 2px 2px 2px;
+
+        font-size: 1.15em;
       }
 
       img {
@@ -213,8 +226,6 @@ ul.technologies-icons {
   top: 50%;
   left: 50%;
 
-  opacity: 85%;
-
   transform: translate(-50%, -50%);
 
   animation: expanding-box 1s linear;
@@ -223,8 +234,6 @@ ul.technologies-icons {
 
   width: 100%;
   height: 100%;
-
-  background-color: rgb(16, 16, 16);
 }
 
 .header-container {
@@ -239,6 +248,8 @@ ul.technologies-icons {
     flex-basis: 50%;
 
     text-align: center;
+    font-family: Leandru, Georgia, serif;
+    font-size: 2em;
   }
 }
 
@@ -276,29 +287,30 @@ ul.technologies-icons {
 
 .portfolio-entry-item {
   margin: 30px;
-  box-shadow: rgb(16, 16, 0) 2px 2px 2px, inset rgb(16, 16, 0) 2px 2px 2px;
-  border: 1px solid gold;
+  box-shadow: rgb(16, 0, 16) 2px 2px 2px, inset rgb(16, 0, 16) 2px 2px 2px;
+  border: 1px solid rgb(126, 101, 143);
   border-radius: 10px;
   padding: 20px;
 
-  background-color: rgb(32, 32, 0);
-
-  color: floralwhite;
+  background-color: rgb(64, 21, 64);
 
   a {
     color: lightblue;
 
+    &:visited {
+      color: plum;
+    }
+
     &:hover {
       color: cyan;
+      text-shadow: black 2px 2px 2px;
     }
 
     &:active {
       color: lightcoral;
+      text-shadow: none;
     }
 
-    &:visited {
-      color: plum;
-    }
   }
 }
 
@@ -317,15 +329,14 @@ ul.technologies-icons {
 .portfolio-header {
   flex: 3;
 
-  box-shadow: rgb(32, 0, 0) 3px 3px 3px, inset rgb(32, 0, 0) 3px 3px 3px;
-  border: 2px solid red;
+  box-shadow: rgb(0, 0, 64) 3px 3px 3px, inset rgb(0, 0, 64) 3px 3px 3px;
+  border: 2px solid rgb(0, 133, 255);
 
-  background-color: rgb(64, 0, 0);
+  background-color: rgb(0, 60, 115);
 
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  color: linen;
 }
 
 .portfolio-screenshot {
@@ -355,14 +366,14 @@ ul.technologies-icons {
   bottom: 0;
   left: 0;
 
-  background-color: blue;
+  background-color: purple;
 }
 
 #bottom-right-box {
   bottom: 0;
   right: 0;
 
-  background-color: yellow;
+  background-color: blue;
 }
 
 #check {
@@ -384,7 +395,7 @@ ul.technologies-icons {
   top: 0;
   right: 0;
 
-  background-color: green;
+  background-color: mediumorchid;
 }
 
 @media (min-width: 750px) {
@@ -554,11 +565,15 @@ ul.technologies-icons {
 
 @media (prefers-contrast: less), (prefers-contrast: no-preference) {
   h2 {
-    color: honeydew;
+    color: lavenderblush;
   }
 
   h3 {
-    color: linen;
+    color: azure;
+  }
+
+  .portfolio-entry-item {
+    color: lavender;
   }
 }
 
@@ -591,4 +606,8 @@ ul.technologies-icons {
   ul.technologies-icons li span {
     margin: 5px;
   }
+}
+
+::selection {
+  background-color: blueviolet;
 }
