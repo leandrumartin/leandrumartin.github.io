@@ -7,6 +7,17 @@ html {
   scrollbar-color: lavender rgb(7, 0, 11);
 }
 
+@keyframes cookie-notice-fade-in {
+  from {
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
 @keyframes expanding-box {
   from {
     width: 50%;
@@ -380,6 +391,8 @@ ul.technologies-icons {
   z-index: 10000;
   bottom: 10px;
   right: 10px;
+
+  animation: cookie-notice-fade-in 0.5s ease-in-out;
 
   border: 2px solid rgb(96, 64, 96);
   box-shadow: black 3px 3px 3px, inset black 3px 3px 3px;
