@@ -6,6 +6,7 @@ window.addEventListener('scroll', () => {
 if (Math.random() < 0.1) {
     let cookieNotice = document.createElement('div')
     cookieNotice.id = 'cookie-notice'
+    cookieNotice.className = 'overlay'
     cookieNotice.innerHTML = `
       <p>
         We do not use cookies to enhance your browsing experience. By clicking "OK," you consent to our non-use of cookies.
