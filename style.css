@@ -375,6 +375,24 @@ ul.technologies-icons {
   background-color: blue;
 }
 
+#cookie-notice {
+  position: fixed;
+  z-index: 10000;
+  bottom: 10px;
+  right: 10px;
+
+  border: 2px solid rgb(96, 64, 96);
+  box-shadow: black 3px 3px 3px, inset black 3px 3px 3px;
+  border-radius: 20px;
+  padding: 10px;
+
+  background-color: rgba(27, 20, 27, 85%);
+  backdrop-filter: blur(50px) saturate(3) brightness(0.75);
+
+  font-size: 1.2em;
+  text-align: center;
+}
+
 #check {
   display: none;
 }
