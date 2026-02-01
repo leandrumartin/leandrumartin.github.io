@@ -8,7 +8,7 @@ if (Math.random() < 0.1) {
     cookieNotice.id = 'cookie-notice'
     cookieNotice.innerHTML = `
       <p>
-        This website does not use cookies.
+        We do not use cookies to enhance your browsing experience. By clicking "OK," you consent to our non-use of cookies.
       </p>
       <button id="cookie-notice-dismiss" onclick="document.getElementById('cookie-notice').style.display='none'">OK</button>
     `
