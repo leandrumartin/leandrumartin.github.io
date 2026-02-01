@@ -10,7 +10,7 @@ if (Math.random() < 0.1) {
       <p>
         We do not use cookies to enhance your browsing experience. By clicking "OK," you consent to our non-use of cookies.
       </p>
-      <button id="cookie-notice-dismiss" onclick="document.getElementById('cookie-notice').style.display='none'">OK</button>
+      <button id="cookie-notice-dismiss" class="button" onclick="document.getElementById('cookie-notice').style.display='none'">OK</button>
     `
     document.body.appendChild(cookieNotice)
 }
