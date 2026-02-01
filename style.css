@@ -7,6 +7,17 @@ html {
   scrollbar-color: lavender rgb(7, 0, 11);
 }
 
+@keyframes cookie-notice-fade-in {
+  from {
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
 @keyframes expanding-box {
   from {
     width: 50%;
@@ -65,6 +76,11 @@ body {
   color: snow;
 }
 
+button {
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
 footer {
   background-color: rgb(0, 0, 32);
   position: absolute;
@@ -106,13 +122,6 @@ nav {
   top: 15px;
 
   margin: 0 20px;
-  border-radius: 20px 20px 20px 20px;
-
-  background-color: rgba(27, 20, 27, 85%);
-  backdrop-filter: blur(50px) saturate(3) brightness(0.75);
-
-  border: 2px solid rgb(96, 64, 96);
-  box-shadow: black 5px 5px 5px, inset black 5px 5px 5px;
 
   ul {
     justify-content: space-around;
@@ -129,31 +138,21 @@ nav {
 
       display: flex;
 
-      transition: 200ms;
-
       border-radius: 100px;
       height: 20px;
       padding: 10px;
 
+      background-color: inherit !important;
+      /*backdrop-filter: inherit;*/
+
       text-decoration: none;
-      color: rgb(220, 210, 220);
       font-size: 1.2em;
 
       &:hover {
-        box-shadow: black 4px 4px 4px;
-
-        transition: 200ms;
-
-        background-color: rgb(50, 32, 50);
-
         font-size: 1.25em;
       }
 
       &:active {
-        transition: 200ms;
-
-        box-shadow: inset black 2px 2px 2px;
-
         font-size: 1.15em;
       }
 
@@ -198,6 +197,28 @@ ul.technologies-icons {
       font-size: 0.8em;
       text-align: center;
     }
+  }
+}
+
+.button {
+  background-color: rgb(27, 20, 27);
+
+  transition: 200ms;
+
+  color: rgb(220, 210, 220);
+
+  &:hover {
+    box-shadow: black 4px 4px 4px;
+
+    transition: 200ms;
+
+    background-color: rgb(50, 32, 50) !important;
+  }
+
+  &:active {
+    transition: 200ms;
+
+    box-shadow: inset black 2px 2px 2px;
   }
 }
 
@@ -258,6 +279,15 @@ ul.technologies-icons {
 
 .noscript-box {
   animation: none;
+}
+
+.overlay {
+  border: 2px solid rgb(96, 64, 96);
+  box-shadow: black 3px 3px 3px, inset black 3px 3px 3px;
+  border-radius: 20px;
+
+  background-color: rgba(27, 20, 27, 85%);
+  backdrop-filter: blur(50px) saturate(3) brightness(0.75);
 }
 
 .portfolio-description {
@@ -373,6 +403,25 @@ ul.technologies-icons {
   right: 0;
 
   background-color: blue;
+}
+
+#cookie-notice {
+  position: fixed;
+  z-index: 10000;
+  bottom: 10px;
+  right: 10px;
+
+  animation: cookie-notice-fade-in 0.5s ease-in-out;
+
+  margin-left: 10px;
+  padding: 10px;
+
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#cookie-notice-dismiss {
+  padding: 5px;
 }
 
 #check {
