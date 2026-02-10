@@ -68,6 +68,25 @@ html {
   src: local(Leandru), url("fonts/Leandru.ttf") format("ttf");
 }
 
+main a {
+  color: lightblue;
+
+  &:visited {
+    color: plum;
+  }
+
+  &:hover {
+    color: cyan;
+    text-shadow: black 2px 2px 2px;
+  }
+
+  &:active {
+    color: lightcoral;
+    text-shadow: none;
+  }
+
+}
+
 body {
   background-attachment: fixed;
   background-color: rgb(7, 0, 11);
@@ -322,25 +341,6 @@ ul.technologies-icons {
   padding: 20px;
 
   background-color: rgb(64, 21, 64);
-
-  a {
-    color: lightblue;
-
-    &:visited {
-      color: plum;
-    }
-
-    &:hover {
-      color: cyan;
-      text-shadow: black 2px 2px 2px;
-    }
-
-    &:active {
-      color: lightcoral;
-      text-shadow: none;
-    }
-
-  }
 }
 
 .portfolio-extra-margin {
