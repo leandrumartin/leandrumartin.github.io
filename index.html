@@ -8,6 +8,32 @@
   <script type="module" src="script.js"></script>
 </head>
 <body>
+<!--Templates-->
+<template id="portfolio-header-template">
+    <div class="portfolio-entry">
+        <div class="portfolio-header-section">
+            <div class="portfolio-entry-item portfolio-header">
+                <h3>
+                    <slot name="link"></slot>
+                </h3>
+            </div>
+        </div>
+        <div class="portfolio-entry-item portfolio-screenshot">
+            <slot name="screenshot" class="screenshot-img"></slot>
+        </div>
+        <div class="portfolio-description portfolio-entry-item">
+            <slot name="description">No description added.</slot>
+
+            <slot name="github-link"></slot>
+            <ul class="technologies-icons">
+                <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
+                <li><img src="images/icons/hugging-face-icon.svg" alt=""/><span>Hugging Face</span></li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<!--Content-->
 <div class="corner-box" id="top-left-box"></div>
 <div class="corner-box" id="top-right-box"></div>
 <div class="corner-box" id="bottom-left-box"></div>
@@ -75,34 +101,49 @@
   <main id="#portfolio">
     <div id="collaborative-projects">
       <h2>projects i have worked on</h2>
-      <div class="portfolio-entry">
-        <div class="portfolio-header-section">
-          <div class="portfolio-entry-item portfolio-header">
-            <h3><a href="https://huggingface.co/spaces/leandrumartin/ai-i-spy">AI I Spy</a></h3>
-          </div>
-          <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="images/screenshots/i_spy.png" alt=""/>
-          </div>
-        </div>
-        <div class="portfolio-description portfolio-entry-item">
-          <p>
-            An AI-powered version of the game I Spy, created by integrating two different publicly available AI models. I built this as part of a set of AI-based tools created with a classmate to entertain children, as the final project for the AI in Modern Software Development class at SLU.
-          </p>
-
-          <p class="github-link">
-            <a href="https://github.com/McCoyBrandon/Group2_Final_Project"
-            >View on GitHub
-              <span class="github-link-image"></span>
-            </a>
-          </p>
-          <ul class="technologies-icons">
-            <li><img src="images/icons/python.svg" alt="" /><span>Python</span></li>
-            <li><img src="images/icons/hugging-face-icon.svg" alt="" /><span>Hugging Face</span></li>
-          </ul>
-        </div>
-      </div>
-
+        <portfolio-header>
+            <a slot="link" href="https://huggingface.co/spaces/leandrumartin/ai-i-spy">AI I Spy</a>
+            <img slot="screenshot" src="images/screenshots/i_spy.png" class="screenshot-img" alt=""/>
+            <p slot="description">
+                An AI-powered version of the game I Spy, created by integrating two different publicly available AI
+                models. I
+                built this as part of a set of AI-based tools created with a classmate to entertain children, as the
+                final
+                project for the AI in Modern Software Development class at SLU.
+            </p>
+        </portfolio-header>
       <hr />
+
+        <div class="portfolio-entry">
+            <div class="portfolio-header-section">
+                <div class="portfolio-entry-item portfolio-header">
+                    <h3><a href="https://huggingface.co/spaces/leandrumartin/ai-i-spy">AI I Spy</a></h3>
+                </div>
+                <div class="portfolio-entry-item portfolio-screenshot">
+                    <img src="images/screenshots/i_spy.png" alt=""/>
+                </div>
+            </div>
+            <div class="portfolio-description portfolio-entry-item">
+                <p>
+                    An AI-powered version of the game I Spy, created by integrating two different publicly available AI
+                    models. I built this as part of a set of AI-based tools created with a classmate to entertain
+                    children, as the final project for the AI in Modern Software Development class at SLU.
+                </p>
+
+                <p class="github-link">
+                    <a href="https://github.com/McCoyBrandon/Group2_Final_Project"
+                    >View on GitHub
+                        <span class="github-link-image"></span>
+                    </a>
+                </p>
+                <ul class="technologies-icons">
+                    <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
+                    <li><img src="images/icons/hugging-face-icon.svg" alt=""/><span>Hugging Face</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
 
       <div class="portfolio-entry">
         <div class="portfolio-header-section">
@@ -144,7 +185,7 @@
             <h3><a href="https://galleryofglosses.org">Gallery of Glosses</a></h3>
           </div>
           <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="images/screenshots/gallery_of_glosses.png" alt=""/>
+              <img src="images/screenshots/gallery_of_glosses.png" class="screenshot-img" alt=""/>
           </div>
         </div>
         <div class="portfolio-description portfolio-entry-item">
@@ -210,7 +251,7 @@
             <h3><a href="/flow">Flow for Spotify</a></h3>
           </div>
           <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="images/screenshots/flow.png" alt=""/>
+              <img src="images/screenshots/flow.png" class="screenshot-img" alt=""/>
           </div>
         </div>
         <div class="portfolio-description portfolio-entry-item">
@@ -240,7 +281,7 @@
             <h3><a href="/music-blog">Music Blog</a></h3>
           </div>
           <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="images/screenshots/music_blog.png" alt=""/>
+              <img src="images/screenshots/music_blog.png" class="screenshot-img" alt=""/>
           </div>
         </div>
         <div class="portfolio-description portfolio-entry-item">

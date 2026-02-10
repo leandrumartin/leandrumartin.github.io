@@ -431,6 +431,10 @@ ul.technologies-icons {
     margin-bottom: 10%;
   }
 
+  .screenshot-img {
+    width: 100%;
+  }
+
   #bio {
     margin: 10%;
     padding: 5%;
@@ -506,8 +510,8 @@ ul.technologies-icons {
     margin-bottom: 30%;
   }
 
-  .portfolio-screenshot img {
-      max-width: 60vw;
+  .screenshot-img {
+    max-width: 60vw;
   }
 
   #bio {
