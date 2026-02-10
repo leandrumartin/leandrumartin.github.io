@@ -480,10 +480,6 @@ ul.technologies-icons {
   }
 
   .portfolio-screenshot {
-    img {
-      width: 100%;
-    }
-
     &:hover {
       flex: 3;
     }
