@@ -6,6 +6,22 @@
   <title>Leandru Martin's Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
   <script type="module" src="script.js"></script>
+  <link rel="icon" type="image/x-icon" href="/images/favicon_pen.png">
+
+  <meta name="author" content="Leandru Martin"/>
+  <meta name="color-scheme" content="dark"/>
+  <meta name="description"
+        content="Leandru Martin's portfolio showcasing collaborative and individual software development projects, including work in JavaScript, Python, Node.js, React, Java, and IoT development."/>
+  <meta name="keywords"
+        content="Leandru Martin, portfolio, software development, JavaScript, Python, Node.js, React, Java, IoT, Raspberry Pi, web development"/>
+  <meta name="theme-color" content="indigo"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://leandrumartin.github.io"/>
+  <meta property="og:title" content="Leandru Martin's Portfolio"/>
+  <meta property="og:description"
+        content="Leandru Martin's portfolio showcasing collaborative and individual software development projects, including work in JavaScript, Python, Node.js, React, Java, and IoT development."/>
+  <meta property="og:image" content="images/social_logo.png"/>
 </head>
 <body>
 <!--Templates-->
@@ -60,36 +76,36 @@
 </div>
 
 <div class="main-container">
-  <nav>
+  <nav class="overlay">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
       🍔
     </label>
     <ul>
       <li>
-        <a href="#">
+        <a href="#" class="button">
           Top
           <text class="nav-img">🔝</text>
         </a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/leandru-martin/">
+        <a href="https://www.linkedin.com/in/leandru-martin/" class="button">
           LinkedIn<img class="nav-img" src="images/icons/linkedin.png" alt="">
         </a>
       </li>
       <li>
-        <a href="https://github.com/leandrumartin/">
-          GitHub<img class="nav-img" src="images/icons/github.svg" alt="">
+        <a href="https://github.com/leandrumartin/" class="button">
+          GitHub<img class="nav-img" src="images/icons/github.svg" style="filter: brightness(0) invert(1)" alt="">
         </a>
       </li>
       <li>
-        <a href="mailto:leandrumartin@gmail.com">
+        <a href="mailto:leandrumartin@gmail.com" class="button">
           Email
           <text class="nav-img">📧</text>
         </a>
       </li>
       <li>
-        <a href="/files/Leandru_Martin_resume.pdf">
+        <a href="/files/Leandru_Martin_resume.pdf" class="button">
           Résumé
           <text class="nav-img">📄</text>
         </a>
@@ -129,6 +145,56 @@
                     models. I built this as part of a set of AI-based tools created with a classmate to entertain
                     children, as the final project for the AI in Modern Software Development class at SLU.
                 </p>
+      <div class="portfolio-entry">
+        <div class="portfolio-header-section">
+          <div class="portfolio-entry-item portfolio-header">
+            <h3><a href="https://oss-slu.github.io/Pi4Micronaut">Pi4Micronaut</a></h3>
+          </div>
+          <div class="portfolio-entry-item portfolio-screenshot">
+            <img src="https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut"
+                 alt=""/>
+          </div>
+        </div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.
+          </p>
+          <p>
+            I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a
+            simulated Agile app development environment for the undergraduate senior capstone project for SLU's
+            computer science program. I previously was an undergraduate developer on this project, where I helped add
+            support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed
+            hardware testing.
+          </p>
+          <p class="github-link">
+            <a href="https://github.com/oss-slu/Pi4Micronaut"
+            >View on GitHub
+              <span class="github-link-image"></span>
+            </a>
+          </p>
+          <ul class="technologies-icons">
+            <li><img src="images/icons/java.svg" alt=""/><span>Java</span></li>
+            <li><img src="images/icons/micronaut.svg" alt=""/><span>Micronaut</span></li>
+            <li><img src="images/icons/raspberry-pi.svg" alt=""/><span>Raspberry Pi</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="portfolio-entry">
+        <div class="portfolio-header-section">
+          <div class="portfolio-entry-item portfolio-header">
+            <h3><a href="https://huggingface.co/spaces/leandrumartin/ai-i-spy">AI I Spy</a></h3>
+          </div>
+          <div class="portfolio-entry-item portfolio-screenshot">
+            <img src="images/screenshots/i_spy.png" alt=""/>
+          </div>
+        </div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            An AI-powered version of the game I Spy, created by integrating two different publicly available AI models. I built this as part of a set of AI-based tools created with a classmate to entertain children, as the final project for the AI in Modern Software Development class at SLU.
+          </p>
 
                 <p class="github-link">
                     <a href="https://github.com/McCoyBrandon/Group2_Final_Project"
@@ -149,6 +215,10 @@
         <div class="portfolio-header-section">
           <div class="portfolio-entry-item portfolio-header">
             <h3>TPEN Services</h3>
+          </div>
+          <div class="portfolio-entry-item portfolio-screenshot">
+            <img src="https://opengraph.githubassets.com/5e71dcacb2a547b6285dba8cb9e0149551f51457ddd636686ec6202866f58e8d/CenterForDigitalHumanities/TPEN-services"
+                 alt=""/>
           </div>
         </div>
         <div class="portfolio-description portfolio-entry-item">
@@ -213,28 +283,25 @@
       <div class="portfolio-entry">
         <div class="portfolio-header-section">
           <div class="portfolio-entry-item portfolio-header">
-            <h3>Pi4Micronaut</h3>
+            <h3>Java Chess</h3>
+          </div>
+          <div class="portfolio-entry-item portfolio-screenshot">
+            <img src="images/screenshots/java_chess.png" alt=""/>
           </div>
         </div>
         <div class="portfolio-description portfolio-entry-item">
           <p>
-            Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.
-          </p>
-          <p>
-            I contributed as part of simulated Agile app development environment for senior capstone project. I helped
-            add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed
-            hardware testing.
+            Chess game created (collaboratively with two other students) as final project for CSCI 2300: Principles of
+            Object-Oriented Software Design.
           </p>
           <p class="github-link">
-            <a href="https://github.com/oss-slu/Pi4Micronaut"
+            <a href="https://github.com/leandrumartin/java-chess"
             >View on GitHub
               <span class="github-link-image"></span>
             </a>
           </p>
           <ul class="technologies-icons">
-            <li><img src="images/icons/java.svg" alt="" /><span>Java</span></li>
-            <li><img src="images/icons/micronaut.svg" alt="" /><span>Micronaut</span></li>
-            <li><img src="images/icons/raspberry-pi.svg" alt="" /><span>Raspberry Pi</span></li>
+            <li><img src="images/icons/java.svg" alt=""/><span>Java</span></li>
           </ul>
         </div>
       </div>
@@ -298,6 +365,34 @@
             <li><img src="images/icons/javascript.svg" /><span>JavaScript</span></li>
             <li><img src="images/icons/reactjs.svg" alt=""/><span>React.js</span></li>
             <li><img src="images/icons/bootstrap.svg"/><span>Bootstrap</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="portfolio-entry">
+        <div class="portfolio-header-section">
+          <div class="portfolio-entry-item portfolio-header">
+            <h3>Twenty Questions</h3>
+          </div>
+          <div class="portfolio-entry-item portfolio-screenshot">
+            <img src="images/screenshots/twenty_questions.png" alt=""/>
+          </div>
+        </div>
+        <div class="portfolio-description portfolio-entry-item">
+          <p>
+            A version of the game Twenty Questions, remade from a version that I created when I first was learning
+            Python.
+          </p>
+          <p class="github-link">
+            <a href="https://github.com/leandrumartin/twenty-questions"
+            >View on GitHub
+              <span class="github-link-image"></span>
+            </a>
+          </p>
+          <ul class="technologies-icons">
+            <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
           </ul>
         </div>
       </div>
