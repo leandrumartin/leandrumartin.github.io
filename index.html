@@ -115,41 +115,34 @@
   <main id="#portfolio">
     <div id="collaborative-projects">
       <h2>projects i have worked on</h2>
-      <div class="portfolio-entry">
-        <div class="portfolio-header-section">
-          <div class="portfolio-entry-item portfolio-header">
-            <h3><a href="https://oss-slu.github.io/Pi4Micronaut">Pi4Micronaut</a></h3>
-          </div>
-          <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut"
-                 class="screenshot-img"
-                 alt=""/>
-          </div>
-        </div>
-        <div class="portfolio-description portfolio-entry-item">
-          <p>
-            Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.
-          </p>
-          <p>
-            I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a
-            simulated Agile app development environment for the undergraduate senior capstone project for SLU's
-            computer science program. I previously was an undergraduate developer on this project, where I helped add
-            support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed
-            hardware testing.
-          </p>
-          <p class="github-link">
-            <a href="https://github.com/oss-slu/Pi4Micronaut"
-            >View on GitHub
-              <span class="github-link-image"></span>
-            </a>
-          </p>
-          <ul class="technologies-icons">
-            <li><img src="images/icons/java.svg" alt=""/><span>Java</span></li>
-            <li><img src="images/icons/micronaut.svg" alt=""/><span>Micronaut</span></li>
-            <li><img src="images/icons/raspberry-pi.svg" alt=""/><span>Raspberry Pi</span></li>
-          </ul>
-        </div>
-      </div>
+      <portfolio-entry>
+        <a slot="link" href="https://oss-slu.github.io/Pi4Micronaut">Pi4Micronaut</a>
+        <img slot="screenshot"
+             src="https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut"
+             class="screenshot-img"
+             alt=""/>
+        <p slot="description">
+          Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.
+        </p>
+        <p slot="description">
+          I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a
+          simulated Agile app development environment for the undergraduate senior capstone project for SLU's
+          computer science program. I previously was an undergraduate developer on this project, where I helped add
+          support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed
+          hardware testing.
+        </p>
+        <p slot="github-link" class="github-link">
+          <a href="https://github.com/oss-slu/Pi4Micronaut"
+          >View on GitHub
+            <span class="github-link-image"></span>
+          </a>
+        </p>
+        <ul slot="technologies" class="technologies-icons">
+          <li><img src="images/icons/java.svg" alt=""/><span>Java</span></li>
+          <li><img src="images/icons/micronaut.svg" alt=""/><span>Micronaut</span></li>
+          <li><img src="images/icons/raspberry-pi.svg" alt=""/><span>Raspberry Pi</span></li>
+        </ul>
+      </portfolio-entry>
 
       <hr/>
 
@@ -176,35 +169,6 @@
       </portfolio-entry>
 
       <hr/>
-
-      <div class="portfolio-entry">
-        <div class="portfolio-header-section">
-          <div class="portfolio-entry-item portfolio-header">
-            <h3><a href="https://huggingface.co/spaces/leandrumartin/ai-i-spy">AI I Spy</a></h3>
-          </div>
-          <div class="portfolio-entry-item portfolio-screenshot">
-            <img src="images/screenshots/i_spy.png" class="screenshot-img" alt=""/>
-          </div>
-        </div>
-        <div class="portfolio-description portfolio-entry-item">
-          <p>
-            An AI-powered version of the game I Spy, created by integrating two different publicly available AI models. I built this as part of a set of AI-based tools created with a classmate to entertain children, as the final project for the AI in Modern Software Development class at SLU.
-          </p>
-
-                <p class="github-link">
-                    <a href="https://github.com/McCoyBrandon/Group2_Final_Project"
-                    >View on GitHub
-                        <span class="github-link-image"></span>
-                    </a>
-                </p>
-                <ul class="technologies-icons">
-                    <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
-                    <li><img src="images/icons/hugging-face-icon.svg" alt=""/><span>Hugging Face</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr/>
 
       <div class="portfolio-entry">
         <div class="portfolio-header-section">
