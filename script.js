@@ -11,33 +11,33 @@ window.addEventListener('scroll', () => {
 }, false)
 
 if (Math.random() < 0.1) {
-    let cookieNotice = document.createElement('div')
-    cookieNotice.id = 'cookie-notice'
-    cookieNotice.className = 'overlay'
-    cookieNotice.innerHTML = `
-      <p>
-        We do not use cookies to enhance your browsing experience. By clicking "OK," you consent to our non-use of cookies.
-      </p>
-      <button id="cookie-notice-dismiss" class="button" onclick="document.getElementById('cookie-notice').style.display='none'">OK</button>
-    `
-    document.body.appendChild(cookieNotice)
+  let cookieNotice = document.createElement('div')
+  cookieNotice.id = 'cookie-notice'
+  cookieNotice.className = 'overlay'
+  cookieNotice.innerHTML = `
+    <p>
+      We do not use cookies to enhance your browsing experience. By clicking "OK," you consent to our non-use of cookies.
+    </p>
+    <button id="cookie-notice-dismiss" class="button" onclick="document.getElementById('cookie-notice').style.display='none'">OK</button>
+  `
+  document.body.appendChild(cookieNotice)
 }
 
 class PortfolioEntry extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+      super();
+  }
 
-    connectedCallback() {
-        let template = document.getElementById("portfolio-entry-template");
-        let templateContent = template.content.cloneNode(true);
+  connectedCallback() {
+    let template = document.getElementById("portfolio-entry-template");
+    let templateContent = template.content.cloneNode(true);
 
-        const shadowRoot = this.attachShadow({mode: "open"});
-        shadowRoot.appendChild(document.importNode(templateContent, true));
+    const shadowRoot = this.attachShadow({mode: "open"});
+    shadowRoot.appendChild(document.importNode(templateContent, true));
 
-        shadowRoot.adoptedStyleSheets = [style];
-        // shadowRoot.appendChild(link);
-    }
+    shadowRoot.adoptedStyleSheets = [style];
+    // shadowRoot.appendChild(link);
+  }
 }
 
 customElements.define('portfolio-entry', PortfolioEntry);
@@ -46,51 +46,51 @@ const collaborativeProjects = document.getElementById('collaborative-projects');
 const individualProjects = document.getElementById('individual-projects');
 
 data.default.collaborativeProjects.forEach((project) => {
-    const entryDiv = document.createElement("div");
-    entryDiv.classList.add("portfolio-entry");
+  const entryDiv = document.createElement("div");
+  entryDiv.classList.add("portfolio-entry");
 
-    entryDiv.innerHTML = `
-    <portfolio-entry>
-      ${project.link ?
-        `<a slot="link" href="${project.link}">${project.title}</a>` :
-        `<span slot="link">${project.title}</span>`
-      }
-      ${project.screenshot ?
-        `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot">
-          <img src="${project.screenshot}"
-               class="screenshot-img"
-               alt=""/>
-        </div>` :
-        ""
-      }
-      ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
-      ${project.github ?
-        `<p slot="github-link" class="github-link">
-            <a href="${project.github}"
-            >View on GitHub
-                <span class="github-link-image"></span>
-            </a>
-        </p>` :
-        ""
-      }
-      <ul slot="technologies" class="technologies-icons">
-         ${project.technologies
-            .map(
-              tech =>
-                `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
-            )
-            .join("")
-          }
-      </ul>
-    </portfolio-entry>
+  entryDiv.innerHTML = `
+  <portfolio-entry>
+    ${project.link ?
+      `<a slot="link" href="${project.link}">${project.title}</a>` :
+      `<span slot="link">${project.title}</span>`
+    }
+    ${project.screenshot ?
+      `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot">
+        <img src="${project.screenshot}"
+             class="screenshot-img"
+             alt=""/>
+      </div>` :
+      ""
+    }
+    ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
+    ${project.github ?
+      `<p slot="github-link" class="github-link">
+          <a href="${project.github}"
+          >View on GitHub
+              <span class="github-link-image"></span>
+          </a>
+      </p>` :
+      ""
+    }
+    <ul slot="technologies" class="technologies-icons">
+       ${project.technologies
+          .map(
+            tech =>
+              `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
+          )
+          .join("")
+        }
+    </ul>
+  </portfolio-entry>
 
-      <!-- ${project.screenshot ?
-        `<div class="portfolio-entry-item portfolio-screenshot">
-          <img src="${project.screenshot}" alt="" />
-        </div>` :
-        ""
-    } -->
-  `;
+    <!-- ${project.screenshot ?
+      `<div class="portfolio-entry-item portfolio-screenshot">
+        <img src="${project.screenshot}" alt="" />
+      </div>` :
+      ""
+  } -->
+`;
 
-    collaborativeProjects.appendChild(entryDiv);
+  collaborativeProjects.appendChild(entryDiv);
 })
