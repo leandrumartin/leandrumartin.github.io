@@ -1,0 +1,152 @@
+{
+  "collaborativeProjects": [
+    {
+      "title": "Pi4Micronaut",
+      "description": [
+        "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
+        "I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. I previously was an undergraduate developer on this project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
+      ],
+      "screenshot": "https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut",
+      "github": "https://github.com/oss-slu/Pi4Micronaut",
+      "technologies": [
+        {
+          "name": "Java",
+          "icon": "images/icons/java.svg"
+        },
+        {
+          "name": "Micronaut",
+          "icon": "images/icons/micronaut.svg"
+        },
+        {
+          "name": "Raspberry Pi",
+          "icon": "images/icons/raspberry-pi.svg"
+        }
+      ]
+    },
+    {
+      "title": "AI I Spy",
+      "link": "https://huggingface.co/spaces/leandrumartin/ai-i-spy",
+      "screenshot": "images/screenshots/i_spy.png",
+      "description": [
+        "An AI-powered version of the game I Spy, created by integrating two different publicly available AI models. I built this as part of a set of AI-based tools created with a classmate to entertain children, as the final project for the AI in Modern Software Development class at SLU."
+      ],
+      "github": "https://github.com/McCoyBrandon/Group2_Final_Project",
+      "technologies": [
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        },
+        {
+          "name": "Hugging Face",
+          "icon": "images/icons/hugging-face-icon.svg"
+        }
+      ]
+    },
+    {
+      "title": "TPEN Services",
+      "screenshot": "https://opengraph.githubassets.com/5e71dcacb2a547b6285dba8cb9e0149551f51457ddd636686ec6202866f58e8d/CenterForDigitalHumanities/TPEN-services",
+      "description": [
+        "Node.js back end for TPEN project helping organize data for humanities researchers.",
+        "I contributed as part of simulated Agile app development environment for senior capstone project. Contributions added include added API endpoints and comprehensive unit testing."
+      ],
+      "github": "https://github.com/CenterForDigitalHumanities/TPEN-services",
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "icon": "images/icons/javascript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "images/icons/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "title": "Gallery of Glosses",
+      "link": "https://galleryofglosses.org",
+      "screenshot": "images/screenshots/gallery_of_glosses.png",
+      "description": [
+        "Front end Next.js TypeScript web app for presenting research data to theological scholars."
+      ],
+      "github": "https://github.com/CenterForDigitalHumanities/Gallery-of-Glosses",
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "icon": "images/icons/typescript.svg"
+        },
+        {
+          "name": "Next.js",
+          "icon": "images/icons/nextjs-icon.svg"
+        }
+      ]
+    },
+    {
+      "title": "Java Chess",
+      "screenshot": "images/screenshots/java_chess.png",
+      "description": [
+        "Chess game created (collaboratively with two other students) as final project for CSCI 2300: Principles of Object-Oriented Software Design."
+      ],
+      "github": "https://github.com/leandrumartin/java-chess",
+      "technologies": [
+        {
+          "name": "Java",
+          "icon": "images/icons/java.svg"
+        }
+      ]
+    }
+  ],
+  "individualProjects": [
+    {
+      "title": "Flow for Spotify",
+      "link": "/flow",
+      "screenshot": "images/screenshots/flow.png",
+      "description": [
+        "A tool to reorder a diverse playlist for the smoothest transition between each genre and style. Find your playlist's perfect flow."
+      ],
+      "github": "https://github.com/leandrumartin/flow",
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "icon": "images/icons/javascript.svg"
+        }
+      ]
+    },
+    {
+      "title": "Music Blog",
+      "link": "/music-blog",
+      "screenshot": "images/screenshots/music_blog.png",
+      "description": [
+        "Music blog as the final project for CSCI 4360 Web Technologies."
+      ],
+      "github": "https://github.com/leandrumartin/music-blog",
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "icon": "images/icons/javascript.svg"
+        },
+        {
+          "name": "React.js",
+          "icon": "images/icons/reactjs.svg"
+        },
+        {
+          "name": "Bootstrap",
+          "icon": "images/icons/bootstrap.svg"
+        }
+      ]
+    },
+    {
+      "title": "Twenty Questions",
+      "screenshot": "images/screenshots/twenty_questions.png",
+      "description": [
+        "A version of the game Twenty Questions, remade from a version that I created when I first was learning Python."
+      ],
+      "github": "https://github.com/leandrumartin/twenty-questions",
+      "technologies": [
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        }
+      ]
+    }
+  ]
+}

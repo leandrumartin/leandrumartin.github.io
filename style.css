@@ -68,6 +68,25 @@ html {
   src: local(Leandru), url("fonts/Leandru.ttf") format("ttf");
 }
 
+main a {
+  color: lightblue;
+
+  &:visited {
+    color: plum;
+  }
+
+  &:hover {
+    color: cyan;
+    text-shadow: black 2px 2px 2px;
+  }
+
+  &:active {
+    color: lightcoral;
+    text-shadow: none;
+  }
+
+}
+
 body {
   background-attachment: fixed;
   background-color: rgb(7, 0, 11);
@@ -257,6 +276,16 @@ ul.technologies-icons {
   height: 100%;
 }
 
+.github-link {
+  text-align: end;
+
+  .github-link-image {
+    content: url("images/icons/github.svg");
+    height: 1em;
+    filter: brightness(0) invert(1);
+  }
+}
+
 .header-container {
   justify-content: center;
   align-items: center;
@@ -292,16 +321,6 @@ ul.technologies-icons {
 
 .portfolio-description {
   flex: 1;
-
-  p.github-link {
-    text-align: end;
-
-    .github-link-image {
-      content: url("images/icons/github.svg");
-      height: 1em;
-      filter: brightness(0) invert(1);
-    }
-  }
 }
 
 .portfolio-entry {
@@ -322,25 +341,6 @@ ul.technologies-icons {
   padding: 20px;
 
   background-color: rgb(64, 21, 64);
-
-  a {
-    color: lightblue;
-
-    &:visited {
-      color: plum;
-    }
-
-    &:hover {
-      color: cyan;
-      text-shadow: black 2px 2px 2px;
-    }
-
-    &:active {
-      color: lightcoral;
-      text-shadow: none;
-    }
-
-  }
 }
 
 .portfolio-extra-margin {
@@ -480,10 +480,6 @@ ul.technologies-icons {
   }
 
   .portfolio-screenshot {
-    img {
-      width: 100%;
-    }
-
     &:hover {
       flex: 3;
     }
@@ -493,6 +489,10 @@ ul.technologies-icons {
     margin-bottom: 10%;
   }
 
+  .screenshot-img {
+    width: 100%;
+  }
+
   #bio {
     margin: 10%;
     padding: 5%;
@@ -500,7 +500,7 @@ ul.technologies-icons {
 }
 
 @media (min-width: 1200px) {
-  .portfolio-description p.github-link {
+  .github-link {
     float: right;
   }
 }
@@ -568,8 +568,8 @@ ul.technologies-icons {
     margin-bottom: 30%;
   }
 
-  .portfolio-screenshot img {
-      max-width: 60vw;
+  .screenshot-img {
+    max-width: 60vw;
   }
 
   #bio {
