@@ -1,10 +1,33 @@
 {
   "collaborativeProjects": [
     {
+      "title": "Digital Bone Box",
+      "description": [
+        "An interactive, mobile-friendly web app for anatomy students to study the human skeleton.",
+        "I am currently working as a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. We are working on adding more sets of bones into the app and improving the interface of the study tools."
+      ],
+      "screenshot": "https://opengraph.githubassets.com/62f4a88b36c4cf73e8e83c79b064a595b8c712b92729df15a32bb8fa0de8b412/oss-slu/DigitalBonesBox",
+      "github": "https://github.com/oss-slu/DigitalBonesBox",
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "icon": "images/icons/javascript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "images/icons/nodejs.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        }
+      ]
+    },
+    {
       "title": "Pi4Micronaut",
       "description": [
         "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
-        "I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. I previously was an undergraduate developer on this project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
+        "In the fall semester of 2025, I was a tech lead for this project. Under my leadership, we added support for more hardware components, improved documentation to encourage and facilitate more public open-source contributions, and streamlined our deployment strategy. I previously was an undergraduate developer on the project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
       ],
       "screenshot": "https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut",
       "github": "https://github.com/oss-slu/Pi4Micronaut",
@@ -66,7 +89,7 @@
       "link": "https://galleryofglosses.org",
       "screenshot": "images/screenshots/gallery_of_glosses.png",
       "description": [
-        "Front end Next.js TypeScript web app for presenting research data to theological scholars."
+        "Front end Next.js TypeScript web app for presenting research data to theological scholars. During the summer of 2024, I added several new filters and pages for viewing data."
       ],
       "github": "https://github.com/CenterForDigitalHumanities/Gallery-of-Glosses",
       "technologies": [
@@ -84,7 +107,7 @@
       "title": "Java Chess",
       "screenshot": "images/screenshots/java_chess.png",
       "description": [
-        "Chess game created (collaboratively with two other students) as final project for CSCI 2300: Principles of Object-Oriented Software Design."
+        "Chess game created as the final project for CSCI 2300: Principles of Object-Oriented Software Design. Made collaboratively with two other students as a showcase of MVC design architecture and the Java Swing GUI library."
       ],
       "github": "https://github.com/leandrumartin/java-chess",
       "technologies": [
@@ -116,7 +139,7 @@
       "link": "/music-blog",
       "screenshot": "images/screenshots/music_blog.png",
       "description": [
-        "Music blog as the final project for CSCI 4360 Web Technologies."
+        "Music blog as the final project for CSCI 4360: Web Technologies, as a showcase of JavaScript and CSS frameworks."
       ],
       "github": "https://github.com/leandrumartin/music-blog",
       "technologies": [

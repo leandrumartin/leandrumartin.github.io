@@ -54,40 +54,40 @@ const addProjects = (projects, container) => {
     entryDiv.classList.add("portfolio-entry");
 
     entryDiv.innerHTML = `
-  <portfolio-entry>
-    ${project.link ?
-      `<a slot="link" href="${project.link}">${project.title}</a>` :
-      `<span slot="link">${project.title}</span>`
-    }
-    ${project.screenshot ?
-      `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot">
-        <img src="${project.screenshot}"
-             class="screenshot-img"
-             alt=""/>
-      </div>` :
-      ""
-    }
-    ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
-    ${project.github ?
-      `<p slot="github-link" class="github-link">
-          <a href="${project.github}"
-          >View on GitHub
-              <span class="github-link-image"></span>
-          </a>
-      </p>` :
-      ""
-    }
-    <ul slot="technologies" class="technologies-icons">
-       ${project.technologies
-      .map(
-        tech =>
-          `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
-      )
-      .join("")
-    }
-    </ul>
-  </portfolio-entry>
-`;
+      <portfolio-entry>
+        ${project.link ?
+          `<a slot="link" href="${project.link}">${project.title}</a>` :
+          `<span slot="link">${project.title}</span>`
+        }
+        ${project.screenshot ?
+          `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot">
+            <img src="${project.screenshot}"
+                 class="screenshot-img"
+                 alt=""/>
+          </div>` :
+          ""
+        }
+        ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
+        ${project.github ?
+          `<p slot="github-link" class="github-link">
+              <a href="${project.github}"
+              >View on GitHub
+                  <span class="github-link-image"></span>
+              </a>
+          </p>` :
+          ""
+        }
+        <ul slot="technologies" class="technologies-icons">
+           ${project.technologies
+          .map(
+            tech =>
+              `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
+          )
+          .join("")
+        }
+        </ul>
+      </portfolio-entry>
+    `;
 
     if (index > 0) {
       container.appendChild(document.createElement("hr"));
@@ -100,5 +100,5 @@ const addProjects = (projects, container) => {
 
 const collaborativeProjects = document.getElementById('collaborative-projects');
 addProjects("collaborativeProjects", collaborativeProjects);
-const individualProjects = document.getElementById('individual-projects');
+const individualProjects = document.getElementById('inserted-individual-projects');
 addProjects("individualProjects", individualProjects);
