@@ -42,10 +42,7 @@
             <slot name="description">No description added.</slot>
 
             <slot name="github-link"></slot>
-            <ul class="technologies-icons">
-                <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
-                <li><img src="images/icons/hugging-face-icon.svg" alt=""/><span>Hugging Face</span></li>
-            </ul>
+          <slot name="technologies"></slot>
         </div>
     </div>
 </template>
@@ -172,6 +169,10 @@
             <span class="github-link-image"></span>
           </a>
         </p>
+        <ul slot="technologies" class="technologies-icons">
+          <li><img src="images/icons/python.svg" alt=""/><span>Python</span></li>
+          <li><img src="images/icons/hugging-face-icon.svg" alt=""/><span>Hugging Face</span></li>
+        </ul>
       </portfolio-entry>
 
       <hr/>
