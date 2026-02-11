@@ -1,6 +1,29 @@
 {
   "collaborativeProjects": [
     {
+      "title": "Pi4Micronaut",
+      "description": [
+        "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
+        "I am currently a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. I previously was an undergraduate developer on this project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
+      ],
+      "screenshot": "https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut",
+      "github": "https://github.com/oss-slu/Pi4Micronaut",
+      "technologies": [
+        {
+          "name": "Java",
+          "icon": "images/icons/java.svg"
+        },
+        {
+          "name": "Micronaut",
+          "icon": "images/icons/micronaut.svg"
+        },
+        {
+          "name": "Raspberry Pi",
+          "icon": "images/icons/raspberry-pi.svg"
+        }
+      ]
+    },
+    {
       "title": "AI I Spy",
       "link": "https://huggingface.co/spaces/leandrumartin/ai-i-spy",
       "screenshot": "images/screenshots/i_spy.png",
@@ -21,6 +44,7 @@
     },
     {
       "title": "TPEN Services",
+      "screenshot": "https://opengraph.githubassets.com/5e71dcacb2a547b6285dba8cb9e0149551f51457ddd636686ec6202866f58e8d/CenterForDigitalHumanities/TPEN-services",
       "description": [
         "Node.js back end for TPEN project helping organize data for humanities researchers.",
         "I contributed as part of simulated Agile app development environment for senior capstone project. Contributions added include added API endpoints and comprehensive unit testing."
@@ -39,6 +63,8 @@
     },
     {
       "title": "Gallery of Glosses",
+      "link": "https://galleryofglosses.org",
+      "screenshot": "images/screenshots/gallery_of_glosses.png",
       "description": [
         "Front end Next.js TypeScript web app for presenting research data to theological scholars."
       ],
@@ -55,24 +81,16 @@
       ]
     },
     {
-      "title": "Pi4Micronaut",
+      "title": "Java Chess",
+      "screenshot": "images/screenshots/java_chess.png",
       "description": [
-        "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
-        "I contributed as part of simulated Agile app development environment for senior capstone project. I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
+        "Chess game created (collaboratively with two other students) as final project for CSCI 2300: Principles of Object-Oriented Software Design."
       ],
-      "github": "https://github.com/oss-slu/Pi4Micronaut",
+      "github": "https://github.com/leandrumartin/java-chess",
       "technologies": [
         {
           "name": "Java",
           "icon": "images/icons/java.svg"
-        },
-        {
-          "name": "Micronaut",
-          "icon": "images/icons/micronaut.svg"
-        },
-        {
-          "name": "Raspberry Pi",
-          "icon": "images/icons/raspberry-pi.svg"
         }
       ]
     }
