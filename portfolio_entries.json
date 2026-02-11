@@ -133,6 +133,20 @@
           "icon": "images/icons/bootstrap.svg"
         }
       ]
+    },
+    {
+      "title": "Twenty Questions",
+      "screenshot": "images/screenshots/twenty_questions.png",
+      "description": [
+        "A version of the game Twenty Questions, remade from a version that I created when I first was learning Python."
+      ],
+      "github": "https://github.com/leandrumartin/twenty-questions",
+      "technologies": [
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        }
+      ]
     }
   ]
 }
