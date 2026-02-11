@@ -50,39 +50,42 @@ data.default.collaborativeProjects.forEach((project) => {
     entryDiv.classList.add("portfolio-entry");
 
     entryDiv.innerHTML = `
-    <div class="portfolio-header-section">
-      <div class="portfolio-entry-item portfolio-header">
-        <h3>
-          ${project.link ?
-        `<a href="${project.link}">${project.title}</a>` :
-        project.title
-    }
-        </h3>
-      </div>
-      ${project.screenshot ?
+    <portfolio-entry>
+      ${project.link ?
+        `<a slot="link" href="${project.link}">${project.title}</a>` :
+        `<span slot="link">${project.title}</span>`
+      }
+      <img slot="screenshot"
+           src="${project.screenshot}"
+           class="screenshot-img"
+           alt=""/>
+      ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
+      ${project.github ?
+        `<p slot="github-link" class="github-link">
+            <a href="${project.github}"
+            >View on GitHub
+                <span class="github-link-image"></span>
+            </a>
+        </p>` :
+        ""
+      }
+      <ul slot="technologies" class="technologies-icons">
+         ${project.technologies
+            .map(
+              tech =>
+                `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
+            )
+            .join("")
+          }
+      </ul>
+    </portfolio-entry>
+
+      <!-- ${project.screenshot ?
         `<div class="portfolio-entry-item portfolio-screenshot">
           <img src="${project.screenshot}" alt="" />
         </div>` :
         ""
-    }
-    </div>
-    <div class="portfolio-description portfolio-entry-item">
-      ${project.description.map(paragraph => `<p>${paragraph}</p>`).join("")}
-      ${project.github ?
-        `<p class="github-link">
-      <a href="${project.github}">View on GitHub</a>
-    </p>` :
-        ""
-    }
-      <ul class="technologies-icons">
-        ${project.technologies
-        .map(
-            tech =>
-                `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
-        )
-        .join("")}
-      </ul>
-    </div>
+    } -->
   `;
 
     collaborativeProjects.appendChild(entryDiv);
