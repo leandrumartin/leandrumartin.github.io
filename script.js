@@ -100,5 +100,5 @@ const addProjects = (projects, container) => {
 
 const collaborativeProjects = document.getElementById('collaborative-projects');
 addProjects("collaborativeProjects", collaborativeProjects);
-const individualProjects = document.getElementById('individual-projects');
+const individualProjects = document.getElementById('inserted-individual-projects');
 addProjects("individualProjects", individualProjects);
