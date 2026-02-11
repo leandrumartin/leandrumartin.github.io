@@ -45,6 +45,7 @@ customElements.define('portfolio-entry', PortfolioEntry);
 const collaborativeProjects = document.getElementById('collaborative-projects');
 const individualProjects = document.getElementById('individual-projects');
 
+let index = 0;
 data.default.collaborativeProjects.forEach((project) => {
   const entryDiv = document.createElement("div");
   entryDiv.classList.add("portfolio-entry");
@@ -83,14 +84,12 @@ data.default.collaborativeProjects.forEach((project) => {
         }
     </ul>
   </portfolio-entry>
-
-    <!-- ${project.screenshot ?
-      `<div class="portfolio-entry-item portfolio-screenshot">
-        <img src="${project.screenshot}" alt="" />
-      </div>` :
-      ""
-  } -->
 `;
 
+  if (index > 0) {
+    collaborativeProjects.appendChild(document.createElement("hr"));
+  }
   collaborativeProjects.appendChild(entryDiv);
+
+  index++;
 })
