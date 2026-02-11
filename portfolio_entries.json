@@ -27,7 +27,7 @@
       "title": "Pi4Micronaut",
       "description": [
         "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
-        "In the fall semester of 2025, I was a tech lead for this project. Under my leadership, we I previously was an undergraduate developer on it, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
+        "In the fall semester of 2025, I was a tech lead for this project. Under my leadership, we added support for more hardware components, improved documentation to encourage and facilitate more public open-source contributions, and streamlined our deployment strategy. I previously was an undergraduate developer on the project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
       ],
       "screenshot": "https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut",
       "github": "https://github.com/oss-slu/Pi4Micronaut",
