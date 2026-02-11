@@ -1,9 +1,4 @@
 import * as data from './portfolio_entries.json' with {type: 'json'};
-import style from './style.css' with {type: 'css'};
-
-const link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = './style.css';
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
@@ -34,9 +29,11 @@ class PortfolioEntry extends HTMLElement {
 
     const shadowRoot = this.attachShadow({mode: "open"});
     shadowRoot.appendChild(document.importNode(templateContent, true));
-
-    shadowRoot.adoptedStyleSheets = [style];
-    // shadowRoot.appendChild(link);
+    
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = './style.css';
+    shadowRoot.appendChild(link);
   }
 }
 
