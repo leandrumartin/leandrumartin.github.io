@@ -42,15 +42,18 @@ class PortfolioEntry extends HTMLElement {
 
 customElements.define('portfolio-entry', PortfolioEntry);
 
-const collaborativeProjects = document.getElementById('collaborative-projects');
-const individualProjects = document.getElementById('individual-projects');
+/**
+ * Parses projects from the JSON and add them to the container.
+ * @param projects String key of the projects in the JSON
+ * @param container HTMLElement to add the projects to
+ */
+const addProjects = (projects, container) => {
+  let index = 0;
+  data.default[projects].forEach((project) => {
+    const entryDiv = document.createElement("div");
+    entryDiv.classList.add("portfolio-entry");
 
-let index = 0;
-data.default.collaborativeProjects.forEach((project) => {
-  const entryDiv = document.createElement("div");
-  entryDiv.classList.add("portfolio-entry");
-
-  entryDiv.innerHTML = `
+    entryDiv.innerHTML = `
   <portfolio-entry>
     ${project.link ?
       `<a slot="link" href="${project.link}">${project.title}</a>` :
@@ -76,20 +79,26 @@ data.default.collaborativeProjects.forEach((project) => {
     }
     <ul slot="technologies" class="technologies-icons">
        ${project.technologies
-          .map(
-            tech =>
-              `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
-          )
-          .join("")
-        }
+      .map(
+        tech =>
+          `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
+      )
+      .join("")
+    }
     </ul>
   </portfolio-entry>
 `;
 
-  if (index > 0) {
-    collaborativeProjects.appendChild(document.createElement("hr"));
-  }
-  collaborativeProjects.appendChild(entryDiv);
+    if (index > 0) {
+      container.appendChild(document.createElement("hr"));
+    }
+    container.appendChild(entryDiv);
 
-  index++;
-})
+    index++;
+  })
+}
+
+const collaborativeProjects = document.getElementById('collaborative-projects');
+addProjects("collaborativeProjects", collaborativeProjects);
+const individualProjects = document.getElementById('individual-projects');
+addProjects("individualProjects", individualProjects);
