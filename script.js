@@ -22,13 +22,13 @@ if (Math.random() < 0.1) {
     document.body.appendChild(cookieNotice)
 }
 
-class PortfolioHeader extends HTMLElement {
+class PortfolioEntry extends HTMLElement {
     constructor() {
         super();
     }
 
     connectedCallback() {
-        let template = document.getElementById("portfolio-header-template");
+        let template = document.getElementById("portfolio-entry-template");
         let templateContent = template.content.cloneNode(true);
 
         const shadowRoot = this.attachShadow({mode: "open"});
@@ -39,4 +39,4 @@ class PortfolioHeader extends HTMLElement {
     }
 }
 
-customElements.define('portfolio-header', PortfolioHeader);
+customElements.define('portfolio-entry', PortfolioEntry);
