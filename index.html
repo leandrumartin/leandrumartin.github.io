@@ -26,25 +26,23 @@
 <body>
 <!--Templates-->
 <template id="portfolio-entry-template">
-    <div class="portfolio-entry">
-        <div class="portfolio-header-section">
-            <div class="portfolio-entry-item portfolio-header">
-                <h3>
-                    <slot name="link"></slot>
-                </h3>
-            </div>
-          <div class="portfolio-entry-item portfolio-screenshot">
-            <slot name="screenshot"></slot>
-          </div>
-        </div>
-
-        <div class="portfolio-description portfolio-entry-item">
-            <slot name="description">No description added.</slot>
-
-            <slot name="github-link"></slot>
-          <slot name="technologies"></slot>
-        </div>
+  <div class="portfolio-entry">
+    <div class="portfolio-header-section">
+      <div class="portfolio-entry-item portfolio-header">
+        <h3>
+          <slot name="link"></slot>
+        </h3>
+      </div>
+    <slot name="screenshot"></slot>
     </div>
+
+    <div class="portfolio-description portfolio-entry-item">
+      <slot name="description">No description added.</slot>
+
+      <slot name="github-link"></slot>
+      <slot name="technologies"></slot>
+    </div>
+  </div>
 </template>
 
 <!--Content-->

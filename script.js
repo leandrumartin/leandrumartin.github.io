@@ -55,10 +55,14 @@ data.default.collaborativeProjects.forEach((project) => {
         `<a slot="link" href="${project.link}">${project.title}</a>` :
         `<span slot="link">${project.title}</span>`
       }
-      <img slot="screenshot"
-           src="${project.screenshot}"
-           class="screenshot-img"
-           alt=""/>
+      ${project.screenshot ?
+        `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot">
+          <img src="${project.screenshot}"
+               class="screenshot-img"
+               alt=""/>
+        </div>` :
+        ""
+      }
       ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
       ${project.github ?
         `<p slot="github-link" class="github-link">
