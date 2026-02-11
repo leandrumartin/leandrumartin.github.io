@@ -276,6 +276,16 @@ ul.technologies-icons {
   height: 100%;
 }
 
+.github-link {
+  text-align: end;
+
+  .github-link-image {
+    content: url("images/icons/github.svg");
+    height: 1em;
+    filter: brightness(0) invert(1);
+  }
+}
+
 .header-container {
   justify-content: center;
   align-items: center;
@@ -311,16 +321,6 @@ ul.technologies-icons {
 
 .portfolio-description {
   flex: 1;
-
-  p.github-link {
-    text-align: end;
-
-    .github-link-image {
-      content: url("images/icons/github.svg");
-      height: 1em;
-      filter: brightness(0) invert(1);
-    }
-  }
 }
 
 .portfolio-entry {
