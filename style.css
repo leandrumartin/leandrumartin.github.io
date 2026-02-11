@@ -500,7 +500,7 @@ ul.technologies-icons {
 }
 
 @media (min-width: 1200px) {
-  .portfolio-description p.github-link {
+  .github-link {
     float: right;
   }
 }
