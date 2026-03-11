@@ -666,7 +666,7 @@ ul.technologies-icons {
     }
 
     &:hover span {
-      top: calc(100% + 5px);
+      transform: translateY(5px);
       opacity: 1;
       transition: 100ms;
     }
