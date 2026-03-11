@@ -3,8 +3,27 @@ This file uses the ordering standard defined at
 https://9elements.com/css-rule-order/
 */
 
+:root {
+  --accent-light: lavender;
+  --accent-dark: gray;
+
+  --bg-primary-color: rgb(7, 0, 11);
+
+  --border-radius-lg: 30px;
+  --border-radius-md: 20px;
+  --border-radius-sm: 10px;
+
+  --shadow-color: black;
+  --shadow-size-lg: 4px 4px 4px;
+  --shadow-size-md: 3px 3px 3px;
+  --shadow-size-sm: 2px 2px 2px;
+  --shadow-lg: var(--shadow-color) var(--shadow-size-lg), inset var(--shadow-color) var(--shadow-size-lg);
+  --shadow-md: var(--shadow-color) var(--shadow-size-md), inset var(--shadow-color) var(--shadow-size-md);
+  --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
+}
+
 html {
-  scrollbar-color: lavender rgb(7, 0, 11);
+  scrollbar-color: var(--accent-light) var(--bg-primary-color);
 }
 
 @keyframes cookie-notice-fade-in {
@@ -23,14 +42,14 @@ html {
     width: 50%;
     height: 25%;
 
-    background-color: rgba(7, 0, 11, 100%);
+    background-color: var(--bg-primary-color);
   }
   to {
     border-radius: 50px;
     width: 100%;
     height: 200%;
 
-    background-color: rgba(7, 0, 11, 85%);
+    background-color: rgb(from var(--bg-primary-color) r g b / 85%);
     backdrop-filter: blur(50px) saturate(3) brightness(0.75) hue-rotate(360deg);
   }
 }
@@ -89,14 +108,14 @@ main a {
 
 body {
   background-attachment: fixed;
-  background-color: rgb(7, 0, 11);
+  background-color: var(--bg-primary-color);
 
   font-family: sans-serif;
   color: snow;
 }
 
 button {
-  border: 1px solid gray;
+  border: 1px solid var(--accent-dark);
   border-radius: 4px;
 }
 
@@ -105,9 +124,9 @@ footer {
   position: absolute;
   left: 0;
 
-  box-shadow: inset black 3px 3px 3px;
-  border-top: 2px solid gray;
-  border-radius: 20px 20px 0 0;
+  box-shadow: inset var(--shadow-color) var(--shadow-size-md);
+  border-top: 2px solid var(--accent-dark);
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
   box-sizing: border-box;
   width: 100%;
   padding: 10px 15px;
@@ -118,10 +137,10 @@ h2 {
   z-index: 500;
 
   margin: 16px 30px;
-  box-shadow: rgb(32, 0, 16) 4px 4px 4px, inset rgb(32, 0, 16) 4px 4px 4px;
+  box-shadow: var(--shadow-lg);
   border: 5px solid rgb(160, 10, 100);
   width: fit-content;
-  border-radius: 30px;
+  border-radius: var(--border-radius-lg);
   padding: 10px;
 
   background-color: rgb(90, 0, 55);
@@ -199,7 +218,7 @@ ul.technologies-icons {
     display: flex;
 
     margin: 2px;
-    border: 1px solid gray;
+    border: 1px solid var(--accent-dark);
     border-radius: 4px;
     min-width: 1.5em;
     padding: 5px;
@@ -227,7 +246,7 @@ ul.technologies-icons {
   color: rgb(220, 210, 220);
 
   &:hover {
-    box-shadow: black 4px 4px 4px;
+    box-shadow: var(--shadow-color) 4px 4px 4px;
 
     transition: 200ms;
 
@@ -237,7 +256,7 @@ ul.technologies-icons {
   &:active {
     transition: 200ms;
 
-    box-shadow: inset black 2px 2px 2px;
+    box-shadow: inset var(--shadow-color) 2px 2px 2px;
   }
 }
 
@@ -312,8 +331,8 @@ ul.technologies-icons {
 
 .overlay {
   border: 2px solid rgb(96, 64, 96);
-  box-shadow: black 3px 3px 3px, inset black 3px 3px 3px;
-  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius-md);
 
   background-color: rgba(27, 20, 27, 85%);
   backdrop-filter: blur(50px) saturate(3) brightness(0.75);
@@ -335,9 +354,9 @@ ul.technologies-icons {
 
 .portfolio-entry-item {
   margin: 30px;
-  box-shadow: rgb(16, 0, 16) 2px 2px 2px, inset rgb(16, 0, 16) 2px 2px 2px;
+  box-shadow: var(--shadow-sm);
   border: 1px solid rgb(126, 101, 143);
-  border-radius: 10px;
+  border-radius: var(--border-radius-sm);
   padding: 20px;
 
   background-color: rgb(64, 21, 64);
@@ -358,8 +377,9 @@ ul.technologies-icons {
 .portfolio-header {
   flex: 3;
 
-  box-shadow: rgb(0, 0, 64) 3px 3px 3px, inset rgb(0, 0, 64) 3px 3px 3px;
+  box-shadow: var(--shadow-md);
   border: 2px solid rgb(0, 133, 255);
+  border-radius: var(--border-radius-md);
 
   background-color: rgb(0, 60, 115);
 
@@ -384,9 +404,9 @@ ul.technologies-icons {
 }
 
 #bio {
-  box-shadow: black 3px 3px 3px, inset black 3px 3px 3px;
-  border: 2px solid gray;
-  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--accent-dark);
+  border-radius: var(--border-radius-md);
 
   background-color: rgb(0, 0, 32);
 }
@@ -638,7 +658,7 @@ ul.technologies-icons {
 
       transition: 100ms;
 
-      border: 1px solid gray;
+      border: 1px solid var(--accent-dark);
       border-radius: 4px;
       padding: 5px;
 
