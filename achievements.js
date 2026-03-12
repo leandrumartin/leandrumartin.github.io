@@ -5,8 +5,8 @@ document.querySelector("#achievements-open-button").addEventListener("click", ()
   open = !open
   console.log(open)
   if (open) {
-    achievementsPane.style.left = 0
+    achievementsPane.style.transform = "none"
   } else {
-    achievementsPane.style.left = "calc(-100%)"
+    achievementsPane.style.transform = "translateX(calc(-100% + 2em + 2px))"
   }
 })
