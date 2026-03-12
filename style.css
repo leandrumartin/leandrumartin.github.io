@@ -404,25 +404,30 @@ ul.technologies-icons {
 }
 
 #achievements-pane {
-  position: sticky;
+  --button-width: 2.5rem;
+  --pane-border: 2px; /*From .overlay*/
+  --pane-margin: 20px;
+
+  position: fixed;
   top: 12.5vh;
   z-index: 3;
-  left: -100%;
-  float: left;
-  transform: translateX(calc(-100% + 2em + 2px));
+  left: 0;
+  right: 0;
+  transform: translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)));
 
   transition: 200ms;
 
-  /*box-sizing: border-box;*/
-  /*margin: 20px;*/
+  box-sizing: border-box;
+  margin: var(--pane-margin);
   height: 75vh;
-  width: 100%;
 
   button {
     float: right;
 
     border: none;
-    /*border-radius: var(--border-radius-lg)*/
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    box-sizing: border-box;
+    width: var(--button-width);
     height: 100%;
     padding: 2px;
 
