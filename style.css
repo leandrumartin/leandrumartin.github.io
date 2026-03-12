@@ -134,7 +134,7 @@ footer {
 
 h2 {
   position: sticky;
-  z-index: 500;
+  z-index: 1;
 
   margin: 16px 30px;
   box-shadow: var(--shadow-lg);
@@ -156,7 +156,7 @@ hr {
 
 nav {
   position: sticky;
-  z-index: 1000;
+  z-index: 2;
   top: 15px;
 
   margin: 0 20px;
@@ -401,6 +401,48 @@ ul.technologies-icons {
   display: flex;
 
   height: 50vh;
+}
+
+#achievements-pane-sticky-container {
+  position: sticky;
+  z-index: 3;
+  top: 12.5vh;
+  /*float: left;*/
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 75vh;
+  padding: 30px;
+
+  background-color: darkred;
+}
+
+#achievements-pane {
+  position: relative;
+  left: -100%;
+
+  transition: 200ms;
+
+  height: 100%;
+  width: 100%;
+  height: 300px;
+
+  button {
+    float: right;
+
+    border: none;
+    /*border-radius: var(--border-radius-lg)*/
+    height: 100%;
+    padding: 2px;
+
+    font-size: 2em;
+
+    writing-mode: vertical-rl;
+  }
+}
+
+#achievements-list {
+  padding: 20px;
 }
 
 #bio {
