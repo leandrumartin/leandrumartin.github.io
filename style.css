@@ -431,9 +431,14 @@ ul.technologies-icons {
     height: 100%;
     padding: 2px;
 
-    font-size: 2em;
+    background-color: unset;
 
+    font-size: 2em;
     writing-mode: vertical-rl;
+
+    &:hover, &:active {
+      box-shadow: none;
+    }
   }
 }
 
