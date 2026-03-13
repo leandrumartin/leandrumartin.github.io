@@ -1,4 +1,5 @@
 import * as data from './portfolio_entries.json' with {type: 'json'};
+import * as data from './portfolio_entries.json' with {type: 'json'}
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
@@ -20,24 +21,24 @@ if (Math.random() < 0.1) {
 
 class PortfolioEntry extends HTMLElement {
   constructor() {
-      super();
+    super()
   }
 
   connectedCallback() {
-    let template = document.getElementById("portfolio-entry-template");
-    let templateContent = template.content.cloneNode(true);
+    let template = document.getElementById("portfolio-entry-template")
+    let templateContent = template.content.cloneNode(true)
 
-    const shadowRoot = this.attachShadow({mode: "open"});
-    shadowRoot.appendChild(document.importNode(templateContent, true));
-    
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = './style.css';
-    shadowRoot.appendChild(link);
+    const shadowRoot = this.attachShadow({mode: "open"})
+    shadowRoot.appendChild(document.importNode(templateContent, true))
+
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = './style.css'
+    shadowRoot.appendChild(link)
   }
 }
 
-customElements.define('portfolio-entry', PortfolioEntry);
+customElements.define('portfolio-entry', PortfolioEntry)
 
 /**
  * Parses projects from the JSON and add them to the container.
@@ -45,10 +46,10 @@ customElements.define('portfolio-entry', PortfolioEntry);
  * @param container HTMLElement to add the projects to
  */
 const addProjects = (projects, container) => {
-  let index = 0;
+  let index = 0
   data.default[projects].forEach((project) => {
-    const entryDiv = document.createElement("div");
-    entryDiv.classList.add("portfolio-entry");
+    const entryDiv = document.createElement("div")
+    entryDiv.classList.add("portfolio-entry")
 
     entryDiv.innerHTML = `
       <portfolio-entry>
@@ -57,7 +58,7 @@ const addProjects = (projects, container) => {
           `<span slot="link">${project.title}</span>`
         }
         ${project.screenshot ?
-          `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot" style="display: none;">
+          `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot" style="display: none">
             <img src="${project.screenshot}"
                  class="screenshot-img"
                  alt=""
@@ -86,18 +87,18 @@ const addProjects = (projects, container) => {
         }
         </ul>
       </portfolio-entry>
-    `;
+    `
 
     if (index > 0) {
-      container.appendChild(document.createElement("hr"));
+      container.appendChild(document.createElement("hr"))
     }
-    container.appendChild(entryDiv);
+    container.appendChild(entryDiv)
 
-    index++;
+    index++
   })
 }
 
-const collaborativeProjects = document.getElementById('collaborative-projects');
-addProjects("collaborativeProjects", collaborativeProjects);
-const individualProjects = document.getElementById('inserted-individual-projects');
-addProjects("individualProjects", individualProjects);
+const collaborativeProjects = document.getElementById('collaborative-projects')
+addProjects("collaborativeProjects", collaborativeProjects)
+const individualProjects = document.getElementById('inserted-individual-projects')
+addProjects("individualProjects", individualProjects)
