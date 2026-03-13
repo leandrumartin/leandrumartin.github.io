@@ -12,3 +12,16 @@ achievementsButton.addEventListener("click", () => {
     achievementsPane.style.transform = "translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)))"
   }
 })
+
+window.addEventListener('scroll', () => {
+  let scrollTop = window.scrollY
+  // Top of element is the parent element's top, plus the element's height, since the parent's height is 0 because the element is outside the normal flow
+  let elementTop = achievementsPane.parentElement.getBoundingClientRect().top + achievementsPane.offsetHeight
+  if (elementTop > scrollTop) {
+    achievementsPane.style.position = "absolute"
+    achievementsPane.style.top = "auto"
+  } else {
+    achievementsPane.style.position = "fixed"
+    achievementsPane.style.top = "12.5vh"
+  }
+}, false)

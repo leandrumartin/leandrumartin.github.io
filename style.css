@@ -410,8 +410,6 @@ ul.technologies-icons {
   --pane-border: 2px; /*From .overlay*/
   --pane-margin: 20px;
 
-  position: fixed;
-  top: 12.5vh;
   z-index: 3;
   left: 0;
   right: 0;
