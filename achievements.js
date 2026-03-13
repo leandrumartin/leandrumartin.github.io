@@ -2,6 +2,7 @@ let open = false
 let achievementsButton = document.querySelector("#achievements-open-button")
 let achievementsPane = document.querySelector("#achievements-pane")
 let achievementsIcon = document.querySelector("#achievements-icon")
+let soundEffect = new Audio("./sounds/tada.mp3")
 
 achievementsButton.addEventListener("click", () => {
   open = !open
@@ -28,3 +29,32 @@ window.addEventListener('scroll', () => {
     achievementsPane.style.top = "12.5vh"
   }
 }, false)
+
+const getAchievements = () => {
+  let achievements = localStorage.getItem("achievements")
+  if (!achievements) {
+    achievements = []
+    localStorage.setItem("achievements", JSON.stringify([]))
+  } else {
+    achievements = JSON.parse(achievements)
+  }
+  return achievements
+}
+
+export const earnAchievement = (achievement) => {
+  let achievements = getAchievements()
+  if (!achievements.includes(achievement)) {
+    achievements.push(achievement)
+    localStorage.setItem("achievements", JSON.stringify(achievements))
+    if (!open) {
+      achievementsIcon.textContent = "❗"
+    }
+    soundEffect.play()
+    console.log(`Achievement earned: ${achievement}`)
+  }
+}
+
+export const isAchievementEarned = (achievement) => {
+  let achievements = getAchievements()
+  return achievements.includes(achievement)
+}

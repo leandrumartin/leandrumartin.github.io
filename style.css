@@ -408,7 +408,7 @@ ul.technologies-icons {
 }
 
 #achievements-pane {
-  --button-width: 2.5rem;
+  --button-width: 2.7rem;
   --pane-border: 2px; /*From .overlay*/
   --pane-margin: 20px;
 
@@ -437,6 +437,7 @@ ul.technologies-icons {
 
     font-size: 2em;
     writing-mode: vertical-rl;
+    line-height: 0;
 
     &:hover, &:active {
       box-shadow: none;

@@ -1,9 +1,17 @@
-import * as data from './portfolio_entries.json' with {type: 'json'};
 import * as data from './portfolio_entries.json' with {type: 'json'}
+import {earnAchievement, isAchievementEarned} from './achievements.js'
+
+let searchParams = new URLSearchParams(window.location.search);
+if (searchParams.get("withAchievement") === "true") {
+  earnAchievement("visitedWithAchievement")
+}
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
   document.body.style.setProperty('--scroll-full', Math.min(window.scrollY))
+  if (window.scrollY >= document.body.scrollHeight - window.innerHeight) {
+    earnAchievement("scrolledToBottom")
+  }
 }, false)
 
 if (Math.random() < 0.1) {
