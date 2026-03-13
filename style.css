@@ -13,6 +13,8 @@ https://9elements.com/css-rule-order/
   --border-radius-md: 20px;
   --border-radius-sm: 10px;
 
+  --overlay-bg-color: rgb(27, 20, 27);
+
   --shadow-color: black;
   --shadow-size-lg: 4px 4px 4px;
   --shadow-size-md: 3px 3px 3px;
@@ -334,7 +336,7 @@ ul.technologies-icons {
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
 
-  background-color: rgba(27, 20, 27, 85%);
+  background-color: rgb(from var(--overlay-bg-color) r g b / 85%);
   backdrop-filter: blur(50px) saturate(3) brightness(0.75);
 }
 
@@ -649,11 +651,15 @@ ul.technologies-icons {
 
 @media (prefers-reduced-transparency) {
   .expanding-box {
-    opacity: 100%;
+    background-color: var(--bg-primary-color);
 
     animation: expanding-box-opaque 1s linear;
     animation-play-state: paused;
     animation-delay: calc(var(--scroll) * -1s);
+  }
+
+  .overlay {
+    background-color: var(--overlay-bg-color);
   }
 }
 
