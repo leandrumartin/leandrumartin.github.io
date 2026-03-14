@@ -446,6 +446,10 @@ ul.technologies-icons {
 }
 
 #achievements-list {
+  display: grid;
+
+  overflow: auto;
+
   padding: 20px;
 }
 
