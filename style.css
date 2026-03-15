@@ -264,7 +264,7 @@ ul.technologies-icons {
   background-color: rgb(200, 0, 0);
 
   &:hover {
-    background-color: rgb(120, 30, 30) !important;
+    background-color: rgb(240, 60, 60) !important;
   }
 }
 
@@ -464,6 +464,8 @@ ul.technologies-icons {
 }
 
 #expanded-screenshot-container {
+  --padding-size: 50px;
+
   z-index: 4000;
   top: 0;
   bottom: 0;
@@ -473,16 +475,18 @@ ul.technologies-icons {
   display: none;
 
   margin: auto;
-  padding: 50px;
+  padding: 0 0 var(--padding-size) var(--padding-size);
   width: fit-content;
   height: fit-content;
 
   button {
-    --button-size: 35px;
+    --button-size: 36px;
+    --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
 
     float: right;
 
-    margin: 0 0 10px 10px;
+    margin: var(--margin-size) var(--margin-size) var(--margin-size) 0;
+    border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
     min-width: var(--button-size);
     min-height: var(--button-size);
 
@@ -490,6 +494,7 @@ ul.technologies-icons {
   }
 
   img {
+    margin-right: 50px;
     max-width: 75vw;
     max-height: 75vh;
     width: auto;
