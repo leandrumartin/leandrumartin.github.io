@@ -260,6 +260,14 @@ ul.technologies-icons {
   }
 }
 
+.btn-close {
+  background-color: rgb(200, 0, 0);
+
+  &:hover {
+    background-color: rgb(120, 30, 30) !important;
+  }
+}
+
 .checkbtn {
   cursor: pointer;
 
@@ -336,6 +344,10 @@ ul.technologies-icons {
 
   background-color: rgba(27, 20, 27, 85%);
   backdrop-filter: blur(50px) saturate(3) brightness(0.75);
+}
+
+.overlay-fixed {
+  position: fixed;
 }
 
 .portfolio-description {
@@ -449,6 +461,40 @@ ul.technologies-icons {
 
 #check:checked ~ ul {
   display: flex;
+}
+
+#expanded-screenshot-container {
+  z-index: 4000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: none;
+
+  margin: auto;
+  padding: 50px;
+  width: fit-content;
+  height: fit-content;
+
+  button {
+    --button-size: 35px;
+
+    float: right;
+
+    margin: 0 0 10px 10px;
+    min-width: var(--button-size);
+    min-height: var(--button-size);
+
+    font-size: larger;
+  }
+
+  img {
+    max-width: 75vw;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+  }
 }
 
 #top-left-box {
