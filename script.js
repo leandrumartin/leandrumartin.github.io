@@ -57,7 +57,7 @@ const addProjects = (projects, container) => {
           `<span slot="link">${project.title}</span>`
         }
         ${project.screenshot ?
-          `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot" style="display: none;">
+      `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot opens-modal" style="display: none;">
             <img src="${project.screenshot}"
                  class="screenshot-img"
                  alt=""
