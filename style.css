@@ -485,8 +485,11 @@ ul.technologies-icons {
 
   transition: opacity 200ms ease, display 200ms allow-discrete;
 
+  box-sizing: border-box;
   margin: auto;
   padding: 0 0 var(--padding-size) var(--padding-size);
+  max-width: 90vw;
+  max-height: 90vh;
   width: fit-content;
   height: fit-content;
   
@@ -515,11 +518,13 @@ ul.technologies-icons {
   }
 
   img {
-    margin-right: 50px;
+    margin-right: var(--padding-size);
     max-width: 75vw;
     max-height: 75vh;
     width: auto;
     height: auto;
+
+    object-fit: scale-down;
   }
 }
 
@@ -678,6 +683,14 @@ ul.technologies-icons {
 @media (max-width: 1200px) {
   ul.technologies-icons {
     justify-content: center;
+  }
+
+  #expanded-screenshot-container {
+    --padding-size: 25px;
+
+    button {
+      --button-size: 18px;
+    }
   }
 }
 
