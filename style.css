@@ -357,7 +357,6 @@ ul.technologies-icons {
 .portfolio-entry {
   justify-content: space-around;
   align-items: center;
-  clear: right;
 
   display: flex;
 
@@ -579,7 +578,7 @@ ul.technologies-icons {
 @media (max-width: 750px) {
   h2 {
     top: 15px;
-    float: right;
+    margin-left: auto;
 
     max-width: 50%;
 
