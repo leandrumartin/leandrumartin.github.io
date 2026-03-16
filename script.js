@@ -101,3 +101,24 @@ const collaborativeProjects = document.getElementById('collaborative-projects');
 addProjects("collaborativeProjects", collaborativeProjects);
 const individualProjects = document.getElementById('inserted-individual-projects');
 addProjects("individualProjects", individualProjects);
+
+document.querySelectorAll(".screenshot-img").forEach((img) => {
+  const screenshotModal = document.querySelector("#expanded-screenshot-container")
+
+  const imgElement = document.createElement("img")
+  imgElement.src = img.src
+
+  const closeButton = document.createElement("button")
+  closeButton.classList.add("button", "btn-close")
+  closeButton.textContent = "⨉"
+  closeButton.addEventListener("click", () => {
+    screenshotModal.classList.remove("is-open")
+  })
+
+  const lineBreak = document.createElement("br")
+
+  img.addEventListener("click", (e) => {
+    screenshotModal.replaceChildren(closeButton, lineBreak, imgElement)
+    screenshotModal.classList.add("is-open")
+  })
+})
