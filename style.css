@@ -472,11 +472,24 @@ ul.technologies-icons {
   right: 0;
 
   display: none;
+  opacity: 0;
+
+  transition: opacity 200ms ease, display 200ms allow-discrete;
 
   margin: auto;
   padding: 0 0 var(--padding-size) var(--padding-size);
   width: fit-content;
   height: fit-content;
+  
+  &.is-open {
+    display: block;
+    opacity: 1;
+
+    @starting-style {
+      width: 0;
+      opacity: 0;
+    }
+  }
 
   button {
     --button-size: 36px;
