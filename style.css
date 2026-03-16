@@ -354,6 +354,50 @@ ul.technologies-icons {
   position: fixed;
 }
 
+.popup-modal {
+  --padding-size: 50px;
+
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: none;
+  opacity: 0;
+
+  transition: opacity var(--transition-speed-main) ease, display var(--transition-speed-main) allow-discrete;
+
+  margin: auto;
+  padding: 0 0 var(--padding-size) var(--padding-size);
+  width: fit-content;
+  height: fit-content;
+
+  &.is-open {
+    display: block;
+    opacity: 1;
+
+    @starting-style {
+      width: 0;
+      opacity: 0;
+    }
+  }
+
+  button {
+    --button-size: 36px;
+    --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
+
+    float: right;
+
+    margin: var(--margin-size) var(--margin-size) var(--margin-size) 0;
+    border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
+    min-width: var(--button-size);
+    min-height: var(--button-size);
+
+    font-size: larger;
+  }
+}
+
 .portfolio-description {
   flex: 1;
 }
@@ -512,56 +556,12 @@ ul.technologies-icons {
   display: flex;
 }
 
-#expanded-screenshot-container {
-  --padding-size: 50px;
-
-  z-index: 4000;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: none;
-  opacity: 0;
-
-  transition: opacity 200ms ease, display 200ms allow-discrete;
-
-  margin: auto;
-  padding: 0 0 var(--padding-size) var(--padding-size);
-  width: fit-content;
-  height: fit-content;
-  
-  &.is-open {
-    display: block;
-    opacity: 1;
-
-    @starting-style {
-      width: 0;
-      opacity: 0;
-    }
-  }
-
-  button {
-    --button-size: 36px;
-    --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
-
-    float: right;
-
-    margin: var(--margin-size) var(--margin-size) var(--margin-size) 0;
-    border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
-    min-width: var(--button-size);
-    min-height: var(--button-size);
-
-    font-size: larger;
-  }
-
-  img {
-    margin-right: 50px;
-    max-width: 75vw;
-    max-height: 75vh;
-    width: auto;
-    height: auto;
-  }
+#expanded-screenshot-container img {
+  margin-right: 50px;
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
 }
 
 #top-left-box {
