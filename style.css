@@ -341,6 +341,15 @@ ul.technologies-icons {
   animation: none;
 }
 
+.opens-modal {
+  filter: none;
+  transition: 200ms;
+
+  &:hover {
+    filter: brightness(115%) saturate(80%);
+  }
+}
+
 .overlay {
   border: 2px solid rgb(96, 64, 96);
   box-shadow: var(--shadow-md);
@@ -615,6 +624,7 @@ ul.technologies-icons {
   .portfolio-screenshot {
     &:hover {
       flex: 3;
+      filter: none;
     }
   }
 
@@ -695,6 +705,10 @@ ul.technologies-icons {
 
   .portfolio-header-section {
     flex-direction: column;
+  }
+
+  .portfolio-screenshot {
+    transition-duration: var(--transition-speed-main);
   }
 
   .pre-navbar {
