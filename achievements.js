@@ -1,3 +1,6 @@
+import {StandardTemplate} from "./standardTemplate.js"
+import * as achievementsData from "./achievements.json" with {type: 'json'}
+
 let open = false
 let achievementsButton = document.querySelector("#achievements-open-button")
 let achievementsPane = document.querySelector("#achievements-pane")
@@ -41,6 +44,26 @@ const getAchievements = () => {
   return achievements
 }
 
+class AchievementEntry extends StandardTemplate {
+  constructor() {
+    super()
+  }
+
+  connectedCallback() {
+    super.createTemplate("achievement-entry-template")
+  }
+}
+
+customElements.define('achievement-entry', AchievementEntry)
+
+/**
+ * Creates and inserts an achievement into the achievements pane.
+ * @param name Name of the achievement to add
+ */
+const createAchievementItem = (name) => {
+
+}
+
 export const earnAchievement = (achievement) => {
   let achievements = getAchievements()
   if (!achievements.includes(achievement)) {
@@ -51,6 +74,8 @@ export const earnAchievement = (achievement) => {
     }
     soundEffect.play()
     console.log(`Achievement earned: ${achievement}`)
+    const achievementListItem = document.createElement("div")
+    achievementListItem.classList.add("achievement-item")
   }
 }
 
@@ -58,3 +83,31 @@ export const isAchievementEarned = (achievement) => {
   let achievements = getAchievements()
   return achievements.includes(achievement)
 }
+
+achievementsData.default["achievements"].forEach(achievement => {
+  const entryDiv = document.createElement("div")
+  entryDiv.classList.add("achievement-entry")
+
+  let icon
+  switch (achievement.iconType) {
+    case "emoji":
+      icon = document.createElement("span")
+      icon.innerHTML = achievement.icon
+      break
+    case "image":
+      icon = document.createElement("img")
+      icon.src = achievement.icon
+      break
+  }
+
+  entryDiv.innerHTML = `
+    <achievement-entry>
+      <span slot="name">${achievement.name}</span>
+      <span slot="description">${achievement.description}</span>
+      ${achievement.icon && `<span slot="icon">${icon.outerHTML}</span>`}
+    </achievement-entry>
+  `
+
+  const container = document.querySelector("#achievements-list")
+  container.appendChild(entryDiv)
+})

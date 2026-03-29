@@ -46,6 +46,20 @@
   </div>
 </template>
 
+<template id="achievement-entry-template">
+  <div class="achievement-entry">
+    <div class="achievement-header">
+      <h3>
+        <slot name="title"></slot>
+      </h3>
+    </div>
+    <div class="achievement-description">
+      <slot name="icon">❓</slot>
+      <slot name="description">No description added.</slot>
+    </div>
+  </div>
+</template>
+
 <!--Content-->
 <div class="corner-box" id="top-left-box"></div>
 <div class="corner-box" id="top-right-box"></div>
@@ -65,7 +79,7 @@
 <div>
   <div id="achievements-pane" class="overlay">
     <button id="achievements-open-button" class="button">Achievements <span id="achievements-icon">⬆️</span></button>
-    <div id="achievements-list">achievements list content</div>
+    <div id="achievements-list"></div>
   </div>
 </div>
 

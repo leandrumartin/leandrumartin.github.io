@@ -1,5 +1,6 @@
 import * as data from './portfolio_entries.json' with {type: 'json'}
-import {earnAchievement, isAchievementEarned} from './achievements.js'
+import {earnAchievement} from './achievements.js'
+import {StandardTemplate} from "./standardTemplate.js"
 
 let searchParams = new URLSearchParams(window.location.search);
 if (searchParams.get("withAchievement") === "true") {
@@ -27,22 +28,13 @@ if (Math.random() < 0.1) {
   document.body.appendChild(cookieNotice)
 }
 
-class PortfolioEntry extends HTMLElement {
+class PortfolioEntry extends StandardTemplate {
   constructor() {
     super()
   }
 
   connectedCallback() {
-    let template = document.getElementById("portfolio-entry-template")
-    let templateContent = template.content.cloneNode(true)
-
-    const shadowRoot = this.attachShadow({mode: "open"})
-    shadowRoot.appendChild(document.importNode(templateContent, true))
-
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = './style.css'
-    shadowRoot.appendChild(link)
+    super.createTemplate("portfolio-entry-template")
   }
 }
 
