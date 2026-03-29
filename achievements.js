@@ -86,25 +86,27 @@ export const isAchievementEarned = (achievement) => {
 
 achievementsData.default["achievements"].forEach(achievement => {
   const entryDiv = document.createElement("div")
-  entryDiv.classList.add("achievement-entry")
 
-  let icon
-  switch (achievement.iconType) {
-    case "emoji":
-      icon = document.createElement("span")
-      icon.innerHTML = achievement.icon
-      break
-    case "image":
-      icon = document.createElement("img")
-      icon.src = achievement.icon
-      break
+  let icon = document.createElement("span")
+  icon.innerHTML = "🔒"
+  if (isAchievementEarned(achievement.id)) {
+    switch (achievement.iconType) {
+      case "emoji":
+        icon = document.createElement("span")
+        icon.innerHTML = achievement.icon
+        break
+      case "image":
+        icon = document.createElement("img")
+        icon.src = achievement.icon
+        break
+    }
   }
 
   entryDiv.innerHTML = `
     <achievement-entry>
-      <span slot="name">${achievement.name}</span>
-      <span slot="description">${achievement.description}</span>
-      ${achievement.icon && `<span slot="icon">${icon.outerHTML}</span>`}
+      <span slot="title" >${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
+<!--      <span slot="description">${isAchievementEarned(achievement.id) ? achievement.description : "???"}</span>-->
+      <li>${achievement.icon && `<span slot="icon">${icon.outerHTML}</span>`}</li>
     </achievement-entry>
   `
 

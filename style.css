@@ -242,6 +242,32 @@ ul.technologies-icons {
   }
 }
 
+.achievement-entry {
+  align-items: center;
+  justify-content: center;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--accent-dark);
+  border-radius: 4px;
+  /*background-color: var(--accent-dark);*/
+}
+
+.achievement-entry-icon {
+  --icon-size: 35px;
+
+  height: 50px;
+  width: 50px;
+
+  font-size: var(--icon-size);
+
+  img {
+    height: var(--icon-size);
+    width: var(--icon-size);
+  }
+}
+
 .button {
   background-color: rgb(27, 20, 27);
 
@@ -515,6 +541,8 @@ ul.technologies-icons {
   overflow: auto;
 
   padding: 20px;
+
+  list-style: none;
 }
 
 #bio {
@@ -816,6 +844,29 @@ ul.technologies-icons {
 
     &:hover span {
       transform: translateY(5px);
+      opacity: 1;
+      transition: 100ms;
+    }
+  }
+
+  .achievement-entry {
+    span {
+      position: absolute;
+      bottom: 100%;
+
+      opacity: 0;
+
+      transition: 100ms;
+
+      border: 1px solid var(--accent-dark);
+      border-radius: 4px;
+      padding: 5px;
+
+      background-color: black;
+    }
+
+    &:hover span {
+      transform: translateY(-5px);
       opacity: 1;
       transition: 100ms;
     }

@@ -1,13 +1,15 @@
 {
   "achievements": [
     {
-      "name": "visitedWithAchievement",
+      "id": "visitedWithAchievement",
+      "name": "Visited with Achievement",
       "iconType": "emoji",
       "icon": "🤫",
       "description": "Visited this site using the secret link."
     },
     {
-      "name": "scrolledToBottom",
+      "id": "scrolledToBottom",
+      "name": "Scrolled to Bottom",
       "iconType": "emoji",
       "icon": "⬇️",
       "description": "Scrolled to the bottom of the main page."
