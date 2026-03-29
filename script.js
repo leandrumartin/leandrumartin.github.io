@@ -74,7 +74,7 @@ const addProjects = (projects, container) => {
           </p>
         `}
         <ul slot="technologies" class="technologies-icons">
-           ${project.technologies
+        ${project.technologies
           .map(
             tech =>
               `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
