@@ -45,8 +45,7 @@ customElements.define('portfolio-entry', PortfolioEntry);
  * @param container HTMLElement to add the projects to
  */
 const addProjects = (projects, container) => {
-  let index = 0;
-  data.default[projects].forEach((project) => {
+  data.default[projects].forEach((project, index) => {
     const entryDiv = document.createElement("div");
     entryDiv.classList.add("portfolio-entry");
 
@@ -56,26 +55,24 @@ const addProjects = (projects, container) => {
           `<a slot="link" href="${project.link}">${project.title}</a>` :
           `<span slot="link">${project.title}</span>`
         }
-        ${project.screenshot ?
-      `<div slot="screenshot" class="portfolio-entry-item portfolio-screenshot opens-modal" style="display: none;">
+        ${project.screenshot && `
+          <div slot="screenshot" class="portfolio-entry-item portfolio-screenshot opens-modal" style="display: none;">
             <img src="${project.screenshot}"
                  class="screenshot-img"
                  alt=""
                  onload="this.parentElement.style.display = 'block'"
                  />
-          </div>` :
-          ""
-        }
+          </div>
+        `}
         ${project.description.map(paragraph => `<p slot="description">${paragraph}</p>`).join("")}
-        ${project.github ?
-          `<p slot="github-link" class="github-link">
-              <a href="${project.github}"
-              >View on GitHub
-                  <span class="github-link-image"></span>
-              </a>
-          </p>` :
-          ""
-        }
+        ${project.github && `
+          <p slot="github-link" class="github-link">
+            <a href="${project.github}"
+            >View on GitHub
+                <span class="github-link-image"></span>
+            </a>
+          </p>
+        `}
         <ul slot="technologies" class="technologies-icons">
            ${project.technologies
           .map(
