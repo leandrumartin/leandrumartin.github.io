@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
     achievementsPane.style.top = "auto"
   } else {
     achievementsPane.style.position = "fixed"
-    achievementsPane.style.top = "12.5vh"
+    achievementsPane.style.top = "calc(12.5vh - var(--pane-margin))"
   }
 }, false)
 
@@ -103,6 +103,7 @@ achievementsData.default["achievements"].forEach(achievement => {
     }
   }
   icon.setAttribute("slot", "icon")
+  icon.classList.add("achievement-entry-icon")
 
   entryLI.innerHTML = `
     <achievement-entry>

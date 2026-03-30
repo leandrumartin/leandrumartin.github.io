@@ -253,6 +253,9 @@ ul.technologies-icons {
 
   border: 1px solid var(--accent-dark);
   border-radius: var(--border-radius-sm);
+
+  text-align: center;
+  vertical-align: center;
 }
 
 .achievement-entry-icon {
