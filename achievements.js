@@ -85,7 +85,8 @@ export const isAchievementEarned = (achievement) => {
 }
 
 achievementsData.default["achievements"].forEach(achievement => {
-  const entryDiv = document.createElement("div")
+  const entryLI = document.createElement("li")
+  entryLI.classList.add("achievement-entry", "button")
 
   let icon = document.createElement("span")
   icon.innerHTML = "🔒"
@@ -101,15 +102,39 @@ achievementsData.default["achievements"].forEach(achievement => {
         break
     }
   }
+  icon.setAttribute("slot", "icon")
 
-  entryDiv.innerHTML = `
+  entryLI.innerHTML = `
     <achievement-entry>
-      <span slot="title" >${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
+      <span slot="title" class="achievement-entry-title">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
 <!--      <span slot="description">${isAchievementEarned(achievement.id) ? achievement.description : "???"}</span>-->
-      <li>${achievement.icon && `<span slot="icon">${icon.outerHTML}</span>`}</li>
+      ${achievement.icon && icon.outerHTML}
     </achievement-entry>
   `
 
   const container = document.querySelector("#achievements-list")
-  container.appendChild(entryDiv)
+  container.appendChild(entryLI)
 })
+
+
+const achievementsList = document.querySelector("#achievements-list")
+
+const markTopRowAchievements = () => {
+  const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
+  if (!entries.length) return
+
+  // Find the smallest rendered top position (first grid row)
+  const topMost = Math.min(...entries.map(entry => entry.offsetTop))
+
+  for (const entry of entries) {
+    // Tolerance helps avoid sub-pixel rounding issues
+    const isTopRow = Math.abs(entry.offsetTop - topMost) < 2
+    entry.classList.toggle("tooltip-below", isTopRow)
+  }
+}
+
+// Run once after list is rendered
+requestAnimationFrame(markTopRowAchievements)
+
+
+window.addEventListener("resize", markTopRowAchievements)
