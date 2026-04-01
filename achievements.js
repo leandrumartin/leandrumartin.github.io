@@ -108,6 +108,7 @@ const createIconElement = (achievement) => {
       case "image":
         icon = document.createElement("img")
         icon.src = achievement.icon
+        icon.alt = achievement.name
         break
     }
   }
