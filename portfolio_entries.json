@@ -121,6 +121,19 @@
   ],
   "individualProjects": [
     {
+      "title": "IDE Selector",
+      "description": [
+        "Simple command line tool to open a folder in your preferred IDE."
+      ],
+      "github": "https://github.com/leandrumartin/ide-selector",
+      "technologies": [
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        }
+      ]
+    },
+    {
       "title": "Flow for Spotify",
       "link": "/flow",
       "screenshot": "images/screenshots/flow.png",
