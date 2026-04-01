@@ -6,6 +6,9 @@ let searchParams = new URLSearchParams(window.location.search);
 if (searchParams.get("withAchievement") === "true") {
   earnAchievement("visitedWithAchievement")
 }
+if (searchParams.get("fromLinkedIn") === "true") {
+  earnAchievement("visitedFromLinkedIn")
+}
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))

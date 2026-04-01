@@ -527,6 +527,7 @@ ul.technologies-icons {
   font-size: 2em;
 
   img {
+    min-height: 1.2em;
     max-height: 50vh;
     max-width: 50vw;
   }
