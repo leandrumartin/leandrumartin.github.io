@@ -57,18 +57,16 @@ class AchievementEntry extends StandardTemplate {
 customElements.define('achievement-entry', AchievementEntry)
 
 // TODO document
-export const earnAchievement = (achievement) => {
+export const earnAchievement = (achievementID) => {
   let achievements = getAchievements()
-  if (!achievements.includes(achievement)) {
-    achievements.push(achievement)
+  if (!achievements.includes(achievementID)) {
+    achievements.push(achievementID)
     localStorage.setItem("achievements", JSON.stringify(achievements))
     if (!open) {
       achievementsIcon.textContent = "❗"
     }
     soundEffect.play()
-    console.log(`Achievement earned: ${achievement}`)
-    const achievementListItem = document.createElement("div")
-    achievementListItem.classList.add("achievement-item")
+    fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), document.querySelector(`#achievement-${achievementID}`))
   }
 }
 
@@ -78,11 +76,12 @@ export const isAchievementEarned = (achievement) => {
   return achievements.includes(achievement)
 }
 
-achievementsData.default["achievements"].forEach(achievement => {
-  const entryLI = document.createElement("li")
-  entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
-
-  // Set up icon based on whether it is an emoji or image file
+/**
+ * Sets up icon based on whether it is an emoji or image file
+ * @param achievement Object containing achievement data
+ * @returns {HTMLSpanElement | HTMLImageElement} Element containing achievement icon
+ */
+const createIconElement = (achievement) => {
   let icon = document.createElement("span")
   icon.innerHTML = "🔒" // default
   if (isAchievementEarned(achievement.id)) {
@@ -99,19 +98,39 @@ achievementsData.default["achievements"].forEach(achievement => {
   }
   icon.setAttribute("slot", "icon")
   icon.classList.add("achievement-entry-icon")
+  return icon
+}
 
-  entryLI.innerHTML = `
+/**
+ * Fills the achievement item in the achievement pane list with the appropriate data.
+ * @param achievement Object containing achievement data
+ * @param entryLiElement The <li> element to contain the data
+ */
+const fillAchievementItem = (achievement, entryLiElement) => {
+  const icon = createIconElement(achievement)
+
+  entryLiElement.innerHTML = `
     <achievement-entry>
       <span slot="title" class="achievement-entry-title tooltip">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
       ${achievement.icon && icon.outerHTML}
     </achievement-entry>
   `
+}
 
-  // Set up details modal
+// Add items to the achievements list for all available achievements
+achievementsData.default["achievements"].forEach(achievement => {
+  const entryLI = document.createElement("li")
+  entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
+  entryLI.id = `achievement-${achievement.id}`
+
+  fillAchievementItem(achievement, entryLI)
+
+  // Set up details modal when achievement is clicked
   const detailsModal = document.querySelector("#achievement-details-container")
   entryLI.addEventListener("click", (e) => {
+    const updatedIcon = createIconElement(achievement)
     detailsModal.querySelector("#achievement-title").innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
-    detailsModal.querySelector("#achievement-icon").innerHTML = achievement.icon && icon.outerHTML
+    detailsModal.querySelector("#achievement-icon").innerHTML = achievement.icon && updatedIcon.outerHTML
     detailsModal.querySelector("#achievement-description").innerHTML = isAchievementEarned(achievement.id) ? achievement.description : "???"
     detailsModal.showModal()
   })
