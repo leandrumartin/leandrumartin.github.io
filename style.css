@@ -160,7 +160,7 @@ dialog {
   transition: opacity var(--transition-speed-main) ease;
 
   margin: auto;
-  padding: 0 0 var(--padding-size) var(--padding-size);
+  padding: var(--padding-size);
   height: fit-content;
 
   &:open {
@@ -184,9 +184,10 @@ dialog {
     --button-size: 36px;
     --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
 
-    float: right;
+    position: absolute;
+    right: var(--margin-size);
+    top: var(--margin-size);
 
-    margin: var(--margin-size) var(--margin-size) var(--margin-size) 0;
     border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
     min-width: var(--button-size);
     min-height: var(--button-size);
@@ -420,12 +421,8 @@ ul.technologies-icons {
 }
 
 .modal-content {
-  /*margin-top: 50px;*/
-  /*margin-right: 50px;*/
-  /*max-width: 75vw;*/
-  /*max-height: 75vh;*/
-  /*width: auto;*/
-  /*height: auto;*/
+  max-width: 75vw;
+  max-height: 75vh;
 }
 
 .nav-img {
@@ -522,8 +519,21 @@ ul.technologies-icons {
   height: 50vh;
 }
 
-#achievement-id {
-  font-size: x-large;
+#achievement-icon {
+  float: left;
+
+  margin-right: 5px;
+
+  font-size: 2em;
+
+  img {
+    max-height: 50vh;
+    max-width: 50vw;
+  }
+}
+
+#achievement-title {
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -635,7 +645,6 @@ ul.technologies-icons {
 }
 
 #expanded-screenshot-container img {
-  margin-right: 50px;
   max-width: 75vw;
   max-height: 75vh;
   width: auto;
