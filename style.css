@@ -897,7 +897,7 @@ ul.technologies-icons {
   }
 }
 
-@media (hover: none) and (max-width: 750px) {
+@media (hover: none) and (max-width: 1200px) {
   #achievements-list {
     align-items: center;
   }
