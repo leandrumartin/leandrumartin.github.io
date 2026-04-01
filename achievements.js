@@ -56,7 +56,10 @@ class AchievementEntry extends StandardTemplate {
 
 customElements.define('achievement-entry', AchievementEntry)
 
-// TODO document
+/**
+ * Awards the user an achievement. Notifies the user and updates the achievements pane.
+ * @param achievementID
+ */
 export const earnAchievement = (achievementID) => {
   let achievements = getAchievements()
   if (!achievements.includes(achievementID)) {
@@ -70,10 +73,14 @@ export const earnAchievement = (achievementID) => {
   }
 }
 
-// TODO document
-export const isAchievementEarned = (achievement) => {
+/**
+ * Checks if the user has earned a specific achievement.
+ * @param achievementID String ID of the achievement
+ * @returns {boolean}
+ */
+export const isAchievementEarned = (achievementID) => {
   let achievements = getAchievements()
-  return achievements.includes(achievement)
+  return achievements.includes(achievementID)
 }
 
 /**
