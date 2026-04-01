@@ -7,11 +7,15 @@ https://9elements.com/css-rule-order/
   --accent-light: lavender;
   --accent-dark: gray;
 
+  --achievement-entry-size: 75px;
+
   --bg-primary-color: rgb(7, 0, 11);
 
   --border-radius-lg: 30px;
   --border-radius-md: 20px;
   --border-radius-sm: 10px;
+
+  --overlay-bg-color: rgb(27, 20, 27);
 
   --shadow-color: black;
   --shadow-size-lg: 4px 4px 4px;
@@ -20,10 +24,21 @@ https://9elements.com/css-rule-order/
   --shadow-lg: var(--shadow-color) var(--shadow-size-lg), inset var(--shadow-color) var(--shadow-size-lg);
   --shadow-md: var(--shadow-color) var(--shadow-size-md), inset var(--shadow-color) var(--shadow-size-md);
   --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
+
+  --transition-speed-main: 200ms;
 }
 
 html {
   scrollbar-color: var(--accent-light) var(--bg-primary-color);
+}
+
+@keyframes achievements-button-flash {
+  0%, 100% {
+    background-color: unset;
+  }
+  50% {
+    background-color: purple;
+  }
 }
 
 @keyframes cookie-notice-fade-in {
@@ -106,6 +121,30 @@ main a {
 
 }
 
+achievement-entry {
+  --padding-size: 7px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: var(--padding-size);
+  width: 100%;
+  height: 100%;
+
+  .achievement-entry-icon {
+    --icon-size: calc(var(--achievement-entry-size) - 4 * var(--padding-size));
+
+    max-width: calc(var(--achievement-entry-size) - 2 * var(--padding-size));
+    max-height: calc(var(--achievement-entry-size) - 2 * var(--padding-size));
+
+    font-size: var(--icon-size);
+  }
+}
+
 body {
   background-attachment: fixed;
   background-color: var(--bg-primary-color);
@@ -117,6 +156,56 @@ body {
 button {
   border: 1px solid var(--accent-dark);
   border-radius: 4px;
+}
+
+dialog {
+  --padding-size: 50px;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  transition: opacity var(--transition-speed-main) ease;
+
+  box-sizing: border-box;
+  margin: auto;
+  padding: var(--padding-size);
+  height: fit-content;
+  max-width: 90vw;
+  max-height: 90vh;
+
+  &:open {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(5px) brightness(0.75);
+    transition: backdrop-filter var(--transition-speed-main) allow-discrete;
+
+    @starting-style {
+      backdrop-filter: none;
+    }
+  }
+
+  button {
+    --button-size: 36px;
+    --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
+
+    position: absolute;
+    right: var(--margin-size);
+    top: var(--margin-size);
+
+    border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
+    min-width: var(--button-size);
+    min-height: var(--button-size);
+
+    font-size: larger;
+  }
 }
 
 footer {
@@ -134,7 +223,7 @@ footer {
 
 h2 {
   position: sticky;
-  z-index: 500;
+  z-index: 1;
 
   margin: 16px 30px;
   box-shadow: var(--shadow-lg);
@@ -156,7 +245,7 @@ hr {
 
 nav {
   position: sticky;
-  z-index: 1000;
+  z-index: 2;
   top: 15px;
 
   margin: 0 20px;
@@ -238,23 +327,37 @@ ul.technologies-icons {
   }
 }
 
+.achievement-entry {
+  border: 1px solid var(--accent-dark);
+  border-radius: var(--border-radius-sm);
+  min-width: var(--achievement-entry-size);
+  min-height: var(--achievement-entry-size);
+
+  text-align: center;
+  vertical-align: center;
+}
+
+.achievement-entry-title {
+  font-size: 0.8em;
+}
+
 .button {
   background-color: rgb(27, 20, 27);
 
-  transition: 200ms;
+  transition: var(--transition-speed-main);
 
   color: rgb(220, 210, 220);
 
   &:hover {
     box-shadow: var(--shadow-color) 4px 4px 4px;
 
-    transition: 200ms;
+    transition: var(--transition-speed-main);
 
     background-color: rgb(50, 32, 50) !important;
   }
 
   &:active {
-    transition: 200ms;
+    transition: var(--transition-speed-main);
 
     box-shadow: inset var(--shadow-color) 2px 2px 2px;
   }
@@ -329,6 +432,11 @@ ul.technologies-icons {
   }
 }
 
+.modal-content {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
 .nav-img {
   margin-left: 5px;
 }
@@ -351,7 +459,7 @@ ul.technologies-icons {
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
 
-  background-color: rgba(27, 20, 27, 85%);
+  background-color: rgb(from var(--overlay-bg-color) r g b / 85%);
   backdrop-filter: blur(50px) saturate(3) brightness(0.75);
 }
 
@@ -423,6 +531,88 @@ ul.technologies-icons {
   height: 50vh;
 }
 
+#achievement-icon {
+  float: left;
+
+  margin-right: 5px;
+
+  font-size: 2em;
+
+  img {
+    min-height: 1.2em;
+    max-height: 50vh;
+    max-width: 50vw;
+  }
+}
+
+#achievement-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#achievements-pane {
+  --button-width: 2.7rem;
+  --pane-border: 2px; /*From .overlay*/
+  --pane-margin: 20px;
+
+  z-index: 3;
+  left: 0;
+  right: 0;
+  transform: translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)));
+
+  overflow: hidden;
+
+  transition: var(--transition-speed-main);
+
+  box-sizing: border-box;
+  margin: var(--pane-margin);
+  height: 75vh;
+
+  button {
+    float: right;
+
+    border: none;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    box-sizing: border-box;
+    width: var(--button-width);
+    height: 100%;
+    padding: 2px;
+
+    background-color: unset;
+
+    font-size: 2em;
+    writing-mode: vertical-rl;
+    line-height: 0;
+
+    &:hover, &:active {
+      box-shadow: none;
+    }
+
+    &.achievement-flash {
+      animation: achievements-button-flash 1s ease-out 2;
+    }
+  }
+}
+
+#achievements-list {
+  --padding-size: 30px;
+
+  display: grid;
+  align-content: start;
+  column-gap: var(--padding-size);
+  row-gap: calc(var(--padding-size) * 2);
+  grid-template-columns: repeat(auto-fill, minmax(var(--achievement-entry-size), 1fr));
+
+  overflow: auto;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--padding-size);
+  height: 100%;
+
+  list-style: none;
+}
+
 #bio {
   box-shadow: var(--shadow-md);
   border: 2px solid var(--accent-dark);
@@ -471,61 +661,11 @@ ul.technologies-icons {
   display: flex;
 }
 
-#expanded-screenshot-container {
-  --padding-size: 50px;
-
-  z-index: 4000;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: none;
-  opacity: 0;
-
-  transition: opacity 200ms ease, display 200ms allow-discrete;
-
-  box-sizing: border-box;
-  margin: auto;
-  padding: 0 0 var(--padding-size) var(--padding-size);
-  max-width: 90vw;
-  max-height: 90vh;
-  width: fit-content;
-  height: fit-content;
-  
-  &.is-open {
-    display: block;
-    opacity: 1;
-
-    @starting-style {
-      width: 0;
-      opacity: 0;
-    }
-  }
-
-  button {
-    --button-size: 36px;
-    --margin-size: calc((var(--padding-size) - var(--button-size)) / 2);
-
-    float: right;
-
-    margin: var(--margin-size) var(--margin-size) var(--margin-size) 0;
-    border-radius: 4px calc(var(--border-radius-md) - var(--margin-size)) 4px 4px;
-    min-width: var(--button-size);
-    min-height: var(--button-size);
-
-    font-size: larger;
-  }
-
-  img {
-    margin-right: var(--padding-size);
-    max-width: 75vw;
-    max-height: 75vh;
-    width: auto;
-    height: auto;
-
-    object-fit: scale-down;
-  }
+#expanded-screenshot-container img {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
 }
 
 #top-left-box {
@@ -663,7 +803,7 @@ ul.technologies-icons {
   }
 
   .portfolio-screenshot {
-    transition-duration: 200ms;
+    transition-duration: var(--transition-speed-main);
   }
 
   .pre-navbar {
@@ -695,26 +835,59 @@ ul.technologies-icons {
 }
 
 @media (prefers-reduced-transparency) {
+  dialog {
+    &::backdrop {
+      backdrop-filter: none;
+      background: var(--bg-primary-color);
+    }
+  }
+
   .expanding-box {
-    opacity: 100%;
+    background-color: var(--bg-primary-color) !important;
 
     animation: expanding-box-opaque 1s linear;
     animation-play-state: paused;
     animation-delay: calc(var(--scroll) * -1s);
   }
+
+  .overlay {
+    background-color: var(--overlay-bg-color);
+  }
 }
 
 @media (prefers-reduced-motion) {
+  ul.technologies-icons li span {
+    transition: none !important;
+  }
+
+  .button {
+    transition: none !important;
+  }
+
   .corner-box {
     animation: none;
   }
 
   .expanding-box {
+    width: 100%;
+    height: 100%;
+
     animation: none;
+
+    background-color: rgb(from var(--bg-primary-color) r g b / 85%);
+    backdrop-filter: blur(50px) saturate(3) brightness(0.75);
   }
 
   .portfolio-header-section img {
     transition: none;
+  }
+
+  #achievements-pane {
+    transition: none;
+
+    button.achievement-flash {
+      animation: none;
+    }
   }
 }
 
@@ -739,33 +912,55 @@ ul.technologies-icons {
 }
 
 @media (hover: hover) {
-  ul.technologies-icons li {
-    span {
-      position: absolute;
+  .achievement-entry {
+    .achievement-entry-title {
+      z-index: 4;
+    }
+  }
+
+  .tooltip {
+    position: absolute;
+    top: auto;
+    bottom: 100%;
+
+    opacity: 0;
+
+    border: 1px solid var(--accent-dark);
+    border-radius: 4px;
+    padding: 5px;
+
+    transition: 100ms;
+
+    background-color: black;
+  }
+
+  .tooltip-activator {
+    &.tooltip-below .tooltip {
       top: 100%;
-
-      opacity: 0;
-
-      transition: 100ms;
-
-      border: 1px solid var(--accent-dark);
-      border-radius: 4px;
-      padding: 5px;
-
-      background-color: black;
+      bottom: auto;
     }
 
-    &:hover span {
-      transform: translateY(5px);
+    &:hover .tooltip {
+      transform: translateY(-5px);
+
       opacity: 1;
-      transition: 100ms;
+    }
+
+    &.tooltip-below:hover .tooltip {
+      transform: translateY(5px);
     }
   }
 }
 
 @media (hover: none) {
-  ul.technologies-icons li span {
+  .tooltip {
     margin: 5px;
+  }
+}
+
+@media (hover: none) and (max-width: 1200px) {
+  #achievements-list {
+    align-items: center;
   }
 }
 

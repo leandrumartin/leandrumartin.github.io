@@ -1,0 +1,25 @@
+{
+  "achievements": [
+    {
+      "id": "visitedWithAchievement",
+      "name": "Secret Passage",
+      "iconType": "emoji",
+      "icon": "🤫",
+      "description": "Visit this site using the secret link."
+    },
+    {
+      "id": "scrolledToBottom",
+      "name": "Down Under",
+      "iconType": "emoji",
+      "icon": "⬇️",
+      "description": "Scroll to the bottom of the main page."
+    },
+    {
+      "id": "visitedFromLinkedIn",
+      "name": "LinkedInfluencer",
+      "iconType": "image",
+      "icon": "images/icons/linkedin.png",
+      "description": "Visit this site from my LinkedIn."
+    }
+  ]
+}

@@ -6,6 +6,7 @@
   <title>Leandru Martin's Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
   <script defer type="module" src="script.js"></script>
+  <script defer type="module" src="achievements.js"></script>
   <link rel="icon" type="image/x-icon" href="/images/favicon_pen.png">
 
   <meta name="author" content="Leandru Martin"/>
@@ -44,6 +45,11 @@
     </div>
   </div>
 </template>
+
+<template id="achievement-entry-template">
+  <slot name="title">???</slot>
+  <slot name="icon">🔒</slot>
+</template>
 <!--endregion-->
 
 <div class="corner-box" id="top-left-box"></div>
@@ -59,6 +65,13 @@
   <header>
     <h1>Leandru Martin</h1>
   </header>
+</div>
+
+<div>
+  <div id="achievements-pane" class="overlay">
+    <button id="achievements-open-button" class="button">Achievements <span id="achievements-icon">⬆️</span></button>
+    <ul id="achievements-list"></ul>
+  </div>
 </div>
 
 <div class="pre-navbar">
@@ -138,7 +151,24 @@
         </ul>
       </portfolio-entry>
     </div>
-    <div class="overlay overlay-fixed" id="expanded-screenshot-container"></div>
+    <dialog closedby="closerequest" class="overlay overlay-fixed" id="expanded-screenshot-container">
+      <button class="button btn-close" autofocus onclick="this.parentElement.close()">
+        ⨉
+      </button>
+      <div id="expanded-screenshot" class="modal-content"></div>
+    </dialog>
+    <dialog closedby="closerequest" class="overlay overlay-fixed" id="achievement-details-container">
+      <button class="button btn-close" autofocus onclick="this.parentElement.close()">
+        ⨉
+      </button>
+      <div id="achievement-details" class="modal-content">
+        <span id="achievement-title">?</span>
+        <div id="achievement-description-block">
+          <span id="achievement-icon"></span>
+          <p id="achievement-description">???</p>
+        </div>
+      </div>
+    </dialog>
   </main>
 </div>
 <footer>This page crafted by Leandru Martin. As many rights reserved as I wish, which will change depending on the situation.</footer>
