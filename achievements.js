@@ -143,7 +143,7 @@ achievementsMeter.setAttribute("max", achievementsData.default["achievements"].l
  */
 const iterateProgressMeter = () => {
   achievementsMeter.setAttribute("value", achievementsMeter.value + 1)
-  const achievementsProgressText = `${achievementsMeter.value}/${achievementsMeter.max} achievements earned`
+  const achievementsProgressText = `${achievementsMeter.value}/${achievementsMeter.max}`
   achievementsMeter.innerText = achievementsProgressText
   achievementsMeter.title = achievementsProgressText
 }
