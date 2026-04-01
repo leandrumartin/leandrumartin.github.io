@@ -15,7 +15,8 @@ window.addEventListener('scroll', () => {
   }
 }, false)
 
-if (Math.random() < 0.1) {
+const date = new Date()
+if (Math.random() < 0.1 || (date.getMonth() === 3 && date.getDate() === 1)) {
   let cookieNotice = document.createElement('div')
   cookieNotice.id = 'cookie-notice'
   cookieNotice.className = 'overlay'
