@@ -86,7 +86,7 @@ export const isAchievementEarned = (achievement) => {
 
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
-  entryLI.classList.add("achievement-entry", "button")
+  entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
 
   let icon = document.createElement("span")
   icon.innerHTML = "🔒"
@@ -107,7 +107,7 @@ achievementsData.default["achievements"].forEach(achievement => {
 
   entryLI.innerHTML = `
     <achievement-entry>
-      <span slot="title" class="achievement-entry-title">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
+      <span slot="title" class="achievement-entry-title tooltip">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
 <!--      <span slot="description">${isAchievementEarned(achievement.id) ? achievement.description : "???"}</span>-->
       ${achievement.icon && icon.outerHTML}
     </achievement-entry>

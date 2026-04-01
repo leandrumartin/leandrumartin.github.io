@@ -81,7 +81,7 @@ const addProjects = (projects, container) => {
            ${project.technologies
           .map(
             tech =>
-              `<li><img src="${tech.icon}" alt="" /><span>${tech.name}</span></li>`
+              `<li class="tooltip-activator tooltip-below"><img src="${tech.icon}" alt="" /><span class="tooltip">${tech.name}</span></li>`
           )
           .join("")
         }

@@ -851,70 +851,48 @@ ul.technologies-icons {
 }
 
 @media (hover: hover) {
-  ul.technologies-icons li {
-    span {
-      position: absolute;
-      top: 100%;
-
-      opacity: 0;
-
-      transition: 100ms;
-
-      border: 1px solid var(--accent-dark);
-      border-radius: 4px;
-      padding: 5px;
-
-      background-color: black;
-    }
-
-    &:hover span {
-      transform: translateY(5px);
-      opacity: 1;
-      transition: 100ms;
+  .achievement-entry {
+    .achievement-entry-title {
+      z-index: 4;
     }
   }
 
-  .achievement-entry {
-    .achievement-entry-title {
-      position: absolute;
-      z-index: 4;
-      bottom: 100%;
+  .tooltip {
+    position: absolute;
+    top: auto;
+    bottom: 100%;
 
-      opacity: 0;
+    opacity: 0;
 
-      transition: 100ms;
+    border: 1px solid var(--accent-dark);
+    border-radius: 4px;
+    padding: 5px;
 
-      border: 1px solid var(--accent-dark);
-      border-radius: 4px;
-      padding: 5px;
+    transition: 100ms;
 
-      background-color: black;
-    }
+    background-color: black;
+  }
 
-    &.tooltip-below .achievement-entry-title {
+  .tooltip-activator {
+    &.tooltip-below .tooltip {
       top: 100%;
       bottom: auto;
     }
 
-    &:hover .achievement-entry-title {
+    &:hover .tooltip {
       transform: translateY(-5px);
-      opacity: 1;
 
-      transition: 100ms;
+      opacity: 1;
     }
 
-    &.tooltip-below:hover .achievement-entry-title {
+    &.tooltip-below:hover .tooltip {
       transform: translateY(5px);
     }
   }
 }
 
 @media (hover: none) {
-  ul.technologies-icons li span {
-    margin: 5px;
-  }
-
-  .achievement-entry-title {
+  .tooltip {
     margin: 5px;
   }
 }
