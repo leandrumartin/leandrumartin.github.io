@@ -78,6 +78,8 @@ export const earnAchievement = (achievementID) => {
     })
 
     fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), document.querySelector(`#achievement-${achievementID}`))
+
+    iterateProgressMeter()
   }
 }
 
@@ -133,6 +135,19 @@ const fillAchievementItem = (achievement, entryLiElement) => {
   `
 }
 
+const achievementsMeter = document.querySelector("#achievements-meter")
+achievementsMeter.setAttribute("max", achievementsData.default["achievements"].length)
+
+/**
+ * Iterates the achievement progress meter by one.
+ */
+const iterateProgressMeter = () => {
+  achievementsMeter.setAttribute("value", achievementsMeter.value + 1)
+  const achievementsProgressText = `${achievementsMeter.value}/${achievementsMeter.max} achievements earned`
+  achievementsMeter.innerText = achievementsProgressText
+  achievementsMeter.title = achievementsProgressText
+}
+
 // Add items to the achievements list for all available achievements
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
@@ -161,6 +176,8 @@ achievementsData.default["achievements"].forEach(achievement => {
 
   const container = document.querySelector("#achievements-list")
   container.appendChild(entryLI)
+
+  if (isAchievementEarned(achievement.id)) iterateProgressMeter(achievement)
 })
 
 
