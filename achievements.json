@@ -2,14 +2,14 @@
   "achievements": [
     {
       "id": "visitedWithAchievement",
-      "name": "Visited with Achievement",
+      "name": "Secret Passage",
       "iconType": "emoji",
       "icon": "🤫",
       "description": "Visited this site using the secret link."
     },
     {
       "id": "scrolledToBottom",
-      "name": "Scrolled to Bottom",
+      "name": "Down Under",
       "iconType": "emoji",
       "icon": "⬇️",
       "description": "Scrolled to the bottom of the main page."

@@ -51,20 +51,6 @@
   <slot name="icon">🔒</slot>
 </template>
 
-<template id="achievement-details-popover-template">
-  <div class="achievement-details-popover">
-    <div class="achievement-header">
-      <h3>
-        <slot name="icon">🔒</slot>
-        <slot name="title">???</slot>
-      </h3>
-    </div>
-    <div class="achievement-description">
-      <slot name="description">???</slot>
-    </div>
-  </div>
-</template>
-
 <!--Content-->
 <div class="corner-box" id="top-left-box"></div>
 <div class="corner-box" id="top-right-box"></div>
@@ -170,7 +156,18 @@
         ⨉
       </button>
       <br/>
-      <div id="expanded-screenshot"></div>
+      <div id="expanded-screenshot" class="modal-content"></div>
+    </dialog>
+    <dialog closedby="closerequest" class="overlay overlay-fixed" id="achievement-details-container">
+      <button class="button btn-close" autofocus onclick="this.parentElement.close()">
+        ⨉
+      </button>
+      <br/>
+      <div id="achievement-details" class="modal-content">
+        <p id="achievement-id">?</p>
+        <span id="achievement-icon"></span>
+        <p id="achievement-description">???</p>
+      </div>
     </dialog>
   </main>
 </div>

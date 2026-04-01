@@ -419,6 +419,15 @@ ul.technologies-icons {
   }
 }
 
+.modal-content {
+  /*margin-top: 50px;*/
+  /*margin-right: 50px;*/
+  /*max-width: 75vw;*/
+  /*max-height: 75vh;*/
+  /*width: auto;*/
+  /*height: auto;*/
+}
+
 .nav-img {
   margin-left: 5px;
 }
@@ -511,6 +520,11 @@ ul.technologies-icons {
   display: flex;
 
   height: 50vh;
+}
+
+#achievement-id {
+  font-size: x-large;
+  font-weight: bold;
 }
 
 #achievements-pane {

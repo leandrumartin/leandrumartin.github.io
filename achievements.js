@@ -56,14 +56,7 @@ class AchievementEntry extends StandardTemplate {
 
 customElements.define('achievement-entry', AchievementEntry)
 
-/**
- * Creates and inserts an achievement into the achievements pane.
- * @param name Name of the achievement to add
- */
-const createAchievementItem = (name) => {
-
-}
-
+// TODO document
 export const earnAchievement = (achievement) => {
   let achievements = getAchievements()
   if (!achievements.includes(achievement)) {
@@ -79,6 +72,7 @@ export const earnAchievement = (achievement) => {
   }
 }
 
+// TODO document
 export const isAchievementEarned = (achievement) => {
   let achievements = getAchievements()
   return achievements.includes(achievement)
@@ -88,8 +82,9 @@ achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
   entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
 
+  // Set up icon based on whether it is an emoji or image file
   let icon = document.createElement("span")
-  icon.innerHTML = "🔒"
+  icon.innerHTML = "🔒" // default
   if (isAchievementEarned(achievement.id)) {
     switch (achievement.iconType) {
       case "emoji":
@@ -108,10 +103,18 @@ achievementsData.default["achievements"].forEach(achievement => {
   entryLI.innerHTML = `
     <achievement-entry>
       <span slot="title" class="achievement-entry-title tooltip">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
-<!--      <span slot="description">${isAchievementEarned(achievement.id) ? achievement.description : "???"}</span>-->
       ${achievement.icon && icon.outerHTML}
     </achievement-entry>
   `
+
+  // Set up details modal
+  const detailsModal = document.querySelector("#achievement-details-container")
+  entryLI.addEventListener("click", (e) => {
+    detailsModal.querySelector("#achievement-id").innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
+    detailsModal.querySelector("#achievement-icon").innerHTML = achievement.icon && icon.outerHTML
+    detailsModal.querySelector("#achievement-description").innerHTML = isAchievementEarned(achievement.id) ? achievement.description : "???"
+    detailsModal.showModal()
+  })
 
   const container = document.querySelector("#achievements-list")
   container.appendChild(entryLI)
