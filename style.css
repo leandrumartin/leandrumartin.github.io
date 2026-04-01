@@ -279,7 +279,7 @@ ul.technologies-icons {
 }
 
 .achievement-entry-title {
-  /*font-size: 0.8em;*/
+  font-size: 0.8em;
 }
 
 .button {
@@ -556,7 +556,8 @@ ul.technologies-icons {
 
   display: grid;
   align-content: start;
-  gap: var(--padding-size);
+  column-gap: var(--padding-size);
+  row-gap: calc(var(--padding-size) * 2);
   grid-template-columns: repeat(auto-fill, minmax(var(--achievement-entry-size), 1fr));
 
   overflow: auto;
@@ -915,6 +916,12 @@ ul.technologies-icons {
 
   .achievement-entry-title {
     margin: 5px;
+  }
+}
+
+@media (hover: none) and (max-width: 750px) {
+  #achievements-list {
+    align-items: center;
   }
 }
 
