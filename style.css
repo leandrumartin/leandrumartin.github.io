@@ -406,29 +406,31 @@ ul.technologies-icons {
 .popup-modal {
   --padding-size: 50px;
 
-  z-index: 4;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 
-  display: none;
-  opacity: 0;
-
-  transition: opacity var(--transition-speed-main) ease, display var(--transition-speed-main) allow-discrete;
+  transition: opacity var(--transition-speed-main) ease;
 
   margin: auto;
   padding: 0 0 var(--padding-size) var(--padding-size);
-  width: fit-content;
   height: fit-content;
 
-  &.is-open {
-    display: block;
+  &:open {
     opacity: 1;
 
     @starting-style {
-      width: 0;
       opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(5px) brightness(0.75);
+    transition: backdrop-filter var(--transition-speed-main) allow-discrete;
+
+    @starting-style {
+      backdrop-filter: none;
     }
   }
 

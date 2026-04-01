@@ -165,7 +165,14 @@
         </ul>
       </portfolio-entry>
     </div>
-    <div class="overlay overlay-fixed popup-modal" id="expanded-screenshot-container"></div>
+    <dialog closedby="closerequest" class="overlay overlay-fixed popup-modal"
+            id="expanded-screenshot-container">
+      <button class="button btn-close" autofocus onclick="this.parentElement.close()">
+        ⨉
+      </button>
+      <br/>
+      <div id="expanded-screenshot"></div>
+    </dialog>
   </main>
 </div>
 <footer>This page crafted by Leandru Martin. As many rights reserved as I wish, which will change depending on the situation.</footer>
