@@ -32,6 +32,15 @@ html {
   scrollbar-color: var(--accent-light) var(--bg-primary-color);
 }
 
+@keyframes achievements-button-flash {
+  0%, 100% {
+    background-color: unset;
+  }
+  50% {
+    background-color: purple;
+  }
+}
+
 @keyframes cookie-notice-fade-in {
   from {
     opacity: 0;
@@ -575,6 +584,10 @@ ul.technologies-icons {
     &:hover, &:active {
       box-shadow: none;
     }
+
+    &.achievement-flash {
+      animation: achievements-button-flash 1s ease-out 2;
+    }
   }
 }
 
@@ -860,6 +873,10 @@ ul.technologies-icons {
 
   #achievements-pane {
     transition: none;
+
+    button.achievement-flash {
+      animation: none;
+    }
   }
 }
 

@@ -65,10 +65,18 @@ export const earnAchievement = (achievementID) => {
   if (!achievements.includes(achievementID)) {
     achievements.push(achievementID)
     localStorage.setItem("achievements", JSON.stringify(achievements))
+
+    // Notify user
     if (!open) {
       achievementsIcon.textContent = "❗"
     }
     soundEffect.play()
+    const achievementsOpenButton = document.querySelector("#achievements-open-button")
+    achievementsOpenButton.classList.add("achievement-flash")
+    achievementsOpenButton.addEventListener("animationend", () => {
+      achievementsOpenButton.classList.remove("achievement-flash")
+    })
+
     fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), document.querySelector(`#achievement-${achievementID}`))
   }
 }
