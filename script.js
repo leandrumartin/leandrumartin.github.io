@@ -2,12 +2,9 @@ import * as data from './portfolio_entries.json' with {type: 'json'}
 import {earnAchievement} from './achievements.js'
 import {StandardTemplate} from "./standardTemplate.js"
 
-let searchParams = new URLSearchParams(window.location.search);
+let searchParams = new URLSearchParams(window.location.search)
 if (searchParams.get("withAchievement") === "true") {
   earnAchievement("visitedWithAchievement")
-}
-if (searchParams.get("fromLinkedIn") === "true") {
-  earnAchievement("visitedFromLinkedIn")
 }
 
 window.addEventListener('scroll', () => {

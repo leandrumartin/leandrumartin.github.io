@@ -48,7 +48,7 @@
 
 <template id="achievement-entry-template">
   <slot name="title">???</slot>
-  <slot name="icon">🔒</slot>
+  <slot name="icon"><span class="achievement-entry-icon">🔒</span></slot>
 </template>
 <!--endregion-->
 
@@ -170,8 +170,8 @@
       <div id="achievement-details" class="modal-content">
         <span id="achievement-title">?</span>
         <div id="achievement-description-block">
-          <span id="achievement-icon"></span>
-          <p id="achievement-description">???</p>
+          <span id="achievement-icon"><span class="achievement-entry-icon">🔒</span></span>
+          <div id="achievement-description"><p>???</p></div>
         </div>
       </div>
     </dialog>

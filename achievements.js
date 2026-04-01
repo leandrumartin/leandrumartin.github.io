@@ -144,10 +144,18 @@ achievementsData.default["achievements"].forEach(achievement => {
   // Set up details modal when achievement is clicked
   const detailsModal = document.querySelector("#achievement-details-container")
   entryLI.addEventListener("click", (e) => {
+    if (achievement.id === "curiousKitty") earnAchievement("curiousKitty")
     const updatedIcon = createIconElement(achievement)
     detailsModal.querySelector("#achievement-title").innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
     detailsModal.querySelector("#achievement-icon").innerHTML = achievement.icon && updatedIcon.outerHTML
-    detailsModal.querySelector("#achievement-description").innerHTML = isAchievementEarned(achievement.id) ? achievement.description : "???"
+    detailsModal.querySelector("#achievement-description").replaceChildren(
+      ...isAchievementEarned(achievement.id)
+        ? achievement.description.map(paragraph => {
+          const paragraphElement = document.createElement("p")
+          paragraphElement.innerHTML = paragraph
+          return paragraphElement
+        })
+        : "???")
     detailsModal.showModal()
   })
 

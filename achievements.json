@@ -5,21 +5,28 @@
       "name": "Secret Passage",
       "iconType": "emoji",
       "icon": "🤫",
-      "description": "Visit this site using the secret link."
+      "description": [
+        "Visit this site using the secret link."
+      ]
     },
     {
       "id": "scrolledToBottom",
       "name": "Down Under",
       "iconType": "emoji",
       "icon": "⬇️",
-      "description": "Scroll to the bottom of the main page."
+      "description": [
+        "Scroll to the bottom of the main page.",
+        "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/XfR9iY5y94s?si=pV0ndbsaPLmVih57\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      ]
     },
     {
-      "id": "visitedFromLinkedIn",
-      "name": "LinkedInfluencer",
-      "iconType": "image",
-      "icon": "images/icons/linkedin.png",
-      "description": "Visit this site from my LinkedIn."
+      "id": "curiousKitty",
+      "name": "Curiosity Killed the Cat",
+      "iconType": "emoji",
+      "icon": "🐈",
+      "description": [
+        "Click this achievement slot."
+      ]
     }
   ]
 }
