@@ -112,6 +112,30 @@ main a {
 
 }
 
+achievement-entry {
+  --padding-size: 7px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: var(--padding-size);
+  width: 100%;
+  height: 100%;
+
+  .achievement-entry-icon {
+    --icon-size: calc(var(--achievement-entry-size) - 4 * var(--padding-size));
+
+    max-width: calc(var(--achievement-entry-size) - 2 * var(--padding-size));
+    max-height: calc(var(--achievement-entry-size) - 2 * var(--padding-size));
+
+    font-size: var(--icon-size);
+  }
+}
+
 body {
   background-attachment: fixed;
   background-color: var(--bg-primary-color);
@@ -245,31 +269,17 @@ ul.technologies-icons {
 }
 
 .achievement-entry {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   border: 1px solid var(--accent-dark);
   border-radius: var(--border-radius-sm);
+  min-width: var(--achievement-entry-size);
+  min-height: var(--achievement-entry-size);
 
   text-align: center;
   vertical-align: center;
 }
 
-.achievement-entry-icon {
-  --icon-size: calc(var(--achievement-entry-size) - 15px);
-
-  width: var(--achievement-entry-size);
-  height: var(--achievement-entry-size);
-
-  font-size: var(--icon-size);
-
-  img {
-    width: var(--icon-size);
-    height: var(--icon-size);
-  }
+.achievement-entry-title {
+  /*font-size: 0.8em;*/
 }
 
 .button {
@@ -876,7 +886,6 @@ ul.technologies-icons {
       border: 1px solid var(--accent-dark);
       border-radius: 4px;
       padding: 5px;
-      width: 100%;
 
       background-color: black;
     }
@@ -901,6 +910,10 @@ ul.technologies-icons {
 
 @media (hover: none) {
   ul.technologies-icons li span {
+    margin: 5px;
+  }
+
+  .achievement-entry-title {
     margin: 5px;
   }
 }
