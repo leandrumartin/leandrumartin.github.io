@@ -448,10 +448,6 @@ ul.technologies-icons {
 .opens-modal {
   filter: none;
   transition: 200ms;
-
-  &:hover {
-    filter: brightness(115%) saturate(80%);
-  }
 }
 
 .overlay {
@@ -720,11 +716,8 @@ ul.technologies-icons {
     flex-direction: row;
   }
 
-  .portfolio-screenshot {
-    &:hover {
-      flex: 3;
-      filter: none;
-    }
+  .portfolio-screenshot:hover {
+    flex: 3;
   }
 
   .pre-navbar {
@@ -965,6 +958,12 @@ ul.technologies-icons {
 @media (hover: none) and (max-width: 1200px) {
   #achievements-list {
     align-items: center;
+  }
+}
+
+@media (hover: hover) and (max-width: 750px) {
+  .opens-modal:hover {
+    filter: brightness(115%) saturate(80%);
   }
 }
 
