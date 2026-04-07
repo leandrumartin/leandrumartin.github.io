@@ -30,6 +30,7 @@ https://9elements.com/css-rule-order/
 
 html {
   scrollbar-color: var(--accent-light) var(--bg-primary-color);
+  scroll-behavior: smooth;
 }
 
 @keyframes achievements-button-flash {
@@ -853,6 +854,10 @@ ul.technologies-icons {
 }
 
 @media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+
   ul.technologies-icons li span {
     transition: none !important;
   }
