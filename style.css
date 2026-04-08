@@ -33,7 +33,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes achievements-button-flash {
+@keyframes notification-flash {
   0%, 100% {
     background-color: unset;
   }
@@ -446,6 +446,10 @@ ul.technologies-icons {
   animation: none;
 }
 
+.notification-flash {
+  animation: notification-flash 1s ease-out 2;
+}
+
 .opens-modal {
   filter: none;
   transition: 200ms;
@@ -602,10 +606,6 @@ ul.technologies-icons {
 
     &:hover, &:active {
       box-shadow: none;
-    }
-
-    &.achievement-flash {
-      animation: achievements-button-flash 1s ease-out 2;
     }
   }
 }
@@ -880,16 +880,16 @@ ul.technologies-icons {
     backdrop-filter: blur(50px) saturate(3) brightness(0.75);
   }
 
+  .notification-flash {
+    animation: none;
+  }
+
   .portfolio-header-section img {
     transition: none;
   }
 
   #achievements-pane {
     transition: none;
-
-    button.achievement-flash {
-      animation: none;
-    }
   }
 }
 
