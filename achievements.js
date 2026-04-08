@@ -66,18 +66,25 @@ export const earnAchievement = (achievementID) => {
     achievements.push(achievementID)
     localStorage.setItem("achievements", JSON.stringify(achievements))
 
+    let entryElement = document.querySelector(`#achievement-${achievementID}`)
+
     // Notify user
     if (!open) {
       achievementsIcon.textContent = "❗"
-    }
-    soundEffect.play()
-    const achievementsOpenButton = document.querySelector("#achievements-open-button")
-    achievementsOpenButton.classList.add("achievement-flash")
-    achievementsOpenButton.addEventListener("animationend", () => {
-      achievementsOpenButton.classList.remove("achievement-flash")
-    })
+      const achievementsOpenButton = document.querySelector("#achievements-open-button")
+      achievementsOpenButton.classList.add("notification-flash")
+      achievementsOpenButton.addEventListener("animationend", () => {
+        achievementsOpenButton.classList.remove("notification-flash")
+      })
 
-    fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), document.querySelector(`#achievement-${achievementID}`))
+    }
+    entryElement.classList.add("notification-flash")
+    entryElement.addEventListener("animationend", () => {
+      entryElement.classList.remove("notification-flash")
+    })
+    soundEffect.play()
+
+    fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), entryElement)
 
     iterateProgressMeter()
   }
