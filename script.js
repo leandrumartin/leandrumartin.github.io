@@ -110,3 +110,8 @@ document.querySelectorAll(".screenshot-img").forEach((img) => {
     screenshotModal.showModal()
   })
 })
+
+window.addEventListener("deviceorientation", (event) => {
+  let topLink = document.querySelector("#top-link")
+  topLink.style.transform = `rotate(${-event.gamma}deg)`
+})
