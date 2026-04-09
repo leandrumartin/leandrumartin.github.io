@@ -521,6 +521,10 @@ ul.technologies-icons {
   flex: 1 0 10%;
 
   transition: 500ms;
+
+  .screenshot-img {
+    cursor: zoom-in;
+  }
 }
 
 .pre-navbar {
@@ -967,7 +971,7 @@ ul.technologies-icons {
 }
 
 @media (hover: hover) and (max-width: 750px) {
-  .opens-modal:hover {
+  .portfolio-screenshot:hover {
     filter: brightness(115%) saturate(80%);
   }
 }
