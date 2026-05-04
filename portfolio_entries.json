@@ -47,6 +47,29 @@
       ]
     },
     {
+      "title": "Planora",
+      "description": [
+        "Task list app aimed at university students. Created with classmates as the final project for CSCI 5300: Software Engineering.",
+        "Portions of the app that I contributed to include general interface tweaks and functionality improvements, resolving conflicts and ensuring team dynamics corresponded with course goals, CI/CD and testing via GitHub Actions, and Docker containerization setup."
+      ],
+      "screenshot": "images/screenshots/planora.png",
+      "github": "https://github.com/mainuddinMains/Planora",
+      "technologies": [
+        {
+          "name": "JavaScript",
+          "icon": "images/icons/javascript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "images/icons/nodejs.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "images/icons/docker-icon.svg"
+        }
+      ]
+    },
+    {
       "title": "Pi4Micronaut",
       "link": "https://oss-slu.github.io/Pi4Micronaut",
       "description": [
