@@ -24,6 +24,28 @@
       ]
     },
     {
+      "title": "iperf3 (QUIC extension)",
+      "description": [
+        "A network bandwidth measurement tool, extended with support for the QUIC protocol.",
+        "I have been working as a contributor on this project under Open Source with SLU during the spring semester of 2026. I set up Docker containerization for our repository, established a framework for ensuring correct output for our extension of the tool, and ran automated experiment suites. These experiments ran in simulated network topologies created with Mininet and tested how QUIC performs in comparison to TCP and UDP using the tool."
+      ],
+      "github": "https://github.com/oss-slu/iperf",
+      "technologies": [
+        {
+          "name": "C",
+          "icon": "images/icons/c.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "images/icons/docker-icon.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "images/icons/python.svg"
+        }
+      ]
+    },
+    {
       "title": "Pi4Micronaut",
       "link": "https://oss-slu.github.io/Pi4Micronaut",
       "description": [
