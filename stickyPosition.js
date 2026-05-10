@@ -7,5 +7,7 @@ export const makePositionSticky = (element, top, topRule) => {
       element.style.position = "fixed"
       element.style.top = topRule
     }
-  }, false)
+  }, {
+    passive: true
+  })
 }

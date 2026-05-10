@@ -245,10 +245,11 @@ hr {
 }
 
 nav {
+  position: absolute;
   z-index: 2;
 
   margin: 0;
-
+  top: auto;
   left: 20px;
   right: 20px;
 
@@ -580,7 +581,9 @@ ul.technologies-icons {
   --pane-border: 2px; /*From .overlay*/
   --pane-margin: 20px;
 
+  position: absolute;
   z-index: 3;
+  top: auto;
   left: 0;
   right: 0;
   transform: translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)));
@@ -591,7 +594,6 @@ ul.technologies-icons {
 
   box-sizing: border-box;
   margin: var(--pane-margin);
-  /*margin-top: 0;*/
   height: 75vh;
 
   button {
