@@ -583,7 +583,7 @@ ul.technologies-icons {
 
 #achievements-pane {
   --button-width: 2.7rem;
-  --pane-border: 2px; /*From .overlay*/
+  --pane-border: var(--overlay-border-size);
   --pane-margin: 20px;
 
   position: absolute;
