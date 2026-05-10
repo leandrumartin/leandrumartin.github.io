@@ -23,9 +23,9 @@ achievementsButton.addEventListener("click", () => {
 
 makePositionSticky(
   achievementsPane,
-  0.125 * document.documentElement.clientHeight - getComputedStyle(achievementsPane).getPropertyValue('--pane-margin'),
+  0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin')),
   "calc(12.5vh - var(--pane-margin))",
-  () => 0.125 * document.documentElement.clientHeight - getComputedStyle(achievementsPane).getPropertyValue('--pane-margin')
+  () => 0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin'))
 )
 
 const getAchievements = () => {
