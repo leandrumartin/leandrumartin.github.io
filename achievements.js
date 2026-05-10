@@ -43,6 +43,17 @@ const getAchievements = () => {
   return achievements
 }
 
+const getReadAchievements = () => {
+  let readAchievements = localStorage.getItem("readAchievements")
+  if (!readAchievements) {
+    readAchievements = []
+    localStorage.setItem("readAchievements", JSON.stringify([]))
+  } else {
+    readAchievements = JSON.parse(readAchievements)
+  }
+  return readAchievements
+}
+
 class AchievementEntry extends StandardTemplate {
   constructor() {
     super()
@@ -97,6 +108,11 @@ export const earnAchievement = (achievementID) => {
     fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), entryElement)
 
     iterateProgressMeter()
+
+    let readAchievements = getReadAchievements()
+    if (!readAchievements.includes(achievementID)) {
+      entryElement.classList.add("achievement-unread")
+    }
   }
 }
 
@@ -181,6 +197,11 @@ achievementsData.default["achievements"].forEach(achievement => {
   entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
 
+  let readAchievements = getReadAchievements()
+  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
+    entryLI.classList.add("achievement-unread")
+  }
+
   fillAchievementItem(achievement, entryLI)
 
   // Set up details modal when achievement is clicked
@@ -198,6 +219,11 @@ achievementsData.default["achievements"].forEach(achievement => {
         })
         : "???")
     achievementDetailsDialog.showModal()
+
+    let readAchievements = getReadAchievements()
+    readAchievements.push(achievement.id)
+    localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
+    entryLI.classList.remove("achievement-unread")
   })
 
   const container = document.querySelector("#achievements-list")
