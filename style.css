@@ -247,7 +247,10 @@ hr {
 nav {
   z-index: 2;
 
-  margin: 0 20px;
+  margin: 0;
+
+  left: 20px;
+  right: 20px;
 
   ul {
     justify-content: space-around;
@@ -735,6 +738,10 @@ ul.technologies-icons {
   #bio {
     margin: 10%;
     padding: 5%;
+  }
+
+  #post-nav-spacer {
+    height: 68px;
   }
 }
 
