@@ -7,6 +7,10 @@ let achievementsButton = document.querySelector("#achievements-open-button")
 let achievementsPane = document.querySelector("#achievements-pane")
 let achievementsIcon = document.querySelector("#achievements-icon")
 let soundEffect = new Audio("./sounds/tada.mp3")
+let achievementDetailsDialog = document.querySelector("#achievement-details-container")
+let achievementDetailsTitle = document.querySelector("#achievement-title")
+let achievementDetailsIcon = document.querySelector("#achievement-icon")
+let achievementDetailsDescription = document.querySelector("#achievement-description")
 
 achievementsButton.addEventListener("click", () => {
   open = !open
@@ -50,6 +54,17 @@ class AchievementEntry extends StandardTemplate {
 }
 
 customElements.define('achievement-entry', AchievementEntry)
+
+/**
+ * Clears the achievement details modal back to its default placeholder content.
+ */
+const resetAchievementDetailsModal = () => {
+  achievementDetailsTitle.innerText = "?"
+  achievementDetailsIcon.innerHTML = '<span class="achievement-entry-icon">🔒</span>'
+  achievementDetailsDescription.innerHTML = "<p>???</p>"
+}
+
+achievementDetailsDialog.addEventListener("close", resetAchievementDetailsModal)
 
 /**
  * Awards the user an achievement. Notifies the user and updates the achievements pane.
@@ -169,13 +184,12 @@ achievementsData.default["achievements"].forEach(achievement => {
   fillAchievementItem(achievement, entryLI)
 
   // Set up details modal when achievement is clicked
-  const detailsModal = document.querySelector("#achievement-details-container")
-  entryLI.addEventListener("click", (e) => {
+  entryLI.addEventListener("click", () => {
     if (achievement.id === "curiousKitty") earnAchievement("curiousKitty")
     const updatedIcon = createIconElement(achievement)
-    detailsModal.querySelector("#achievement-title").innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
-    detailsModal.querySelector("#achievement-icon").innerHTML = achievement.icon && updatedIcon.outerHTML
-    detailsModal.querySelector("#achievement-description").replaceChildren(
+    achievementDetailsTitle.innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
+    achievementDetailsIcon.innerHTML = achievement.icon && updatedIcon.outerHTML
+    achievementDetailsDescription.replaceChildren(
       ...isAchievementEarned(achievement.id)
         ? achievement.description.map(paragraph => {
           const paragraphElement = document.createElement("p")
@@ -183,7 +197,7 @@ achievementsData.default["achievements"].forEach(achievement => {
           return paragraphElement
         })
         : "???")
-    detailsModal.showModal()
+    achievementDetailsDialog.showModal()
   })
 
   const container = document.querySelector("#achievements-list")
