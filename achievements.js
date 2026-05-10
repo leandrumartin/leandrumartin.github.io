@@ -221,9 +221,11 @@ achievementsData.default["achievements"].forEach(achievement => {
     achievementDetailsDialog.showModal()
 
     let readAchievements = getReadAchievements()
-    readAchievements.push(achievement.id)
-    localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
-    entryLI.classList.remove("achievement-unread")
+    if (isAchievementEarned(achievement.id) && !readAchievements.includes(achievement.id)) {
+      readAchievements.push(achievement.id)
+      localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
+      entryLI.classList.remove("achievement-unread")
+    }
   })
 
   const container = document.querySelector("#achievements-list")
