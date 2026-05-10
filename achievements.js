@@ -21,7 +21,7 @@ achievementsButton.addEventListener("click", () => {
   }
 })
 
-makePositionSticky(achievementsPane, 0.125 * document.documentElement.clientHeight - 20, "calc(12.5vh - var(--pane-margin))")
+makePositionSticky(achievementsPane, 0.125 * document.documentElement.clientHeight - 20, "calc(12.5vh - var(--pane-margin))", () => 0.125 * document.documentElement.clientHeight - 20)
 
 const getAchievements = () => {
   let achievements = localStorage.getItem("achievements")
