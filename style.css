@@ -245,9 +245,7 @@ hr {
 }
 
 nav {
-  position: sticky;
   z-index: 2;
-  top: 15px;
 
   margin: 0 20px;
 
@@ -590,6 +588,7 @@ ul.technologies-icons {
 
   box-sizing: border-box;
   margin: var(--pane-margin);
+  /*margin-top: 0;*/
   height: 75vh;
 
   button {

@@ -1,5 +1,6 @@
 import {StandardTemplate} from "./standardTemplate.js"
 import * as achievementsData from "./achievements.json" with {type: 'json'}
+import {makePositionSticky} from "./stickyPosition.js"
 
 let open = false
 let achievementsButton = document.querySelector("#achievements-open-button")
@@ -25,18 +26,7 @@ achievementsButton.addEventListener("click", () => {
   }
 })
 
-window.addEventListener('scroll', () => {
-  let scrollTop = window.scrollY
-  // Top of element is the parent element's top, plus the element's height, since the parent's height is 0 because the element is outside the normal flow
-  let elementTop = achievementsPane.parentElement.getBoundingClientRect().top + achievementsPane.offsetHeight
-  if (elementTop > scrollTop) {
-    achievementsPane.style.position = "absolute"
-    achievementsPane.style.top = "auto"
-  } else {
-    achievementsPane.style.position = "fixed"
-    achievementsPane.style.top = "calc(12.5vh - var(--pane-margin))"
-  }
-}, false)
+makePositionSticky(achievementsPane, 0.125 * document.documentElement.clientHeight - 20, "calc(12.5vh - var(--pane-margin))")
 
 const getAchievements = () => {
   let achievements = localStorage.getItem("achievements")

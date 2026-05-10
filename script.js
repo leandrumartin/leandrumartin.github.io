@@ -1,4 +1,5 @@
 import {earnAchievement} from './achievements.js'
+import {makePositionSticky} from "./stickyPosition.js"
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
@@ -7,6 +8,8 @@ window.addEventListener('scroll', () => {
     earnAchievement("scrolledToBottom")
   }
 }, false)
+
+makePositionSticky(document.querySelector("nav"), 15, "15px")
 
 const date = new Date()
 if (Math.random() < 0.1 || (date.getMonth() === 3 && date.getDate() === 1)) {
