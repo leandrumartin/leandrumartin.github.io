@@ -53,7 +53,7 @@ customElements.define('achievement-entry', AchievementEntry)
 
 /**
  * Awards the user an achievement. Notifies the user and updates the achievements pane.
- * @param achievementID
+ * @param {string} achievementID
  */
 export const earnAchievement = (achievementID) => {
   let achievements = getAchievements()
@@ -87,7 +87,7 @@ export const earnAchievement = (achievementID) => {
 
 /**
  * Checks if the user has earned a specific achievement.
- * @param achievementID String ID of the achievement
+ * @param {string} achievementID ID of the achievement
  * @returns {boolean}
  */
 export const isAchievementEarned = (achievementID) => {
@@ -97,7 +97,12 @@ export const isAchievementEarned = (achievementID) => {
 
 /**
  * Sets up icon based on whether it is an emoji or image file
- * @param achievement Object containing achievement data
+ * @param {Object} achievement Object containing achievement data
+ * @param {string} achievement.id Achievement ID
+ * @param {string} achievement.name User-facing name of the achievement
+ * @param {string} achievement.iconType Type of the icon, either "emoji" or "image"
+ * @param {string} achievement.icon Achievement icon, either an emoji character or image URL depending on the iconType
+ * @param {string[]} achievement.description List of individual lines of text in the description
  * @returns {HTMLSpanElement | HTMLImageElement} Element containing achievement icon
  */
 const createIconElement = (achievement) => {
@@ -123,8 +128,13 @@ const createIconElement = (achievement) => {
 
 /**
  * Fills the achievement item in the achievement pane list with the appropriate data.
- * @param achievement Object containing achievement data
- * @param entryLiElement The <li> element to contain the data
+ * @param {Object} achievement Object containing achievement data
+ * @param {string} achievement.id Achievement ID
+ * @param {string} achievement.name User-facing name of the achievement
+ * @param {string} achievement.iconType Type of the icon, either "emoji" or "image"
+ * @param {string} achievement.icon Achievement icon, either an emoji character or image URL depending on the iconType
+ * @param {string[]} achievement.description List of individual lines of text in the description
+ * @param {HTMLLIElement} entryLiElement The <li> element to contain the data
  */
 const fillAchievementItem = (achievement, entryLiElement) => {
   const icon = createIconElement(achievement)
