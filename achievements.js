@@ -7,6 +7,11 @@ let achievementsPane = document.querySelector("#achievements-pane")
 let achievementsIcon = document.querySelector("#achievements-icon")
 let soundEffect = new Audio("./sounds/tada.mp3")
 
+let searchParams = new URLSearchParams(window.location.search)
+if (searchParams.get("withAchievement") === "true") {
+  earnAchievement("visitedWithAchievement")
+}
+
 achievementsButton.addEventListener("click", () => {
   open = !open
   if (open) {
