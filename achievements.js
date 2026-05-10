@@ -192,12 +192,12 @@ const iterateProgressMeter = () => {
 }
 
 // Add items to the achievements list for all available achievements
+let readAchievements = getReadAchievements()
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
   entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
 
-  let readAchievements = getReadAchievements()
   if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
     entryLI.classList.add("achievement-unread")
   }
