@@ -21,7 +21,12 @@ achievementsButton.addEventListener("click", () => {
   }
 })
 
-makePositionSticky(achievementsPane, 0.125 * document.documentElement.clientHeight - 20, "calc(12.5vh - var(--pane-margin))", () => 0.125 * document.documentElement.clientHeight - 20)
+makePositionSticky(
+  achievementsPane,
+  0.125 * document.documentElement.clientHeight - getComputedStyle(achievementsPane).getPropertyValue('--pane-margin'),
+  "calc(12.5vh - var(--pane-margin))",
+  () => 0.125 * document.documentElement.clientHeight - getComputedStyle(achievementsPane).getPropertyValue('--pane-margin')
+)
 
 const getAchievements = () => {
   let achievements = localStorage.getItem("achievements")

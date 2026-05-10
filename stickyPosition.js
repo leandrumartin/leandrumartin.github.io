@@ -8,17 +8,28 @@
  *   top offset is not constant. The function should return the new top offset in pixels.
  */
 export const makePositionSticky = (element, top, topRule, topCalculationCallback) => {
-  window.addEventListener('scroll', () => {
+  let isSticky = false
+  const update = () => {
     if (topCalculationCallback) {
       top = topCalculationCallback()
     }
+
     if (element.parentElement.getBoundingClientRect().top > top) {
-      element.style.position = "absolute"
-      element.style.top = "auto"
-    } else {
+      if (isSticky) {
+        element.style.position = "absolute"
+        element.style.top = "auto"
+        isSticky = false
+      }
+    } else if (!isSticky) {
       element.style.position = "fixed"
       element.style.top = topRule
+      isSticky = true
     }
+  }
+
+  update()
+  window.addEventListener('scroll', () => {
+    update()
   }, {
     passive: true
   })
