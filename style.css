@@ -26,6 +26,11 @@ https://9elements.com/css-rule-order/
   --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
 
   --transition-speed-main: 200ms;
+
+  --overlay-border-size: 2px;
+  --nav-ul-margin-size: 12px;
+  --nav-item-height: 20px;
+  --nav-item-padding: 10px;
 }
 
 html {
@@ -258,7 +263,7 @@ nav {
 
     display: flex;
 
-    margin: 12px;
+    margin: var(--nav-ul-margin-size);
 
     list-style: none;
 
@@ -269,8 +274,8 @@ nav {
       display: flex;
 
       border-radius: 100px;
-      height: 20px;
-      padding: 10px;
+      height: var(--nav-item-height);
+      padding: var(--nav-item-padding);
 
       background-color: inherit !important;
       /*backdrop-filter: inherit;*/
@@ -458,7 +463,7 @@ ul.technologies-icons {
 }
 
 .overlay {
-  border: 2px solid rgb(96, 64, 96);
+  border: var(--overlay-border-size) solid rgb(96, 64, 96);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
 
@@ -743,7 +748,7 @@ ul.technologies-icons {
   }
 
   #post-nav-spacer {
-    height: 68px;
+    height: calc(var(--overlay-border-size) * 2 + var(--nav-ul-margin-size) * 2 + var(--nav-item-height) + var(--nav-item-padding) * 2);
   }
 }
 
@@ -753,7 +758,7 @@ ul.technologies-icons {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 749px) {
   h2 {
     top: 15px;
     margin-left: auto;
