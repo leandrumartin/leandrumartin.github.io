@@ -43,8 +43,8 @@ customElements.define('portfolio-entry', PortfolioEntry)
 
 /**
  * Parses projects from the JSON and add them to the container.
- * @param projects String key of the projects in the JSON
- * @param container HTMLElement to add the projects to
+ * @param {string} projects Key of the projects in the JSON
+ * @param {HTMLElement} container Element to add the projects to
  */
 const addProjects = (projects, container) => {
   data.default[projects].forEach((project, index) => {
