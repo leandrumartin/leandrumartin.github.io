@@ -11,26 +11,8 @@ let achievementDetailsDialog = document.querySelector("#achievement-details-cont
 let achievementDetailsTitle = document.querySelector("#achievement-title")
 let achievementDetailsIcon = document.querySelector("#achievement-icon")
 let achievementDetailsDescription = document.querySelector("#achievement-description")
-
-achievementsButton.addEventListener("click", () => {
-  open = !open
-  if (open) {
-    achievementsButton.style.backgroundColor = "var(--bg-primary-color)"
-    achievementsPane.style.transform = "none"
-    achievementsIcon.textContent = "⬇️"
-  } else {
-    achievementsButton.style.backgroundColor = "unset"
-    achievementsPane.style.transform = "translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)))"
-    achievementsIcon.textContent = "⬆️"
-  }
-})
-
-makePositionSticky(
-  achievementsPane,
-  0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin')),
-  "calc(12.5vh - var(--pane-margin))",
-  () => 0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin'))
-)
+const achievementsList = document.querySelector("#achievements-list")
+const achievementsMeter = document.querySelector("#achievements-meter")
 
 const getAchievements = () => {
   let achievements = localStorage.getItem("achievements")
@@ -103,31 +85,34 @@ export const earnAchievement = (achievementID) => {
     achievements.push(achievementID)
     localStorage.setItem("achievements", JSON.stringify(achievements))
 
-    let entryElement = document.querySelector(`#achievement-${achievementID}`)
+    if (window.location.pathname === "/") {
 
-    // Notify user
-    if (!open) {
-      achievementsIcon.textContent = "❗"
-      const achievementsOpenButton = document.querySelector("#achievements-open-button")
-      achievementsOpenButton.classList.add("notification-flash")
-      achievementsOpenButton.addEventListener("animationend", () => {
-        achievementsOpenButton.classList.remove("notification-flash")
+      let entryElement = document.querySelector(`#achievement-${achievementID}`)
+
+      // Notify user
+      if (!open) {
+        achievementsIcon.textContent = "❗"
+        const achievementsOpenButton = document.querySelector("#achievements-open-button")
+        achievementsOpenButton.classList.add("notification-flash")
+        achievementsOpenButton.addEventListener("animationend", () => {
+          achievementsOpenButton.classList.remove("notification-flash")
+        })
+
+      }
+      entryElement.classList.add("notification-flash")
+      entryElement.addEventListener("animationend", () => {
+        entryElement.classList.remove("notification-flash")
       })
+      soundEffect.play()
 
-    }
-    entryElement.classList.add("notification-flash")
-    entryElement.addEventListener("animationend", () => {
-      entryElement.classList.remove("notification-flash")
-    })
-    soundEffect.play()
+      fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), entryElement)
 
-    fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), entryElement)
+      iterateProgressMeter()
 
-    iterateProgressMeter()
-
-    let readAchievements = getReadAchievements()
-    if (!readAchievements.includes(achievementID)) {
-      entryElement.classList.add("achievement-unread")
+      let readAchievements = getReadAchievements()
+      if (!readAchievements.includes(achievementID)) {
+        entryElement.classList.add("achievement-unread")
+      }
     }
   }
 }
@@ -194,8 +179,6 @@ const fillAchievementItem = (achievement, entryLiElement) => {
   `
 }
 
-const achievementsMeter = document.querySelector("#achievements-meter")
-achievementsMeter.setAttribute("max", achievementsData.default["achievements"].length)
 
 /**
  * Iterates the achievement progress meter by one.
@@ -206,6 +189,42 @@ const iterateProgressMeter = () => {
   achievementsMeter.innerText = achievementsProgressText
   achievementsMeter.title = achievementsProgressText
 }
+
+const markTopRowAchievements = () => {
+  const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
+  if (!entries.length) return
+
+  // Find the smallest rendered top position (first grid row)
+  const topMost = Math.min(...entries.map(entry => entry.offsetTop))
+
+  for (const entry of entries) {
+    // Tolerance helps avoid sub-pixel rounding issues
+    const isTopRow = Math.abs(entry.offsetTop - topMost) < 2
+    entry.classList.toggle("tooltip-below", isTopRow)
+  }
+}
+
+achievementsButton.addEventListener("click", () => {
+  open = !open
+  if (open) {
+    achievementsButton.style.backgroundColor = "var(--bg-primary-color)"
+    achievementsPane.style.transform = "none"
+    achievementsIcon.textContent = "⬇️"
+  } else {
+    achievementsButton.style.backgroundColor = "unset"
+    achievementsPane.style.transform = "translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)))"
+    achievementsIcon.textContent = "⬆️"
+  }
+})
+
+makePositionSticky(
+  achievementsPane,
+  0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin')),
+  "calc(12.5vh - var(--pane-margin))",
+  () => 0.125 * document.documentElement.clientHeight - parseFloat(getComputedStyle(achievementsPane).getPropertyValue('--pane-margin'))
+)
+
+achievementsMeter.setAttribute("max", achievementsData.default["achievements"].length)
 
 // Add items to the achievements list for all available achievements
 let readAchievements = getReadAchievements()
@@ -249,23 +268,6 @@ achievementsData.default["achievements"].forEach(achievement => {
 
   if (isAchievementEarned(achievement.id)) iterateProgressMeter(achievement)
 })
-
-
-const achievementsList = document.querySelector("#achievements-list")
-
-const markTopRowAchievements = () => {
-  const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
-  if (!entries.length) return
-
-  // Find the smallest rendered top position (first grid row)
-  const topMost = Math.min(...entries.map(entry => entry.offsetTop))
-
-  for (const entry of entries) {
-    // Tolerance helps avoid sub-pixel rounding issues
-    const isTopRow = Math.abs(entry.offsetTop - topMost) < 2
-    entry.classList.toggle("tooltip-below", isTopRow)
-  }
-}
 
 // Run once after list is rendered
 requestAnimationFrame(markTopRowAchievements)
