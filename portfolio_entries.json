@@ -168,6 +168,7 @@
   "individualProjects": [
     {
       "title": "IDE Selector",
+      "screenshot": "https://opengraph.githubassets.com/66f1b144e8e8890249069696189e775407b1f4313f3fc7b6543be69e71260caf/leandrumartin/ide-selector",
       "description": [
         "Simple command line tool to open a folder in your preferred IDE."
       ],
