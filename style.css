@@ -350,8 +350,8 @@ ul.technologies-icons {
 }
 
 .achievement-unread {
+  outline: 1px solid red;
   border-color: red;
-  border-width: 2px;
 }
 
 .button {
