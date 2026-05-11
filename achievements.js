@@ -38,9 +38,36 @@ const getAchievements = () => {
     achievements = []
     localStorage.setItem("achievements", JSON.stringify([]))
   } else {
-    achievements = JSON.parse(achievements)
+    try {
+      achievements = JSON.parse(achievements)
+      if (!Array.isArray(achievements)) {
+        throw new Error("achievements is not an array")
+      }
+    } catch {
+      achievements = []
+      localStorage.setItem("achievements", JSON.stringify([]))
+    }
   }
   return achievements
+}
+
+const getReadAchievements = () => {
+  let readAchievements = localStorage.getItem("readAchievements")
+  if (!readAchievements) {
+    readAchievements = []
+    localStorage.setItem("readAchievements", JSON.stringify([]))
+  } else {
+    try {
+      readAchievements = JSON.parse(readAchievements)
+      if (!Array.isArray(readAchievements)) {
+        throw new Error("readAchievements is not an array")
+      }
+    } catch {
+      readAchievements = []
+      localStorage.setItem("readAchievements", JSON.stringify([]))
+    }
+  }
+  return readAchievements
 }
 
 class AchievementEntry extends StandardTemplate {
@@ -97,6 +124,11 @@ export const earnAchievement = (achievementID) => {
     fillAchievementItem(achievementsData.default["achievements"].find(a => a.id === achievementID), entryElement)
 
     iterateProgressMeter()
+
+    let readAchievements = getReadAchievements()
+    if (!readAchievements.includes(achievementID)) {
+      entryElement.classList.add("achievement-unread")
+    }
   }
 }
 
@@ -176,10 +208,15 @@ const iterateProgressMeter = () => {
 }
 
 // Add items to the achievements list for all available achievements
+let readAchievements = getReadAchievements()
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
   entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
+
+  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
+    entryLI.classList.add("achievement-unread")
+  }
 
   fillAchievementItem(achievement, entryLI)
 
@@ -198,6 +235,13 @@ achievementsData.default["achievements"].forEach(achievement => {
         })
         : "???")
     achievementDetailsDialog.showModal()
+
+    let readAchievements = getReadAchievements()
+    if (isAchievementEarned(achievement.id) && !readAchievements.includes(achievement.id)) {
+      readAchievements.push(achievement.id)
+      localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
+      entryLI.classList.remove("achievement-unread")
+    }
   })
 
   const container = document.querySelector("#achievements-list")
