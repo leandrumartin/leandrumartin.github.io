@@ -942,10 +942,11 @@ ul.technologies-icons {
     }
   }
 
-  .tooltip {
-    position: absolute;
-    top: auto;
-    bottom: 100%;
+  [popover="hint"] {
+    /*position: absolute;*/
+    inset: unset;
+    bottom: calc(anchor(top));
+    justify-self: anchor-center;
 
     opacity: 0;
 
@@ -956,22 +957,34 @@ ul.technologies-icons {
     transition: 100ms;
 
     background-color: black;
-  }
 
-  .tooltip-activator {
-    &.tooltip-below .tooltip {
-      top: 100%;
-      bottom: auto;
-    }
-
-    &:hover .tooltip {
+    &:popover-open {
       transform: translateY(-5px);
 
       opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .tooltip-activator {
+    &.tooltip-below [popover="hint"] {
+      inset: unset;
+      top: calc(anchor(bottom));
     }
 
-    &.tooltip-below:hover .tooltip {
+    &.tooltip-below [popover="hint"]:popover-open {
       transform: translateY(5px);
+
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+        transform: translateY(0);
+      }
     }
   }
 }

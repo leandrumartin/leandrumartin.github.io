@@ -188,7 +188,7 @@ const fillAchievementItem = (achievement, entryLiElement) => {
 
   entryLiElement.innerHTML = `
     <achievement-entry>
-      <span slot="title" class="achievement-entry-title tooltip">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
+      <span slot="title" class="achievement-entry-title tooltip" popover="hint">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
       ${achievement.icon && icon.outerHTML}
     </achievement-entry>
   `
