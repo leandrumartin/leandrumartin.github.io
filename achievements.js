@@ -38,7 +38,15 @@ const getAchievements = () => {
     achievements = []
     localStorage.setItem("achievements", JSON.stringify([]))
   } else {
-    achievements = JSON.parse(achievements)
+    try {
+      achievements = JSON.parse(achievements)
+      if (!Array.isArray(achievements)) {
+        throw new Error("achievements is not an array")
+      }
+    } catch {
+      achievements = []
+      localStorage.setItem("achievements", JSON.stringify([]))
+    }
   }
   return achievements
 }
@@ -49,7 +57,15 @@ const getReadAchievements = () => {
     readAchievements = []
     localStorage.setItem("readAchievements", JSON.stringify([]))
   } else {
-    readAchievements = JSON.parse(readAchievements)
+    try {
+      readAchievements = JSON.parse(readAchievements)
+      if (!Array.isArray(readAchievements)) {
+        throw new Error("readAchievements is not an array")
+      }
+    } catch {
+      readAchievements = []
+      localStorage.setItem("readAchievements", JSON.stringify([]))
+    }
   }
   return readAchievements
 }
