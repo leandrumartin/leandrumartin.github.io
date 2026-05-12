@@ -9,6 +9,14 @@ import {
 } from "./achievements.js"
 import {StandardTemplate} from "./standardTemplate.js"
 
+/**
+ * @typedef {Object} Achievement
+ * @property {string} name User-facing name of the achievement
+ * @property {string} iconType Type of the icon, either "emoji" or "image"
+ * @property {string} icon Achievement icon, either an emoji character or image URL depending on the iconType
+ * @property {string[]} description List of individual lines of text in the description
+ */
+
 let open = false
 let achievementsButton = document.querySelector("#achievements-open-button")
 let achievementsPane = document.querySelector("#achievements-pane")
@@ -21,6 +29,9 @@ let achievementDetailsDescription = document.querySelector("#achievement-descrip
 const achievementsList = document.querySelector("#achievements-list")
 const achievementsMeter = document.querySelector("#achievements-meter")
 
+/**
+ * Flashes the achievements button if the pane is closed.
+ */
 const flashAchievementsOpenButton = () => {
   if (!open) {
     achievementsIcon.textContent = "❗"
@@ -34,6 +45,10 @@ const flashAchievementsOpenButton = () => {
   }
 }
 
+/**
+ * Notifies the user of a new achievement.
+ * @param {Achievement} achievement Object containing achievement data
+ */
 const notifyOfAchievement = (achievement) => {
   let entryElement = document.querySelector(`#achievement-${achievement.id}`)
   flashAchievementsOpenButton()
@@ -44,6 +59,10 @@ const notifyOfAchievement = (achievement) => {
   soundEffect.play()
 }
 
+/**
+ * Updates the Achievements pane when a new achievement has been earned.
+ * @param {Achievement} achievement Object containing achievement data
+ */
 export const updatePaneOnEarnAchievement = (achievement) => {
   let entryElement = document.querySelector(`#achievement-${achievement.id}`)
 
@@ -78,12 +97,7 @@ const resetAchievementDetailsModal = () => {
 
 /**
  * Sets up icon based on whether it is an emoji or image file
- * @param {Object} achievement Object containing achievement data
- * @param {string} achievement.id Achievement ID
- * @param {string} achievement.name User-facing name of the achievement
- * @param {string} achievement.iconType Type of the icon, either "emoji" or "image"
- * @param {string} achievement.icon Achievement icon, either an emoji character or image URL depending on the iconType
- * @param {string[]} achievement.description List of individual lines of text in the description
+ * @param {Achievement} achievement Object containing achievement data
  * @returns {HTMLSpanElement | HTMLImageElement} Element containing achievement icon
  */
 const createIconElement = (achievement) => {
@@ -109,12 +123,7 @@ const createIconElement = (achievement) => {
 
 /**
  * Fills the achievement item in the achievement pane list with the appropriate data.
- * @param {Object} achievement Object containing achievement data
- * @param {string} achievement.id Achievement ID
- * @param {string} achievement.name User-facing name of the achievement
- * @param {string} achievement.iconType Type of the icon, either "emoji" or "image"
- * @param {string} achievement.icon Achievement icon, either an emoji character or image URL depending on the iconType
- * @param {string[]} achievement.description List of individual lines of text in the description
+ * @param {Achievement} achievement Object containing achievement data
  * @param {HTMLLIElement} entryLiElement The <li> element to contain the data
  */
 const fillAchievementItem = (achievement, entryLiElement) => {
@@ -138,6 +147,9 @@ const iterateProgressMeter = () => {
   achievementsMeter.title = achievementsProgressText
 }
 
+/**
+ * Marks the achievements in the top row so their tooltips appear below them instead of above.
+ */
 const markTopRowAchievements = () => {
   const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
   if (!entries.length) return
