@@ -1,6 +1,12 @@
 import {makePositionSticky} from "./stickyPosition.js"
 import * as achievementsData from "./achievements.json" with {type: 'json'}
-import {earnAchievement, isAchievementEarned, getReadAchievementIDs} from "./achievements.js"
+import {
+  earnAchievement,
+  isAchievementEarned,
+  getReadAchievementIDs,
+  getAchievementFromID,
+  getNewAchievementIDs
+} from "./achievements.js"
 import {StandardTemplate} from "./standardTemplate.js"
 
 let open = false
@@ -15,10 +21,7 @@ let achievementDetailsDescription = document.querySelector("#achievement-descrip
 const achievementsList = document.querySelector("#achievements-list")
 const achievementsMeter = document.querySelector("#achievements-meter")
 
-export const updatePaneOnEarnAchievement = (achievement) => {
-  let entryElement = document.querySelector(`#achievement-${achievement.id}`)
-
-  // Notify user
+const flashAchievementsOpenButton = () => {
   if (!open) {
     achievementsIcon.textContent = "❗"
     const achievementsOpenButton = document.querySelector("#achievements-open-button")
@@ -26,16 +29,26 @@ export const updatePaneOnEarnAchievement = (achievement) => {
     achievementsOpenButton.addEventListener("animationend", () => {
       achievementsOpenButton.classList.remove("notification-flash")
     })
-
+  } else {
+    console.debug("Achievements pane is already open; did not give notification flash")
   }
+}
+
+const notifyOfAchievement = (achievement) => {
+  let entryElement = document.querySelector(`#achievement-${achievement.id}`)
+  flashAchievementsOpenButton()
   entryElement.classList.add("notification-flash")
   entryElement.addEventListener("animationend", () => {
     entryElement.classList.remove("notification-flash")
   })
   soundEffect.play()
+}
 
+export const updatePaneOnEarnAchievement = (achievement) => {
+  let entryElement = document.querySelector(`#achievement-${achievement.id}`)
+
+  notifyOfAchievement(achievement)
   fillAchievementItem(achievement, entryElement)
-
   iterateProgressMeter()
 
   let readAchievements = getReadAchievementIDs()
@@ -151,6 +164,7 @@ achievementsButton.addEventListener("click", () => {
     achievementsButton.style.backgroundColor = "var(--bg-primary-color)"
     achievementsPane.style.transform = "none"
     achievementsIcon.textContent = "⬇️"
+    localStorage.setItem("newAchievements", JSON.stringify([]))
   } else {
     achievementsButton.style.backgroundColor = "unset"
     achievementsPane.style.transform = "translateX(calc(-100% + var(--button-width) + var(--pane-border) - var(--pane-margin)))"
@@ -212,6 +226,11 @@ achievementsData.default["achievements"].forEach(achievement => {
 requestAnimationFrame(markTopRowAchievements)
 
 window.addEventListener("resize", markTopRowAchievements)
+
+
+getNewAchievementIDs().forEach((achievementID) => {
+  notifyOfAchievement(getAchievementFromID(achievementID))
+})
 
 let searchParams = new URLSearchParams(window.location.search)
 if (searchParams.get("withAchievement") === "true") {

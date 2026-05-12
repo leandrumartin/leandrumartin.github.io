@@ -1,41 +1,34 @@
 import * as achievementsData from "./achievements.json" with {type: 'json'}
 
-export const getEarnedAchievementIDs = () => {
-  let achievements = localStorage.getItem("achievements")
-  if (!achievements) {
-    achievements = []
-    localStorage.setItem("achievements", JSON.stringify([]))
+export const getAchievementsIDArray = (arrayName) => {
+  let arrayData = localStorage.getItem(arrayName)
+  if (!arrayData) {
+    arrayData = []
+    localStorage.setItem(arrayName, JSON.stringify([]))
   } else {
     try {
-      achievements = JSON.parse(achievements)
-      if (!Array.isArray(achievements)) {
-        throw new Error("achievements is not an array")
+      arrayData = JSON.parse(arrayData)
+      if (!Array.isArray(arrayData)) {
+        throw new Error(`${arrayName} is not an array`)
       }
     } catch {
-      achievements = []
-      localStorage.setItem("achievements", JSON.stringify([]))
+      arrayData = []
+      localStorage.setItem(arrayName, JSON.stringify([]))
     }
   }
-  return achievements
+  return arrayData
+}
+
+export const getEarnedAchievementIDs = () => {
+  return getAchievementsIDArray("achievements")
 }
 
 export const getReadAchievementIDs = () => {
-  let readAchievements = localStorage.getItem("readAchievements")
-  if (!readAchievements) {
-    readAchievements = []
-    localStorage.setItem("readAchievements", JSON.stringify([]))
-  } else {
-    try {
-      readAchievements = JSON.parse(readAchievements)
-      if (!Array.isArray(readAchievements)) {
-        throw new Error("readAchievements is not an array")
-      }
-    } catch {
-      readAchievements = []
-      localStorage.setItem("readAchievements", JSON.stringify([]))
-    }
-  }
-  return readAchievements
+  return getAchievementsIDArray("readAchievements")
+}
+
+export const getNewAchievementIDs = () => {
+  return getAchievementsIDArray("newAchievements")
 }
 
 /**
@@ -48,6 +41,10 @@ export const earnAchievement = (achievementID, onEarn) => {
   if (!achievements.includes(achievementID)) {
     achievements.push(achievementID)
     localStorage.setItem("achievements", JSON.stringify(achievements))
+
+    let newAchievementIDs = getNewAchievementIDs()
+    newAchievementIDs.push(achievementID)
+    localStorage.setItem("newAchievements", JSON.stringify(newAchievementIDs))
     if (onEarn) onEarn(getAchievementFromID(achievementID))
   }
 }
