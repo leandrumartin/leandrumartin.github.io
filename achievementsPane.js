@@ -74,6 +74,10 @@ export const updatePaneOnEarnAchievement = (achievement) => {
   if (!readAchievements.includes(achievement.id)) {
     entryElement.classList.add("achievement-unread")
   }
+
+  if (open) {
+    localStorage.setItem("newAchievements", JSON.stringify([]))
+  }
 }
 
 class AchievementEntry extends StandardTemplate {
