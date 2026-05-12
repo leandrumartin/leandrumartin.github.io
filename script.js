@@ -1,11 +1,12 @@
 import {earnAchievement} from './achievements.js'
 import {makePositionSticky} from "./stickyPosition.js"
+import {updatePaneOnEarnAchievement} from "./achievementsPane.js"
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
   document.body.style.setProperty('--scroll-full', Math.min(window.scrollY))
   if (window.scrollY >= document.body.scrollHeight - window.innerHeight) {
-    earnAchievement("scrolledToBottom")
+    earnAchievement("scrolledToBottom", updatePaneOnEarnAchievement)
   }
 }, false)
 
