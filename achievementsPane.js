@@ -56,7 +56,9 @@ const notifyOfAchievement = (achievement) => {
   entryElement.addEventListener("animationend", () => {
     entryElement.classList.remove("notification-flash")
   })
-  soundEffect.play()
+  soundEffect.play().catch((error) => {
+    console.debug("Achievement sound effect could not be played", error)
+  })
 }
 
 /**
