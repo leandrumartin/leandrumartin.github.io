@@ -215,13 +215,13 @@ achievementsData.default["achievements"].forEach(achievement => {
     achievementDetailsTitle.innerText = isAchievementEarned(achievement.id) ? achievement.name : "?"
     achievementDetailsIcon.innerHTML = achievement.icon && updatedIcon.outerHTML
     achievementDetailsDescription.replaceChildren(
-      ...isAchievementEarned(achievement.id)
+      ...(isAchievementEarned(achievement.id)
         ? achievement.description.map(paragraph => {
           const paragraphElement = document.createElement("p")
           paragraphElement.innerHTML = paragraph
           return paragraphElement
         })
-        : "???")
+        : ["???"]))
     achievementDetailsDialog.showModal()
 
     let readAchievements = getReadAchievementIDs()
