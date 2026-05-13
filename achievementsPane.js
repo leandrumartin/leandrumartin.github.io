@@ -52,10 +52,12 @@ const flashAchievementsOpenButton = () => {
 const notifyOfAchievement = (achievement) => {
   let entryElement = document.querySelector(`#achievement-${achievement.id}`)
   flashAchievementsOpenButton()
-  entryElement.classList.add("notification-flash")
-  entryElement.addEventListener("animationend", () => {
-    entryElement.classList.remove("notification-flash")
-  })
+  if (entryElement) {
+    entryElement.classList.add("notification-flash")
+    entryElement.addEventListener("animationend", () => {
+      entryElement.classList.remove("notification-flash")
+    })
+  }
   soundEffect.play().catch((error) => {
     console.debug("Achievement sound effect could not be played", error)
   })
