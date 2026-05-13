@@ -27,6 +27,15 @@
       "description": [
         "Click this achievement slot."
       ]
+    },
+    {
+      "id": "sillyGoose",
+      "name": "Silly Goose",
+      "iconType": "emoji",
+      "icon": "🪿",
+      "description": [
+        "Click the goose. Honk"
+      ]
     }
   ]
 }
