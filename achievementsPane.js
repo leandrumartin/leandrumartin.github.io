@@ -39,7 +39,7 @@ const flashAchievementsOpenButton = () => {
     achievementsOpenButton.classList.add("notification-flash")
     achievementsOpenButton.addEventListener("animationend", () => {
       achievementsOpenButton.classList.remove("notification-flash")
-    })
+    }, {once: true})
   } else {
     console.debug("Achievements pane is already open; did not give notification flash")
   }
@@ -247,7 +247,8 @@ window.addEventListener("resize", markTopRowAchievements)
 
 
 getNewAchievementIDs().forEach((achievementID) => {
-  notifyOfAchievement(getAchievementFromID(achievementID))
+  const achievement = getAchievementFromID(achievementID)
+  if (achievement) notifyOfAchievement(achievement)
 })
 
 let searchParams = new URLSearchParams(window.location.search)

@@ -71,7 +71,12 @@ export const earnAchievement = (achievementID, onEarn) => {
     let newAchievementIDs = getNewAchievementIDs()
     newAchievementIDs.push(achievementID)
     localStorage.setItem("newAchievements", JSON.stringify(newAchievementIDs))
-    if (onEarn) onEarn(getAchievementFromID(achievementID))
+    const achievement = getAchievementFromID(achievementID)
+    if (achievement && onEarn) {
+      onEarn(getAchievementFromID(achievementID))
+    } else if (!achievement) {
+      console.debug(`Achievement with ID ${achievementID} not found in achievements.json.`)
+    }
   }
 }
 
