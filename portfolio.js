@@ -109,5 +109,4 @@ const addPopoverEventListeners = (tooltipActivator, tooltip) => {
 document.querySelectorAll(".tooltip-activator").forEach((activator) => {
   const tooltip = activator.querySelector(".tooltip")
   addPopoverEventListeners(activator, tooltip)
-  console.log(activator, tooltip)
 })
