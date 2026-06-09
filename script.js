@@ -1,6 +1,7 @@
 import {earnAchievement} from './achievements.js'
 import {makePositionSticky} from "./stickyPosition.js"
 import {updatePaneOnEarnAchievement} from "./achievementsPane.js"
+import {startAmbientLightEffects} from "./ambientLightEffects.js"
 
 window.addEventListener('scroll', () => {
   document.body.style.setProperty('--scroll', Math.min(0.9999, window.scrollY / window.innerHeight * 2))
@@ -30,3 +31,6 @@ window.addEventListener("deviceorientation", (event) => {
   let topLink = document.querySelector("#top-link")
   topLink.style.transform = `rotate(${-event.gamma}deg)`
 })
+
+startAmbientLightEffects()
+

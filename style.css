@@ -15,6 +15,15 @@ https://9elements.com/css-rule-order/
   --border-radius-md: 20px;
   --border-radius-sm: 10px;
 
+  --current-shadow-lg: var(--shadow-lg);
+  --current-shadow-md: var(--shadow-md);
+  --current-shadow-sm: var(--shadow-sm);
+
+  --glow-color: #E33EFF;
+  --glow-shadow-lg: var(--glow-color) 0 0 16px;
+  --glow-shadow-md: var(--glow-color) 0 0 8px;
+  --glow-shadow-sm: var(--glow-color) 0 0 4px;
+
   --overlay-bg-color: rgb(27, 20, 27);
 
   --shadow-color: black;
@@ -159,6 +168,12 @@ body {
   color: snow;
 }
 
+body.glow-mode {
+  --current-shadow-lg: var(--glow-shadow-lg);
+  --current-shadow-md: var(--glow-shadow-md);
+  --current-shadow-sm: var(--glow-shadow-sm);
+}
+
 button {
   border: 1px solid var(--accent-dark);
   border-radius: 4px;
@@ -232,7 +247,7 @@ h2 {
   z-index: 1;
 
   margin: 16px 30px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--current-shadow-lg);
   border: 5px solid rgb(160, 10, 100);
   width: fit-content;
   border-radius: var(--border-radius-lg);
@@ -469,7 +484,7 @@ ul.technologies-icons {
 
 .overlay {
   border: var(--overlay-border-size) solid rgb(96, 64, 96);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--current-shadow-md);
   border-radius: var(--border-radius-md);
 
   background-color: rgb(from var(--overlay-bg-color) r g b / 85%);
@@ -495,7 +510,7 @@ ul.technologies-icons {
 
 .portfolio-entry-item {
   margin: 30px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--current-shadow-sm);
   border: 1px solid rgb(126, 101, 143);
   border-radius: var(--border-radius-sm);
   padding: 20px;
@@ -518,7 +533,7 @@ ul.technologies-icons {
 .portfolio-header {
   flex: 3;
 
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--current-shadow-md);
   border: 2px solid rgb(0, 133, 255);
   border-radius: var(--border-radius-md);
 
@@ -633,7 +648,7 @@ ul.technologies-icons {
 }
 
 #bio {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--current-shadow-md);
   border: 2px solid var(--accent-dark);
   border-radius: var(--border-radius-md);
 
