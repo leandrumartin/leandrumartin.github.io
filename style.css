@@ -1007,7 +1007,6 @@ ul.technologies-icons {
     background: radial-gradient(
             circle 180px at var(--flashlight-x) var(--flashlight-y),
             rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.2)) 0%,
-            rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.1)) 35%,
             rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.05)) 55%,
             transparent 70%
     );
