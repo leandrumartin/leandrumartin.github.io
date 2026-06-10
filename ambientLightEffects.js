@@ -8,11 +8,11 @@ export const startAmbientLightEffects = () => {
     const sensor = new AmbientLightSensor()
     sensor.addEventListener("reading", () => {
       if (sensor.illuminance <= nightThreshold) {
-        setSpotlightStrength(sensor.illuminance)
-        enableSpotlight()
+        setFlashlightStrength(sensor.illuminance)
+        enableFlashlight()
         enableGlow()
       } else {
-        disableSpotlight()
+        disableFlashlight()
         disableGlow()
       }
     })
@@ -39,9 +39,9 @@ const disableGlow = () => {
 }
 
 /**
- * Handler for spotlight effect over cursor.
+ * Handler for flashlight effect over cursor.
  */
-const spotlightHandler = (() => {
+const flashlightHandler = (() => {
   let rafId = 0
   let lastX = 0
   let lastY = 0
@@ -53,33 +53,33 @@ const spotlightHandler = (() => {
     if (rafId) return
     rafId = window.requestAnimationFrame(() => {
       rafId = 0
-      document.documentElement.style.setProperty('--spotlight-x', `${lastX}px`)
-      document.documentElement.style.setProperty('--spotlight-y', `${lastY}px`)
+      document.documentElement.style.setProperty('--flashlight-x', `${lastX}px`)
+      document.documentElement.style.setProperty('--flashlight-y', `${lastY}px`)
     })
   }
 })()
 
 /**
- * Starts spotlight effect around cursor.
+ * Starts flashlight effect around cursor.
  */
-const enableSpotlight = () => {
-  window.addEventListener("mousemove", spotlightHandler)
-  document.querySelector("#spotlight-overlay").style.display = "block"
+const enableFlashlight = () => {
+  window.addEventListener("mousemove", flashlightHandler)
+  document.querySelector("#flashlight-overlay").style.display = "block"
 }
 
 /**
- * Stops spotlight effect around cursor.
+ * Stops flashlight effect around cursor.
  */
-const disableSpotlight = () => {
-  window.removeEventListener("mousemove", spotlightHandler)
-  document.querySelector("#spotlight-overlay").style.display = "none"
+const disableFlashlight = () => {
+  window.removeEventListener("mousemove", flashlightHandler)
+  document.querySelector("#flashlight-overlay").style.display = "none"
 }
 
 /**
- * Sets the strength of the cursor spotlight effect based on the illuminance.
+ * Sets the strength of the cursor flashlight effect based on the illuminance.
  */
-const setSpotlightStrength = (illuminance) => {
+const setFlashlightStrength = (illuminance) => {
   window.requestAnimationFrame(() => {
-    document.documentElement.style.setProperty('--spotlight-strength', (1 - illuminance / nightThreshold).toString())
+    document.documentElement.style.setProperty('--flashlight-strength', (1 - illuminance / nightThreshold).toString())
   })
 }

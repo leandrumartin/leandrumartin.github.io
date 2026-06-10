@@ -19,6 +19,10 @@ https://9elements.com/css-rule-order/
   --current-shadow-md: var(--shadow-md);
   --current-shadow-sm: var(--shadow-sm);
 
+  --flashlight-strength: 1;
+  --flashlight-x: 50vw;
+  --flashlight-y: 50vh;
+
   --glow-color: #E33EFF;
   --glow-shadow-lg: var(--glow-color) 0 0 16px;
   --glow-shadow-md: var(--glow-color) 0 0 8px;
@@ -33,10 +37,6 @@ https://9elements.com/css-rule-order/
   --shadow-lg: var(--shadow-color) var(--shadow-size-lg), inset var(--shadow-color) var(--shadow-size-lg);
   --shadow-md: var(--shadow-color) var(--shadow-size-md), inset var(--shadow-color) var(--shadow-size-md);
   --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
-
-  --spotlight-strength: 1;
-  --spotlight-x: 50vw;
-  --spotlight-y: 50vh;
 
   --transition-speed-main: 200ms;
 
@@ -706,7 +706,7 @@ ul.technologies-icons {
   height: auto;
 }
 
-#spotlight-overlay {
+#flashlight-overlay {
   display: none;
   pointer-events: none;
   position: fixed;
@@ -1003,12 +1003,12 @@ ul.technologies-icons {
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  #spotlight-overlay {
+  #flashlight-overlay {
     background: radial-gradient(
-            circle 180px at var(--spotlight-x) var(--spotlight-y),
-            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.2)) 0%,
-            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.1)) 35%,
-            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.05)) 55%,
+            circle 180px at var(--flashlight-x) var(--flashlight-y),
+            rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.2)) 0%,
+            rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.1)) 35%,
+            rgba(255, 255, 255, calc(var(--flashlight-strength) * 0.05)) 55%,
             transparent 70%
     );
     z-index: 1000;
