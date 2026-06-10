@@ -4,7 +4,9 @@ const nightThreshold = 300
  * Starts listener for ambient light sensor to attach glow effects to DOM elements.
  */
 export const startAmbientLightEffects = () => {
-  if ("AmbientLightSensor" in window) {
+  if (!window.isSecureContext || !("AmbientLightSensor" in window)) return
+
+  try {
     const sensor = new AmbientLightSensor()
     sensor.addEventListener("reading", () => {
       if (sensor.illuminance <= nightThreshold) {
@@ -15,7 +17,13 @@ export const startAmbientLightEffects = () => {
         disableGlow()
       }
     })
+    sensor.addEventListener("error", () => {
+      disableSpotlight()
+      disableGlow()
+    })
     sensor.start()
+  } catch {
+    // Sensor blocked/unavailable at runtime (e.g., permission denied)
   }
 }
 
