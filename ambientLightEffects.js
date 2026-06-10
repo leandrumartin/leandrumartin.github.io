@@ -36,10 +36,23 @@ const disableGlow = () => {
 /**
  * Handler for spotlight effect over cursor.
  */
-const spotlightHandler = (event) => {
-  document.documentElement.style.setProperty('--spotlight-x', event.clientX.toString() + 'px')
-  document.documentElement.style.setProperty('--spotlight-y', event.clientY.toString() + 'px')
-}
+const spotlightHandler = (() => {
+  let rafId = 0
+  let lastX = 0
+  let lastY = 0
+
+  return (event) => {
+    lastX = event.clientX
+    lastY = event.clientY
+
+    if (rafId) return
+    rafId = window.requestAnimationFrame(() => {
+      rafId = 0
+      document.documentElement.style.setProperty('--spotlight-x', `${lastX}px`)
+      document.documentElement.style.setProperty('--spotlight-y', `${lastY}px`)
+    })
+  }
+})()
 
 /**
  * Starts spotlight effect around cursor.
