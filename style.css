@@ -34,6 +34,9 @@ https://9elements.com/css-rule-order/
   --shadow-md: var(--shadow-color) var(--shadow-size-md), inset var(--shadow-color) var(--shadow-size-md);
   --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
 
+  --spotlight-x: 50vw;
+  --spotlight-y: 50vh;
+
   --transition-speed-main: 200ms;
 
   --overlay-border-size: 2px;
@@ -702,6 +705,11 @@ ul.technologies-icons {
   height: auto;
 }
 
+#spotlight-overlay {
+  display: none;
+  pointer-events: none;
+}
+
 #top-left-box {
   top: 0;
   left: 0;
@@ -988,6 +996,19 @@ ul.technologies-icons {
     &.tooltip-below:hover .tooltip {
       transform: translateY(5px);
     }
+  }
+
+  #spotlight-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+            circle 180px at var(--spotlight-x) var(--spotlight-y),
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.1) 35%,
+            rgba(255, 255, 255, 0.05) 55%,
+            transparent 70% /*rgba(0, 0, 0, 0.2) 100%*/
+    );
+    z-index: 1000;
   }
 }
 
