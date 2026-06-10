@@ -8,6 +8,7 @@ export const startAmbientLightEffects = () => {
     const sensor = new AmbientLightSensor()
     sensor.addEventListener("reading", () => {
       if (sensor.illuminance <= nightThreshold) {
+        setSpotlightStrength(sensor.illuminance)
         enableSpotlight()
         enableGlow()
       } else {
@@ -23,14 +24,18 @@ export const startAmbientLightEffects = () => {
  * Starts glow effect.
  */
 const enableGlow = () => {
-  document.querySelector("body").classList.add("glow-mode")
+  if (!document.querySelector("body").classList.contains("glow-mode")) {
+    document.querySelector("body").classList.add("glow-mode")
+  }
 }
 
 /**
  * Stops glow effect.
  */
 const disableGlow = () => {
-  document.querySelector("body").classList.remove("glow-mode")
+  if (document.querySelector("body").classList.contains("glow-mode")) {
+    document.querySelector("body").classList.remove("glow-mode")
+  }
 }
 
 /**
@@ -68,4 +73,13 @@ const enableSpotlight = () => {
 const disableSpotlight = () => {
   window.removeEventListener("mousemove", spotlightHandler)
   document.querySelector("#spotlight-overlay").style.display = "none"
+}
+
+/**
+ * Sets the strength of the cursor spotlight effect based on the illuminance.
+ */
+const setSpotlightStrength = (illuminance) => {
+  window.requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--spotlight-strength', (1 - illuminance / nightThreshold).toString())
+  })
 }

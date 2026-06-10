@@ -34,6 +34,7 @@ https://9elements.com/css-rule-order/
   --shadow-md: var(--shadow-color) var(--shadow-size-md), inset var(--shadow-color) var(--shadow-size-md);
   --shadow-sm: var(--shadow-color) var(--shadow-size-sm), inset var(--shadow-color) var(--shadow-size-sm);
 
+  --spotlight-strength: 1;
   --spotlight-x: 50vw;
   --spotlight-y: 50vh;
 
@@ -1005,9 +1006,9 @@ ul.technologies-icons {
   #spotlight-overlay {
     background: radial-gradient(
             circle 180px at var(--spotlight-x) var(--spotlight-y),
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(255, 255, 255, 0.1) 35%,
-            rgba(255, 255, 255, 0.05) 55%,
+            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.2)) 0%,
+            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.1)) 35%,
+            rgba(255, 255, 255, calc(var(--spotlight-strength) * 0.05)) 55%,
             transparent 70%
     );
     z-index: 1000;
