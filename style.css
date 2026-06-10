@@ -708,6 +708,8 @@ ul.technologies-icons {
 #spotlight-overlay {
   display: none;
   pointer-events: none;
+  position: fixed;
+  inset: 0;
 }
 
 #top-left-box {
@@ -1001,8 +1003,6 @@ ul.technologies-icons {
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   #spotlight-overlay {
-    position: fixed;
-    inset: 0;
     background: radial-gradient(
             circle 180px at var(--spotlight-x) var(--spotlight-y),
             rgba(255, 255, 255, 0.2) 0%,
