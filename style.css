@@ -997,7 +997,9 @@ ul.technologies-icons {
       transform: translateY(5px);
     }
   }
+}
 
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
   #spotlight-overlay {
     position: fixed;
     inset: 0;
@@ -1006,7 +1008,7 @@ ul.technologies-icons {
             rgba(255, 255, 255, 0.2) 0%,
             rgba(255, 255, 255, 0.1) 35%,
             rgba(255, 255, 255, 0.05) 55%,
-            transparent 70% /*rgba(0, 0, 0, 0.2) 100%*/
+            transparent 70%
     );
     z-index: 1000;
   }
