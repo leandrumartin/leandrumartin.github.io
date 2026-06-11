@@ -19,7 +19,7 @@ export const startAmbientLightEffects = () => {
       }
     })
     sensor.addEventListener("error", () => {
-      disableSpotlight()
+      disableFlashlight()
       disableGlow()
     })
     sensor.start()
