@@ -55,13 +55,15 @@
 </template>
 <!--endregion-->
 
-<div class="corner-box" id="top-left-box"></div>
-<div class="corner-box" id="top-right-box"></div>
-<div class="corner-box" id="bottom-left-box"></div>
-<div class="corner-box" id="bottom-right-box"></div>
+<div id="flashlight-overlay" aria-hidden="true"></div>
+
+<div class="corner-box" id="top-left-box" aria-hidden="true"></div>
+<div class="corner-box" id="top-right-box" aria-hidden="true"></div>
+<div class="corner-box" id="bottom-left-box" aria-hidden="true"></div>
+<div class="corner-box" id="bottom-right-box" aria-hidden="true"></div>
 <div class="expanding-box"></div>
 <noscript>
-  <div class="expanding-box noscript-box"></div>
+  <div class="expanding-box noscript-box" aria-hidden="true"></div>
 </noscript>
 
 <div class="header-container" id="header">
