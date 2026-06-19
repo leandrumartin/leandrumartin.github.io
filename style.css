@@ -939,6 +939,7 @@ ul.technologies-icons {
 
   [popover="hint"] {
     /*position: absolute;*/
+    position-anchor: auto;
     inset: unset;
     bottom: calc(anchor(top));
     justify-self: anchor-center;
