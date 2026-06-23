@@ -205,6 +205,7 @@ achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
   entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
+  entryLI.tabIndex = 0
 
   if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
     entryLI.classList.add("achievement-unread")

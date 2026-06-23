@@ -51,7 +51,7 @@ const addProjects = (projects, container) => {
         ${project.technologies
       .map(
         tech =>
-          `<li class="tooltip-activator tooltip-below"><img src="${tech.icon}" alt="${tech.name}" /><span class="tooltip" popover="hint">${tech.name}</span></li>`
+          `<li class="tooltip-activator tooltip-below" tabindex="0"><img src="${tech.icon}" alt="${tech.name}" /><span class="tooltip" popover="hint">${tech.name}</span></li>`
       )
       .join("")
     }
