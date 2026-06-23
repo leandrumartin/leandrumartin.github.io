@@ -10,6 +10,7 @@
   <script defer type="module" src="script.js"></script>
   <script defer type="module" src="achievements.js"></script>
   <script defer type="module" src="portfolio.js"></script>
+  <script defer type="module" src="achievementsPane.js"></script>
 
   <meta name="author" content="Leandru Martin"/>
   <meta name="color-scheme" content="dark"/>
@@ -54,13 +55,15 @@
 </template>
 <!--endregion-->
 
-<div class="corner-box" id="top-left-box"></div>
-<div class="corner-box" id="top-right-box"></div>
-<div class="corner-box" id="bottom-left-box"></div>
-<div class="corner-box" id="bottom-right-box"></div>
+<div id="flashlight-overlay" aria-hidden="true"></div>
+
+<div class="corner-box" id="top-left-box" aria-hidden="true"></div>
+<div class="corner-box" id="top-right-box" aria-hidden="true"></div>
+<div class="corner-box" id="bottom-left-box" aria-hidden="true"></div>
+<div class="corner-box" id="bottom-right-box" aria-hidden="true"></div>
 <div class="expanding-box"></div>
 <noscript>
-  <div class="expanding-box noscript-box"></div>
+  <div class="expanding-box noscript-box" aria-hidden="true"></div>
 </noscript>
 
 <div class="header-container" id="header">
@@ -85,9 +88,10 @@
 <div class="pre-navbar">
   <div id="bio">
     <p>
-      I'm a Software Engineering graduate student at Saint Louis University. I have a particularly strong expertise in
-      Java and JavaScript frameworks, with contributions to research-focused projects from Open Source with SLU and the
-      Center for Digital Humanities. My CS interests include web development and a hobby in game design.
+      I'm a recent graduate with a Master's in Software Engineering from Saint Louis University. I have a particularly
+      strong expertise in Java and JavaScript frameworks, with contributions to research-focused projects from Open
+      Source with SLU and the Center for Digital Humanities. My CS interests include web development and a hobby in game
+      design.
     </p>
   </div>
 </div>
@@ -125,6 +129,12 @@
         <a href="/files/Leandru_Martin_resume.pdf" class="button">
           Résumé
           <text class="nav-img">📄</text>
+        </a>
+      </li>
+      <li>
+        <a href="/careers" class="button">
+          Careers
+          <text class="nav-img">💼</text>
         </a>
       </li>
     </ul>

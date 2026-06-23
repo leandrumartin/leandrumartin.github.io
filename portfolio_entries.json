@@ -4,7 +4,7 @@
       "title": "Digital Bone Box",
       "description": [
         "An interactive, mobile-friendly web app for anatomy students to study the human skeleton.",
-        "I am currently working as a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. We are working on adding more sets of bones into the app and improving the interface of the study tools."
+        "During the spring of 2026, I worked as a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. We worked on adding more sets of bones into the app and improving the interface of the study tools."
       ],
       "screenshot": "images/screenshots/digital_bone_box.png",
       "github": "https://github.com/oss-slu/DigitalBoneBox",
@@ -27,9 +27,9 @@
       "title": "iperf3 (QUIC extension)",
       "description": [
         "A network bandwidth measurement tool, extended with support for the QUIC protocol.",
-        "I have been working as a contributor on this project under Open Source with SLU during the spring semester of 2026. I set up Docker containerization for our repository, established a framework for ensuring correct output for our extension of the tool, and ran automated experiment suites. These experiments ran in simulated network topologies created with Mininet and tested how QUIC performs in comparison to TCP and UDP using the tool."
+        "I worked as a contributor on this project under Open Source with SLU during the spring semester of 2026. I set up Docker containerization for our repository, established a framework for ensuring correct output for our extension of the tool, and ran automated experiment suites. These experiments ran in simulated network topologies created with Mininet and tested how QUIC performs in comparison to TCP and UDP using the tool."
       ],
-      "screenshot": "https://opengraph.githubassets.com/ed6f212351b53099a25f73588a788d159bac0d9da03e8df62b27e1dfde2fbf52/oss-slu/iperf",
+      "screenshot": "images/screenshots/iperf.png",
       "github": "https://github.com/oss-slu/iperf",
       "technologies": [
         {
@@ -168,6 +168,7 @@
   "individualProjects": [
     {
       "title": "IDE Selector",
+      "screenshot": "https://opengraph.githubassets.com/66f1b144e8e8890249069696189e775407b1f4313f3fc7b6543be69e71260caf/leandrumartin/ide-selector",
       "description": [
         "Simple command line tool to open a folder in your preferred IDE."
       ],
