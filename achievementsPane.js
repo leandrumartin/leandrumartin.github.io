@@ -159,7 +159,7 @@ const iterateProgressMeter = () => {
  * Marks the achievements in the top row so their tooltips appear below them instead of above.
  */
 const markTopRowAchievements = () => {
-  const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
+  const entries = Array.from(achievementsList.children)
   if (!entries.length) return
 
   // Find the smallest rendered top position (first grid row)
@@ -203,9 +203,8 @@ makePositionSticky(
 let readAchievements = getReadAchievementIDs()
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
-  entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
+  entryLI.classList.add("tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
-  entryLI.tabIndex = 0
 
   if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
     entryLI.classList.add("achievement-unread")

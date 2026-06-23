@@ -150,7 +150,7 @@ achievement-entry {
   justify-content: center;
 
   box-sizing: border-box;
-  padding: var(--padding-size);
+  /*padding: var(--padding-size);*/
   width: 100%;
   height: 100%;
 
@@ -355,6 +355,8 @@ ul.technologies-icons {
 }
 
 .achievement-entry {
+  font: unset; /* Remove default browser styles for button text */
+
   border: 1px solid var(--accent-dark);
   border-radius: var(--border-radius-sm);
   min-width: var(--achievement-entry-size);

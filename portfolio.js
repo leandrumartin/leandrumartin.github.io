@@ -89,21 +89,20 @@ document.querySelectorAll(".screenshot-img").forEach((img) => {
  * @param {HTMLElement} tooltip The element acting as the tooltip
  */
 const addPopoverEventListeners = (tooltipActivator, tooltip) => {
-  tooltipActivator.addEventListener("mouseover", () => {
-    tooltip.showPopover({source: tooltipActivator})
-  })
+  const showTooltip = () => {
+    const tooltip = tooltipActivator.querySelector(".tooltip")
+    tooltip?.showPopover({source: tooltipActivator})
+  }
 
-  tooltipActivator.addEventListener("mouseout", () => {
-    tooltip.hidePopover()
-  })
+  const hideTooltip = () => {
+    const tooltip = tooltipActivator.querySelector(".tooltip")
+    tooltip?.hidePopover()
+  }
 
-  tooltipActivator.addEventListener("focus", () => {
-    tooltip.showPopover({source: tooltipActivator})
-  })
-
-  tooltipActivator.addEventListener("blur", () => {
-    tooltip.hidePopover()
-  })
+  tooltipActivator.addEventListener("mouseenter", showTooltip)
+  tooltipActivator.addEventListener("mouseleave", hideTooltip)
+  tooltipActivator.addEventListener("focusin", showTooltip)
+  tooltipActivator.addEventListener("focusout", hideTooltip)
 }
 
 document.querySelectorAll(".tooltip-activator").forEach((activator) => {

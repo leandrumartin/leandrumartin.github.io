@@ -50,8 +50,10 @@
 </template>
 
 <template id="achievement-entry-template">
-  <slot name="title">???</slot>
-  <slot name="icon"><span class="achievement-entry-icon">🔒</span></slot>
+  <button class="achievement-entry button" tabindex="0">
+    <slot name="title">???</slot>
+    <slot name="icon"><span class="achievement-entry-icon">🔒</span></slot>
+  </button>
 </template>
 <!--endregion-->
 
