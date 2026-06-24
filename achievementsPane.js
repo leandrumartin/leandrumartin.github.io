@@ -76,7 +76,8 @@ export const updatePaneOnEarnAchievement = (achievement) => {
 
   let readAchievements = getReadAchievementIDs()
   if (!readAchievements.includes(achievement.id)) {
-    entryElement.classList.add("achievement-unread")
+    const entryHost = entryElement.querySelector("achievement-entry")
+    entryHost.classList.add("achievement-unread")
   }
 
   if (open) {
@@ -206,11 +207,12 @@ achievementsData.default["achievements"].forEach(achievement => {
   entryLI.classList.add("tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
 
-  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
-    entryLI.classList.add("achievement-unread")
-  }
-
   fillAchievementItem(achievement, entryLI)
+
+  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
+    const entryHost = entryLI.querySelector("achievement-entry")
+    entryHost.classList.add("achievement-unread")
+  }
 
   // Set up details modal when achievement is clicked
   entryLI.addEventListener("click", () => {
@@ -232,7 +234,8 @@ achievementsData.default["achievements"].forEach(achievement => {
     if (isAchievementEarned(achievement.id) && !readAchievements.includes(achievement.id)) {
       readAchievements.push(achievement.id)
       localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
-      entryLI.classList.remove("achievement-unread")
+      const entryHost = entryLI.querySelector("achievement-entry")
+      entryHost.classList.remove("achievement-unread")
     }
   })
 

@@ -370,11 +370,6 @@ ul.technologies-icons {
   font-size: 0.8em;
 }
 
-.achievement-unread {
-  outline: 1px solid red;
-  border-color: red;
-}
-
 .button {
   background-color: rgb(27, 20, 27);
 
@@ -727,6 +722,11 @@ ul.technologies-icons {
   right: 0;
 
   background-color: mediumorchid;
+}
+
+:host(.achievement-unread) .achievement-entry {
+  border-color: red;
+  outline: 1px solid red;
 }
 
 @media (min-width: 750px) {
