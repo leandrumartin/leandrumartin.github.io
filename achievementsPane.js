@@ -76,7 +76,8 @@ export const updatePaneOnEarnAchievement = (achievement) => {
 
   let readAchievements = getReadAchievementIDs()
   if (!readAchievements.includes(achievement.id)) {
-    entryElement.classList.add("achievement-unread")
+    const entryHost = entryElement.querySelector("achievement-entry")
+    entryHost.classList.add("achievement-unread")
   }
 
   if (open) {
@@ -139,7 +140,7 @@ const fillAchievementItem = (achievement, entryLiElement) => {
 
   entryLiElement.innerHTML = `
     <achievement-entry>
-      <span slot="title" class="achievement-entry-title tooltip">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
+      <span slot="title" class="achievement-entry-title tooltip" popover="hint">${isAchievementEarned(achievement.id) ? achievement.name : "?"}</span>
       ${achievement.icon && icon.outerHTML}
     </achievement-entry>
   `
@@ -159,7 +160,7 @@ const iterateProgressMeter = () => {
  * Marks the achievements in the top row so their tooltips appear below them instead of above.
  */
 const markTopRowAchievements = () => {
-  const entries = Array.from(achievementsList.querySelectorAll("li.achievement-entry"))
+  const entries = Array.from(achievementsList.children)
   if (!entries.length) return
 
   // Find the smallest rendered top position (first grid row)
@@ -203,14 +204,15 @@ makePositionSticky(
 let readAchievements = getReadAchievementIDs()
 achievementsData.default["achievements"].forEach(achievement => {
   const entryLI = document.createElement("li")
-  entryLI.classList.add("achievement-entry", "button", "tooltip-activator")
+  entryLI.classList.add("tooltip-activator")
   entryLI.id = `achievement-${achievement.id}`
 
-  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
-    entryLI.classList.add("achievement-unread")
-  }
-
   fillAchievementItem(achievement, entryLI)
+
+  if (!readAchievements.includes(achievement.id) && isAchievementEarned(achievement.id)) {
+    const entryHost = entryLI.querySelector("achievement-entry")
+    entryHost.classList.add("achievement-unread")
+  }
 
   // Set up details modal when achievement is clicked
   entryLI.addEventListener("click", () => {
@@ -232,7 +234,8 @@ achievementsData.default["achievements"].forEach(achievement => {
     if (isAchievementEarned(achievement.id) && !readAchievements.includes(achievement.id)) {
       readAchievements.push(achievement.id)
       localStorage.setItem("readAchievements", JSON.stringify(readAchievements))
-      entryLI.classList.remove("achievement-unread")
+      const entryHost = entryLI.querySelector("achievement-entry")
+      entryHost.classList.remove("achievement-unread")
     }
   })
 

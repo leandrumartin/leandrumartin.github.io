@@ -51,7 +51,7 @@ const addProjects = (projects, container) => {
         ${project.technologies
       .map(
         tech =>
-          `<li class="tooltip-activator tooltip-below"><img src="${tech.icon}" alt="${tech.name}" /><span class="tooltip">${tech.name}</span></li>`
+          `<li class="tooltip-activator tooltip-below" tabindex="0"><img src="${tech.icon}" alt="${tech.name}" /><span class="tooltip" popover="hint">${tech.name}</span></li>`
       )
       .join("")
     }
@@ -81,4 +81,31 @@ document.querySelectorAll(".screenshot-img").forEach((img) => {
     screenshotModal.querySelector("#expanded-screenshot").replaceChildren(imgElement)
     screenshotModal.showModal()
   })
+})
+
+/**
+ * Adds event listeners to elements with tooltips.
+ * @param {HTMLElement} tooltipActivator Element with an associated tooltip to add the listeners to
+ * @param {HTMLElement} tooltip The element acting as the tooltip
+ */
+const addPopoverEventListeners = (tooltipActivator, tooltip) => {
+  const showTooltip = () => {
+    const tooltip = tooltipActivator.querySelector(".tooltip")
+    tooltip?.showPopover({source: tooltipActivator})
+  }
+
+  const hideTooltip = () => {
+    const tooltip = tooltipActivator.querySelector(".tooltip")
+    tooltip?.hidePopover()
+  }
+
+  tooltipActivator.addEventListener("mouseenter", showTooltip)
+  tooltipActivator.addEventListener("mouseleave", hideTooltip)
+  tooltipActivator.addEventListener("focusin", showTooltip)
+  tooltipActivator.addEventListener("focusout", hideTooltip)
+}
+
+document.querySelectorAll(".tooltip-activator").forEach((activator) => {
+  const tooltip = activator.querySelector(".tooltip")
+  addPopoverEventListeners(activator, tooltip)
 })

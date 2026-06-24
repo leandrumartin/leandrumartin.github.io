@@ -50,8 +50,10 @@
 </template>
 
 <template id="achievement-entry-template">
-  <slot name="title">???</slot>
-  <slot name="icon"><span class="achievement-entry-icon">🔒</span></slot>
+  <button class="achievement-entry button" tabindex="0">
+    <slot name="title">???</slot>
+    <slot name="icon"><span class="achievement-entry-icon">🔒</span></slot>
+  </button>
 </template>
 <!--endregion-->
 
@@ -165,14 +167,14 @@
           </a>
         </p>
         <ul slot="technologies" class="technologies-icons">
-          <li class="tooltip-activator tooltip-below"><img src="images/icons/html-5.svg" alt=""/>
-            <span class="tooltip">HTML</span>
+          <li class="tooltip-activator tooltip-below" tabindex="0"><img src="images/icons/html-5.svg" alt=""/>
+            <span class="tooltip" popover="hint">HTML</span>
           </li>
-          <li class="tooltip-activator tooltip-below"><img src="images/icons/css-3.svg" alt=""/>
-            <span class="tooltip">CSS</span>
+          <li class="tooltip-activator tooltip-below" tabindex="0"><img src="images/icons/css-3.svg" alt=""/>
+            <span class="tooltip" popover="hint">CSS</span>
           </li>
-          <li class="tooltip-activator tooltip-below"><img src="images/icons/javascript.svg" alt=""/>
-            <span class="tooltip">JavaScript</span>
+          <li class="tooltip-activator tooltip-below" tabindex="0"><img src="images/icons/javascript.svg" alt=""/>
+            <span class="tooltip" popover="hint">JavaScript</span>
           </li>
         </ul>
       </portfolio-entry>
