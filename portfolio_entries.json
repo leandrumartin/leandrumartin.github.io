@@ -4,7 +4,7 @@
       "title": "Digital Bone Box",
       "description": [
         "An interactive, mobile-friendly web app for anatomy students to study the human skeleton.",
-        "During the spring of 2026, I worked as a tech lead for this project, leading a team of two undergraduate developers as part of a simulated Agile app development environment for the undergraduate senior capstone project for SLU's computer science program. We worked on adding more sets of bones into the app and improving the interface of the study tools."
+        "During the spring of 2026, I worked as a tech lead for this project, leading a team of two undergraduate developers as part of an Agile development environment. We worked on adding more sets of bones into the app and improving the interface of the study tools, as the undergraduate developers participated as a part of their undergraduate senior capstone project for SLU's computer science program."
       ],
       "screenshot": "images/screenshots/digital_bone_box.png",
       "github": "https://github.com/oss-slu/DigitalBoneBox",
@@ -73,7 +73,7 @@
       "title": "Pi4Micronaut",
       "link": "https://oss-slu.github.io/Pi4Micronaut",
       "description": [
-        "Java library with Micronaut framework to facilitate IoT interaction with Raspberry Pis.",
+        "Java library with Micronaut microservice IoC framework to facilitate IoT interaction with Raspberry Pis.",
         "In the fall semester of 2025, I was a tech lead for this project. Under my leadership, we added support for more hardware components, improved documentation to encourage and facilitate more public open-source contributions, and streamlined our deployment strategy. I previously was an undergraduate developer on the project, where I helped add support for numerous GPIO hardware components, wrote unit tests, wrote documentation, and performed hardware testing."
       ],
       "screenshot": "https://opengraph.githubassets.com/17cf90d37e74bb5c65cb95ac728346e0f38e8001590bb4517ff5b445719914f0/oss-slu/Pi4Micronaut",
@@ -117,7 +117,7 @@
       "screenshot": "https://opengraph.githubassets.com/5e71dcacb2a547b6285dba8cb9e0149551f51457ddd636686ec6202866f58e8d/CenterForDigitalHumanities/TPEN-services",
       "description": [
         "Node.js back end for TPEN project helping organize data for humanities researchers.",
-        "I contributed as part of simulated Agile app development environment for senior capstone project. Contributions added include added API endpoints and comprehensive unit testing."
+        "I contributed as part of an Agile app development environment for my senior capstone project. Contributions added include added API endpoints and comprehensive unit testing."
       ],
       "github": "https://github.com/CenterForDigitalHumanities/TPEN-services",
       "technologies": [
