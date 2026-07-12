@@ -89,13 +89,17 @@ document.querySelectorAll(".screenshot-img").forEach((img) => {
  */
 const addPopoverEventListeners = (tooltipActivator) => {
   const showTooltip = () => {
+    if (window.matchMedia("(hover: hover)").matches) {
     const tooltip = tooltipActivator.querySelector(".tooltip")
     tooltip?.showPopover({source: tooltipActivator})
+    }
   }
 
   const hideTooltip = () => {
-    const tooltip = tooltipActivator.querySelector(".tooltip")
-    tooltip?.hidePopover()
+    if (window.matchMedia("(hover: hover)").matches) {
+      const tooltip = tooltipActivator.querySelector(".tooltip")
+      tooltip?.hidePopover()
+    }
   }
 
   tooltipActivator.addEventListener("mouseenter", showTooltip)

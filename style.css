@@ -987,9 +987,8 @@ ul.technologies-icons {
     background-color: black;
 
     &:popover-open {
-      transform: translateY(-5px);
-
       opacity: 1;
+      transform: translateY(-5px);
 
       @starting-style {
         opacity: 0;
@@ -1030,8 +1029,25 @@ ul.technologies-icons {
 }
 
 @media (hover: none) {
-  .tooltip {
-    margin: 5px;
+  [popover="hint"] {
+    position: static;
+    inset: auto;
+
+    display: block;
+    opacity: 1;
+    transform: none;
+
+    margin: 5px 0 0 0;
+    border: 0;
+    border-radius: 0;
+    width: 100%;
+    padding: 0;
+
+    background: none;
+  }
+
+  .tooltip-activator {
+    align-items: center;
   }
 }
 
