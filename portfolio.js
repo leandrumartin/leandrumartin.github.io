@@ -14,6 +14,14 @@ class PortfolioEntry extends StandardTemplate {
 customElements.define('portfolio-entry', PortfolioEntry)
 
 /**
+ * Takes a string and returns a modified version that can be used as an `id` attribute in an HTML tag.
+ * @param {string} value String to process
+ */
+const escapeInvalidIdCharacters = (value) => {
+  return value.replace(/[^a-zA-Z0-9-_]/g, '')
+}
+
+/**
  * Parses projects from the JSON and add them to the container.
  * @param {string} projects Key of the projects in the JSON
  * @param {HTMLElement} container Element to add the projects to
@@ -51,7 +59,12 @@ const addProjects = (projects, container) => {
         ${project.technologies
       .map(
         tech =>
-          `<li class="tooltip-activator tooltip-below" tabindex="0" aria-describedby="tooltip-${index}-${tech.name}"><img src="${tech.icon}" alt="${tech.name}" /><span class="tooltip" id="tooltip-${index}-${tech.name}" popover="hint">${tech.name}</span></li>`
+          `
+          <li class="tooltip-activator tooltip-below" tabindex="0" aria-describedby="tooltip-${index}-${escapeInvalidIdCharacters(tech.name)}">
+            <img src="${tech.icon}" alt="${tech.name}" />
+            <span class="tooltip" id="tooltip-${index}-${escapeInvalidIdCharacters(tech.name)}" popover="hint">${tech.name}</span>
+          </li>
+          `
       )
       .join("")
     }
