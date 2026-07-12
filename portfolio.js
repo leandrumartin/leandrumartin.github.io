@@ -86,9 +86,8 @@ document.querySelectorAll(".screenshot-img").forEach((img) => {
 /**
  * Adds event listeners to elements with tooltips.
  * @param {HTMLElement} tooltipActivator Element with an associated tooltip to add the listeners to
- * @param {HTMLElement} tooltip The element acting as the tooltip
  */
-const addPopoverEventListeners = (tooltipActivator, tooltip) => {
+const addPopoverEventListeners = (tooltipActivator) => {
   const showTooltip = () => {
     const tooltip = tooltipActivator.querySelector(".tooltip")
     tooltip?.showPopover({source: tooltipActivator})
@@ -106,6 +105,5 @@ const addPopoverEventListeners = (tooltipActivator, tooltip) => {
 }
 
 document.querySelectorAll(".tooltip-activator").forEach((activator) => {
-  const tooltip = activator.querySelector(".tooltip")
-  addPopoverEventListeners(activator, tooltip)
+  addPopoverEventListeners(activator)
 })
