@@ -172,13 +172,17 @@
       "description": [
         "GUI chat for locally running AI chatbots, built using Microsoft's Foundry Local API.",
         "This was a project I started building because I wanted a GUI for speaking with local AI chatbots. Microsoft's Foundry Local seemed a good framework for local chatbots, as it automatically selects the optimal device (CPU, GPU, or NPU) for running a model. I chose Gradio as the basis for the GUI, as I was already familiar with using it to develop interfaces for AI tools.",
-        "I am working on extending the functionality to support persistent chat history, MCP tool support, and more."
+        "I am working on extending the functionality to support file attachments, MCP tool use, an improved interface, and more."
       ],
       "github": "https://github.com/leandrumartin/foundry-local-chat/",
       "technologies": [
         {
           "name": "Python",
           "icon": "images/icons/python.svg"
+        },
+        {
+          "name": "SQLite",
+          "icon": "images/icons/sqlite.svg"
         }
       ]
     },
